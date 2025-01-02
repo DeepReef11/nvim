@@ -57,11 +57,11 @@ local function launch_terminal()
     end
 end
 
-vim.keymap.set('n', '<leader>et', launch_terminal, {
+vim.keymap.set('n', '<leader>T', launch_terminal, {
     desc = "Execute terminal program in background",
     silent = true
 })
-vim.keymap.set('x', '<leader>css', '<Esc><cmd>CodeSnapText<CR>', { desc = 'Yank and format text for sharing' })
+vim.keymap.set('x', '<leader>cy', '<Esc><cmd>CodeSnapText<CR>', { desc = 'Yank and format text for sharing' })
 
 vim.keymap.set('n', 'gV', 'v`]o`[', { desc = "Select last pasted (Visual mode)" })
 -- vim.keymap.set('n', '<Leader>gv', 'v`]o`[')

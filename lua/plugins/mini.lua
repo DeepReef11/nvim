@@ -38,13 +38,13 @@ return {
       })
       vim.keymap.set(
         "n",
-        "<leader>.",
+        "<leader>e",
         "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>",
         { desc = "Open minifiles at buffer location" }
       )
       vim.keymap.set(
         "n",
-        "<C-e>",
+        "<leader>E",
         "<cmd>lua MiniFiles.open()<cr>",
         { desc = "Open minifiles at cwd" }
       )
