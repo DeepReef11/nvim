@@ -48,3 +48,6 @@ vim.api.nvim_create_autocmd("FileType", { pattern = "spectre_panel",
   callback = function() pwk.attach_spectre(0) end })
 vim.api.nvim_create_autocmd("FileType", { pattern = "NvimTree",
   callback = function() pwk.attach_nvim_tree(0) end })
+
+
+

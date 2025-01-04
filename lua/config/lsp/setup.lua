@@ -23,8 +23,8 @@ mason_lsp.setup({
     "eslint",
     "graphql",
     "html",
-    "emmet_ls",    -- HTML/CSS snippets
-    "cssls", -- css
+    "emmet_ls", -- HTML/CSS snippets
+    "cssls",    -- css
     "jsonls",
     "lua_ls",
     "prismals",
@@ -82,7 +82,7 @@ require("mason-lspconfig").setup_handlers {
     lspconfig.vtsls.setup({
       capabilities = capabilities,
       handlers = require("config.lsp.servers.tsserver").handlers,
-      on_attach =require("config.lsp.servers.tsserver").on_attach,
+      on_attach = require("config.lsp.servers.tsserver").on_attach,
       settings = require("config.lsp.servers.tsserver").settings,
     })
   end,
@@ -121,7 +121,7 @@ require("mason-lspconfig").setup_handlers {
   end,
 
   ["jsonls"] = function()
-    lspconfig.jsonls.setup({
+   lspconfig.jsonls.setup({
       capabilities = capabilities,
       handlers = handlers,
       on_attach = on_attach,
@@ -147,7 +147,14 @@ require("mason-lspconfig").setup_handlers {
       settings = require("config.lsp.servers.vuels").settings,
     })
   end,
-
+  ["mdx_analyzer"] = function()
+-- vim.filetype.add({
+--     extension = {
+--         mdx = 'mdx'
+--     }
+-- })
+    lspconfig.mdx_analyzer.setup {}
+  end,
   -- ["html"] = function() -- FIXME: not working
   --   lspconfig.html.setup({
   --     -- filetypes = require("config.lsp.servers.html").filetypes
@@ -168,4 +175,14 @@ require("mason-lspconfig").setup_handlers {
 require("ufo").setup({
   fold_virt_text_handler = ufo_config_handler,
   close_fold_kinds_for_ft = { default = { "imports" } },
+})
+-- require('lspconfig').mdx_analyzer.setup{}
+
+-- require('lspconfig').mdx_analyzer.setup({
+--     filetypes = { 'mdx' }
+-- })
+vim.filetype.add({
+    extension = {
+        mdx = "markdown"
+    }
 })

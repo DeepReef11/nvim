@@ -39,6 +39,7 @@ wk.setup({
 		align = "left", -- align columns left, center or right
 	},
 	show_help = true, -- show help message on the command line when the popup is visible
+  
 })
 
 -- ignore
@@ -54,6 +55,18 @@ wk.setup({
 -- 	-- { "<leader>8", hidden = true },
 -- 	-- { "<leader>9", hidden = true },
 -- })
+
+-- which key
+wk.add({
+  {
+      "<leader>?",
+      function()
+        require("which-key").show({ global = true })
+      end,
+      desc = "Buffer Keymaps (which-key)",
+  }
+
+})
 
 -- single
 wk.add({
