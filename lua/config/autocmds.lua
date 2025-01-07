@@ -49,5 +49,21 @@ vim.api.nvim_create_autocmd("FileType", { pattern = "spectre_panel",
 vim.api.nvim_create_autocmd("FileType", { pattern = "NvimTree",
   callback = function() pwk.attach_nvim_tree(0) end })
 
-
-
+vim.filetype.add({
+    extension = {
+        mdx = "markdown.mdx"  -- or just "markdown"
+    }
+})
+vim.api.nvim_create_autocmd({"FileType"}, {
+  pattern = {"markdown", "markdown.mdx"},
+  callback = function()
+    -- Enable line wrap
+    vim.wo.wrap = true
+    -- Soft wrap at words rather than characters
+    vim.wo.linebreak = true
+    -- Don't count wrapped lines when moving vertically
+    vim.wo.breakindent = true
+    -- Optional: Add some indentation to wrapped lines
+    vim.wo.breakindentopt = "shift:2"
+  end
+})
