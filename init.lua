@@ -12,3 +12,4 @@ require('config.lsp.setup')
 require('config.lsp.functions')
 
 require('internal.cursorword')
+require('user.create-page')
