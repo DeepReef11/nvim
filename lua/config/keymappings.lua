@@ -62,6 +62,7 @@ vim.keymap.set('n', '<leader>T', launch_terminal, {
     silent = true
 })
 vim.keymap.set('x', '<leader>cy', '<Esc><cmd>CodeSnapText<CR>', { desc = 'Yank and format text for sharing' })
+vim.keymap.set('n', '<leader>cy', 'ggVG<Esc><cmd>CodeSnapText<CR><C-o>', { desc = 'Yank and format text for sharing' })
 
 vim.keymap.set('n', 'gV', 'v`]o`[', { desc = "Select last pasted (Visual mode)" })
 -- vim.keymap.set('n', '<Leader>gv', 'v`]o`[')
