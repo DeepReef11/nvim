@@ -1,20 +1,17 @@
 local M = {}
 
-local present, _ = pcall(require, "which-key")
-if not present then return end
-local _, pwk = pcall(require, "plugins.which-key.setup")
-
 local filter = require("config.lsp.utils.filter").filter
 local filterReactDTS = require("config.lsp.utils.filterReactDTS").filterReactDTS
 
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     silent = true,
-    border = EcoVim.ui.float.border,
+    border = EcoVim.ui.float.border or "rounded",
   }),
   ["textDocument/signatureHelp"] = vim.lsp.with(
-    vim.lsp.handlers.signature_help,
-    { border = EcoVim.ui.float.border }
+    vim.lsp.handlers.signature_help, {
+      border = EcoVim.ui.float.border or "rounded",
+    }
   ),
   ["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics,
@@ -33,12 +30,14 @@ local handlers = {
 local settings = {
   typescript = {
     inlayHints = {
-      parameterNames = { enabled = "literals" },
-      parameterTypes = { enabled = false },
-      variableTypes = { enabled = false },
-      propertyDeclarationTypes = { enabled = true },
-      functionLikeReturnTypes = { enabled = false },
-      enumMemberValues = { enabled = true },
+      includeInlayParameterNameHints = 'all',
+      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHints = false,
+      includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+      includeInlayPropertyDeclarationTypeHints = false,
+      includeInlayFunctionLikeReturnTypeHints = false,
+      includeInlayEnumMemberValueHints = true,
     },
     suggest = {
       includeCompletionsForModuleExports = false,
@@ -46,12 +45,14 @@ local settings = {
   },
   javascript = {
     inlayHints = {
-      parameterNames = { enabled = "literals" },
-      parameterTypes = { enabled = false },
-      variableTypes = { enabled = false },
-      propertyDeclarationTypes = { enabled = true },
-      functionLikeReturnTypes = { enabled = false },
-      enumMemberValues = { enabled = true },
+      includeInlayParameterNameHints = 'all',
+      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHints = false,
+      includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+      includeInlayPropertyDeclarationTypeHints = false,
+      includeInlayFunctionLikeReturnTypeHints = false,
+      includeInlayEnumMemberValueHints = true,
     },
     suggest = {
       includeCompletionsForModuleExports = false,
@@ -61,8 +62,7 @@ local settings = {
 
 local on_attach = function(client, bufnr)
   vim.lsp.inlay_hint.enable(true, { bufnr })
-  pwk.attach_typescript(bufnr)
-  require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+  require("plugins.which-key.setup").attach_typescript(bufnr)
 end
 
 M.handlers = handlers

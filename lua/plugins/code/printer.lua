@@ -26,6 +26,9 @@ return {
         typescriptreact = function(inside, variable)
           return string.format("console.log('%s: ', %s);", inside, variable)
         end,
+        astro = function(inside, variable)
+          return string.format("console.log('%s: ', %s);", inside, variable)
+        end,
       },
       -- function which modifies the text inside string in the print statement, by default it adds the path and line number
       add_to_inside = function(text)

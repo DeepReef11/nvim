@@ -67,7 +67,10 @@ wk.add({
   }
 
 })
-
+-- Mini
+wk.add({
+	{ "gs", group = "Surround", mode = { "n", "v" } },
+})
 -- single
 wk.add({
 	{ "<leader>=", "<cmd>vertical resize +5<CR>", desc = "resize +5" },
@@ -234,15 +237,15 @@ end
 local function attach_typescript(bufnr)
 	wk.add({
 		{ buffer = bufnr },
-		{ "<leader>c", group = "LSP" },
-		{ "<leader>ce", "<cmd>TSC<CR>", desc = "workspace errors (TSC)" },
-		{ "<leader>cF", "<cmd>VtsExec fix_all<CR>", desc = "fix all" },
-		{ "<leader>ci", "<cmd>VtsExec add_missing_imports<CR>", desc = "import all" },
-		{ "<leader>co", "<cmd>VtsExec organize_imports<CR>", desc = "organize imports" },
-		{ "<leader>cs", "<cmd>VtsExec source_actions<CR>", desc = "source actions" },
-		{ "<leader>cu", "<cmd>VtsExec remove_unused<CR>", desc = "remove unused" },
-		{ "<leader>cV", "<cmd>VtsExec select_ts_version<CR>", desc = "select TS version" },
-		{ "<leader>cF", "<cmd>VtsExec file_references<CR>", desc = "file references" },
+   { "<leader>c",   group = "LSP", },
+    { "<leader>ce",  "<cmd>TSC<CR>",                      desc = "workspace errors (TSC)" },
+    { "<leader>cF",  "<cmd>TSToolsFixAll<CR>",            desc = "fix all" },
+    { "<leader>ci",  "<cmd>TSToolsAddMissingImports<CR>", desc = "import all" },
+    { "<leader>co",  "<cmd>TSToolsOrganizeImports<CR>",   desc = "organize imports" },
+    { "<leader>cs",  "<cmd>TSToolsSortImports<CR>",       desc = "sort imports" },
+    { "<leader>cu",  "<cmd>TSToolsRemoveUnused<CR>",      desc = "remove unused" },
+    { "<leader>cR",  "<cmd>TSToolsRenameFile<CR>",        desc = "rename file" },
+    { "<leader>cF",  "<cmd>TSToolsFileReferences<CR>",    desc = "file references" },
 	})
 end
 

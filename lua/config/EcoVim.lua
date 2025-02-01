@@ -25,8 +25,11 @@ EcoVim = {
       codeium = {
         enabled = false,
       },
+      codecompanion = {
+        enabled = true,
+      },
       copilot = {
-        enabled = false,
+        enabled = true,
       },
       tabnine = {
         enabled = false,

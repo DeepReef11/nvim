@@ -114,7 +114,9 @@ return {
         }))
       end, { desc = "/ Fuzzily search in current buffer" })
 
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Search Files" })
+      vim.keymap.set("n", "<leader>ff", function()
+        builtin.find_files({ no_ignore = false })
+      end, { desc = "Search Files" })
       vim.keymap.set("n", "<leader>Ff", function()
         builtin.find_files({ cwd = "~" })
       end, { desc = "Search Files" })
@@ -130,12 +132,12 @@ return {
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
       vim.keymap.set("n", "<leader>fg", function()
-builtin.live_grep({hidden= true,
-additional_args = function()
+        builtin.live_grep({
+          hidden = true,
+          additional_args = function()
             return { "--hidden" }
-        end
+          end
         })
-
       end, { desc = "Find by Grep in project files" })
       vim.keymap.set("n", "<leader>Fg", function()
         builtin.live_grep({

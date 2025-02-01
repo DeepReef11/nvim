@@ -19,7 +19,10 @@ function M.format()
   if eslint_is_active and (vim.fn.filereadable(eslintrc_json) == 1 or vim.fn.filereadable(eslintrc_js) == 1) then
     vim.cmd("EslintFixAll")
   else
-    vim.lsp.buf.format({ async = true })
+    vim.lsp.buf.format({
+      async = true,
+      timeout_ms = 5000
+    })
   end
 end
 
