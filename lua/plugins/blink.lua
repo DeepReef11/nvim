@@ -3,6 +3,7 @@ local snippet_trigger_text = ";"
 return {
   {
     'saghen/blink.cmp',
+    -- enabled = false,
     lazy = false, -- lazy loading handled internally
     version = "*",
     dependencies = {
@@ -47,7 +48,7 @@ return {
         ["<S-j>"] = { "scroll_documentation_down", "fallback" },
         ['<PageUp>'] = { 'scroll_documentation_up', 'fallback' },
         ['<PageDown>'] = { 'scroll_documentation_down', 'fallback' },
-        ['<CR>'] = { 'accept', 'fallback' },
+        ['<A-CR>'] = { 'accept', 'fallback' },
       },
 
       snippets = {
