@@ -5,9 +5,9 @@ return {
   event = "VeryLazy",
   lazy = false,
   dependencies = {
-    {"stevearc/dressing.nvim"}, -- optional: to have the same UI shown in the GIF
-    {"ibhagwan/fzf-lua"}, --optional: if you want to use fzf-lua to pick scratch file. Recommanded, since it will order the files by modification datetime desc. (require rg)
-    {"nvim-telescope/telescope.nvim"}, -- optional: if you want to pick scratch file by telescope
+    { "stevearc/dressing.nvim" },      -- optional: to have the same UI shown in the GIF
+    { "ibhagwan/fzf-lua" },            --optional: if you want to use fzf-lua to pick scratch file. Recommanded, since it will order the files by modification datetime desc. (require rg)
+    { "nvim-telescope/telescope.nvim" }, -- optional: if you want to pick scratch file by telescope
   },
   config = function()
     require("scratch").setup({
@@ -15,12 +15,12 @@ return {
       -- window_cmd = "rightbelow vsplit", -- 'vsplit' | 'split' | 'edit' | 'tabedit' | 'rightbelow vsplit'
       use_telescope = true,
       -- fzf-lua is recommanded, since it will order the files by modification datetime desc. (require rg)
-      file_picker = "fzflua", -- "fzflua" | "telescope" | nil
-      filetypes = {"md", "ts", "js", "lua",  "sh" }, -- you can simply put filetype here
-      filetype_details = { -- or, you can have more control here
-        json = {}, -- empty table is fine
+      file_picker = "fzflua",                        -- "fzflua" | "telescope" | nil
+      filetypes = { "md", "ts", "js", "lua", "sh" }, -- you can simply put filetype here
+      filetype_details = {                           -- or, you can have more control here
+        json = {},                                   -- empty table is fine
         ["project-name.md"] = {
-          subdir = "project-name" -- group scratch files under specific sub folder
+          subdir = "project-name"                    -- group scratch files under specific sub folder
         },
         ["yaml"] = {},
         go = {
@@ -47,13 +47,19 @@ return {
       },
       -- hooks = {
       --   {
-          -- -- Example to create buffer with 2 lines containing hello, world
-          -- callback = function()
-          --   vim.api.nvim_buf_set_lines(0, 0, -1, false, { "hello", "world" })
-          -- end,
+      -- -- Example to create buffer with 2 lines containing hello, world
+      -- callback = function()
+      --   vim.api.nvim_buf_set_lines(0, 0, -1, false, { "hello", "world" })
+      -- end,
       --   },
       -- },
     })
   end,
 
+      keys = {
+        -- { "<C-p>", "<CMD>lua require('plugins.telescope.pickers').project_files()<CR>" },
+        { "<leader>wo", "<CMD>ScratchOpen<CR>", {desc = "Open scratch"} },
+        { "<leader>wn", "<CMD>Scratch<CR>", {desc = "New scratch"} },
+        { "<leader>wN", "<CMD>ScratchWithName<CR>", {desc = "New scratch with name"} },
+      }
 }
