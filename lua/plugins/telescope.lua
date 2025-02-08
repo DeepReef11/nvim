@@ -11,20 +11,20 @@ local git_icons = {
 }
 
 function vim.getVisualSelection()
-	local current_clipboard_content = vim.fn.getreg('"')
+  local current_clipboard_content = vim.fn.getreg('"')
 
-	vim.cmd('noau normal! "vy"')
-	local text = vim.fn.getreg('v')
-	vim.fn.setreg('v', {})
+  vim.cmd('noau normal! "vy"')
+  local text = vim.fn.getreg('v')
+  vim.fn.setreg('v', {})
 
-	vim.fn.setreg('"', current_clipboard_content)
+  vim.fn.setreg('"', current_clipboard_content)
 
-	text = string.gsub(text, "\n", "")
-	if #text > 0 then
-		return text
-	else
-		return ''
-	end
+  text = string.gsub(text, "\n", "")
+  if #text > 0 then
+    return text
+  else
+    return ''
+  end
 end
 
 return {
@@ -117,12 +117,12 @@ return {
       vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "Search current Word" })
 
 
-vim.keymap.set("v", "<leader>sv", function()
-	local text = vim.getVisualSelection()
-	builtin.current_buffer_fuzzy_find({ default_text = text })
-  -- local selected_text = vim.fn.getreg('"'):gsub("[%-%.%+%*%?%^%$%(%)%[%]%{%}%|%\\]", "\\%1"):gsub("\n", "")
-  -- require('telescope.builtin').current_buffer_fuzzy_find({ default_text = selected_text })
-end, { desc = "Search current Selection in Buffer" })
+      vim.keymap.set("v", "<leader>sv", function()
+        local text = vim.getVisualSelection()
+        builtin.current_buffer_fuzzy_find({ default_text = text })
+        -- local selected_text = vim.fn.getreg('"'):gsub("[%-%.%+%*%?%^%$%(%)%[%]%{%}%|%\\]", "\\%1"):gsub("\n", "")
+        -- require('telescope.builtin').current_buffer_fuzzy_find({ default_text = selected_text })
+      end, { desc = "Search current Selection in Buffer" })
       vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Search Diagnostics" })
       vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "Search Resume" })
 

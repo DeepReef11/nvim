@@ -3,6 +3,15 @@ local silent = { silent = true }
 
 table.unpack = table.unpack or unpack -- 5.1 compatibility
 
+-- inserst mode binding
+
+-- Delete word backward with Ctrl-Backspace in Insert mode
+vim.keymap.set('i', '<C-BS>', '<C-w>', { desc = 'Delete word backward' })
+vim.keymap.set('i', '<C-h>', '<C-w>', { desc = 'Delete word backward (terminal fallback)' })
+
+-- Delete word forward with Ctrl-Delete in Insert mode
+vim.keymap.set('i', '<C-Del>', '<C-o>dw', { desc = 'Delete word forward' })
+
 -- Autoindent on insert
 vim.keymap.set("n", "i", function()
   if #vim.fn.getline(".") == 0 then
@@ -185,3 +194,6 @@ keymap("n", "<C-k>", function()
   { desc = "Lsp hover, show additionnal information such as signature (Press twice to focus)" }
 
 )
+
+
+
