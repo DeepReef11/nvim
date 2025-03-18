@@ -99,7 +99,8 @@ wk.add({
 	{ "<leader>b", group = "Buffer" },
 	{ "<leader>bs", group = "Sort" },
 	{ "<leader>bc", '<cmd>lua require("utils").closeOtherBuffers()<CR>', desc = "Close but current" },
-	{ "<leader>bf", "<cmd>bfirst<CR>", desc = "First buffer" },
+	-- { "<leader>bf", "<cmd>bfirst<CR>", desc = "First buffer" 
+  -- },
 })
 
 wk.add({
