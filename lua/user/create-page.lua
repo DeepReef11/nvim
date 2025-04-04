@@ -3,7 +3,7 @@ local M = {}
 -- Function to find project root (where src/content/page exists)
 local function find_project_root()
   local current = vim.fn.getcwd()
-  local page_path = current .. "/src/content/blog"   -- FIXME: Make this configurable from cwd
+  local page_path = current .. "/src/content/posts" -- FIXME: Make this configurable from cwd
 
   if vim.fn.isdirectory(page_path) == 1 then
     return page_path
@@ -63,26 +63,59 @@ function M.create_page_entry()
         actions.close(prompt_bufnr)
         local selection = require('telescope.actions.state').get_selected_entry()
 
-        -- Create page entry using the Node.js script
-        local cmd = string.format('node %s/create-page.js "%s"',
-          vim.fn.getcwd(),
-          selection.value)
+        vim.cmd('startinsert') -- FIXME: Should make prompt go in insert mode
+        -- Prompt for title
 
-        local output = vim.fn.system(cmd)
-        -- Even if file exists, we'll open it
-        if vim.v.shell_error == 0 then
-          -- Notify if file already existed
-          if output:match("File already exists") then
-            vim.notify("Opening existing page entry", vim.log.levels.WARN)
+        vim.ui.input({ prompt = "Enter blog post title: " }, function(title)
+          if not title or title == "" then
+            vim.notify("Blog post creation cancelled", vim.log.levels.WARN)
+            return
           end
-          -- Open the file
-          local date = os.date("%Y_%m_%d")
-          local file_path = selection.value .. "/" .. date .. ".md"
-          vim.cmd('edit ' .. file_path)
-        else
-          vim.notify("Failed to create page entry: " .. output, vim.log.levels.ERROR)
-        end
+
+          -- Prompt for categories
+          -- vim.ui.input({ prompt = "Enter categories (comma separated): ", default = "community" }, function(categories)
+          --   if not categories then categories = "community" end
+
+          -- Prompt for tags
+          -- vim.ui.input({ prompt = "Enter tags (comma separated): ", default = "technology,community,homestead" }, function(tags)
+          --   if not tags then tags = "technology,community,homestead" end
+
+          -- Prompt for author
+          vim.ui.input({ prompt = "Enter author name: ", default = "Jonathan" }, function(author)
+            if not author then author = "Jonathan" end
+
+            -- Create page entry using the Node.js script
+            local cmd = string.format('node %s/create-page.js "%s" "%s" "%s"',
+              vim.fn.getcwd(),
+              selection.value,
+              title,
+              -- categories,
+              -- tags,
+              author)
+
+            local output = vim.fn.system(cmd)
+
+            if vim.v.shell_error == 0 then
+              vim.notify("Blog post created successfully", vim.log.levels.INFO)
+
+              -- Extract file path from output
+              local file_path = output:match("Files created: ([^,]+)")
+              if file_path then
+                vim.cmd('edit ' .. file_path)
+              else
+                -- Fallback to a guessed path based on title
+                local slug = title:lower():gsub(" ", "-"):gsub("[^%w-]", "")
+                local guessed_path = selection.value .. "/" .. slug .. "/" .. slug .. "-en.md"
+                vim.cmd('edit ' .. guessed_path)
+              end
+            else
+              vim.notify("Failed to create page entry: " .. output, vim.log.levels.ERROR)
+            end
+          end)
+        end)
       end)
+      --   end)
+      -- end)
       return true
     end,
   }):find()
@@ -92,23 +125,18 @@ end
 vim.api.nvim_create_user_command('PageNew', M.create_page_entry, {})
 
 vim.keymap.set('n', '<leader>pn', M.create_page_entry, {
-  desc = "Create new page entry",
+  desc = "Create new blog post",
   silent = true
 })
--- Set up keybinding
+
 function M.setup(opts)
   opts = opts or {}
-  local keymap = opts.keymap or '<leader>pn'   -- default keymap
+  local keymap = opts.keymap or '<leader>pn' -- default keymap
 
   vim.keymap.set('n', keymap, M.create_page_entry, {
-    desc = "Create new page entry",
+    desc = "Create new blog post",
     silent = true
   })
-  -- require('which-key').register({
-  --     ['<leader>u'] = {
-  --         p = { '<cmd>PageNew<CR>', 'Create new page' }
-  --     }
-  -- })
 end
 
 return M
