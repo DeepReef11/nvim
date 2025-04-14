@@ -1,13 +1,14 @@
 return {
   {
     "olimorris/codecompanion.nvim",
-    enabled = EcoVim.plugins.ai.codecompanion.enabled or true,
+    enabled = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
     },
     keys = {
+
       { "<leader>ccl", "<cmd>CodeCompanion<CR>",     desc = "Inline" },
       { "<leader>ccc", "<cmd>CodeCompanionChat<CR>", desc = "Chat" },
     },
@@ -22,7 +23,7 @@ return {
       },
       strategies = {
         chat = {
-          adapter = "copilot",
+          adapter = "lmstudio",
           keymaps = {
             completion = {
               modes = {
@@ -100,19 +101,17 @@ return {
           },
         },
         inline = {
-          adapter = "copilot",
+          adapter = "lmstudio",
         },
         agent = {
-          adapter = "copilot",
+          adapter = "lmstudio",
         },
       },
       adapters = {
-        copilot = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                default = "claude-3.5-sonnet",
-              },
+        lmstudio = function()
+          return require("codecompanion.adapters").extend("openai_compatible", {
+            env = {
+              url = "http://localhost:1234", -- LM Studio API endpoint
             },
           })
         end,
