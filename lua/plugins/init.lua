@@ -5,7 +5,7 @@ return {
     { import = "plugins.languages" },
     { import = "plugins.ui" },
     { import = "plugins.editor" },
-    { import = "plugins.other" },
+    -- { import = "plugins.other" },
     { import = "plugins.util" },
     { import = "plugins.code" },
     -- { import = "plugins.file-management" },

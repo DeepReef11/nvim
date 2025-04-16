@@ -1,7 +1,8 @@
 return {
   {
     "zbirenbaum/copilot.lua",
-    cond = EcoVim.plugins.ai.copilot.enabled,
+    enabled = false,
+    -- cond = EcoVim.plugins.ai.copilot.enabled,
     lazy = false,
     cmd = "Copilot",
     event = "VeryLazy",

@@ -1,7 +1,8 @@
 return {
   {
     "folke/noice.nvim",
-    cond = EcoVim.plugins.experimental_noice.enabled,
+    -- enabled = false,
+    -- cond = EcoVim.plugins.experimental_noice.enabled,
     lazy = false,
     opts = {
       messages = { enabled = false },

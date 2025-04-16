@@ -1,7 +1,8 @@
 return {
   {
     "jcdickinson/codeium.nvim",
-    cond = EcoVim.plugins.ai.codeium.enabled,
+    enabled = false,
+    -- cond = EcoVim.plugins.ai.codeium.enabled,
     event = "InsertEnter",
     cmd = "Codeium",
     dependencies = {
