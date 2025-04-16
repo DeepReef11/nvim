@@ -30,17 +30,6 @@ local buffer_option = {
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Tabnine Setup                                            │
 -- ╰──────────────────────────────────────────────────────────╯
-if EcoVim.plugins.ai.tabnine.enabled then
-	tabnine:setup({
-		max_lines = 1000,
-		max_num_results = 3,
-		sort = true,
-		show_prediction_strength = true,
-		run_on_every_keystroke = true,
-		snipper_placeholder = "..",
-		ignored_file_types = {},
-	})
-end
 
 return {
 	{
@@ -157,7 +146,7 @@ return {
 					["<CR>"] = cmp.mapping.confirm({
 						-- this is the important line for Copilot
 						behavior = cmp.ConfirmBehavior.Replace,
-						select = EcoVim.plugins.completion.select_first_on_enter,
+						select = false,-- EcoVim.plugins.completion.select_first_on_enter,
 					}),
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
@@ -348,11 +337,11 @@ return {
 					})
 				end,
 			},
-			{
-				cond = EcoVim.plugins.ai.tabnine.enabled,
-				"tzachar/cmp-tabnine",
-				build = "./install.sh",
-			},
+			-- {
+			-- 	cond = EcoVim.plugins.ai.tabnine.enabled,
+			-- 	"tzachar/cmp-tabnine",
+			-- 	build = "./install.sh",
+			-- },
 			{
 				"David-Kunz/cmp-npm",
 				opts = {
@@ -362,7 +351,7 @@ return {
 			},
 			{
 				"zbirenbaum/copilot-cmp",
-				cond = EcoVim.plugins.ai.copilot.enabled,
+				cond = false, -- EcoVim.plugins.ai.copilot.enabled,
 				config = function()
 					require("copilot_cmp").setup()
 				end,

@@ -12,7 +12,7 @@ return {
         opts = { impersonate_nvim_cmp = true },
       },
       "rafamadriz/friendly-snippets",
-      "giuxtaposition/blink-cmp-copilot",
+      -- "giuxtaposition/blink-cmp-copilot",
       -- "David-Kunz/cmp-npm",
       {
         "L3MON4D3/LuaSnip",
@@ -70,7 +70,7 @@ return {
           'snippets',
           'buffer',
           'codecompanion',
-          'copilot',
+          -- 'copilot',
         },
         -- cmdline = {},
 
@@ -79,21 +79,21 @@ return {
             name = "CodeCompanion",
             module = "codecompanion.providers.completion.blink",
           },
-          copilot = {
-            name = "copilot",
-            module = "blink-cmp-copilot",
-            score_offset = 100,
-            async = true,
-            transform_items = function(_, items)
-              local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-              local kind_idx = #CompletionItemKind + 1
-              CompletionItemKind[kind_idx] = "Copilot"
-              for _, item in ipairs(items) do
-                item.kind = kind_idx
-              end
-              return items
-            end,
-          },
+          -- copilot = {
+          --   name = "copilot",
+          --   module = "blink-cmp-copilot",
+          --   score_offset = 100,
+          --   async = true,
+          --   transform_items = function(_, items)
+          --     local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+          --     local kind_idx = #CompletionItemKind + 1
+          --     CompletionItemKind[kind_idx] = "Copilot"
+          --     for _, item in ipairs(items) do
+          --       item.kind = kind_idx
+          --     end
+          --     return items
+          --   end,
+          -- },
           -- npm = {
           --   name = 'npm',
           --   module = 'blink.compat.source',

@@ -1,7 +1,6 @@
 return {
   {
     "chrisgrieser/nvim-spider",
-    cond = EcoVim.plugins.jump_by_subwords.enabled,
     lazy = true,
     keys = { "w", "e", "b", "ge" },
     config = function()
