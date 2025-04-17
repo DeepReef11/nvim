@@ -2,6 +2,7 @@ return {
   {
     -- The goal of nvim-bqf is to make Neovim's quickfix window better.
     "kevinhwang91/nvim-bqf",
+    -- enabled = false,
     ft = "qf",
     init = function()
       -- Configure the UI aspect of the quickfix window
