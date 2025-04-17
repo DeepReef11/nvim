@@ -1,4 +1,40 @@
-local snippet_trigger_text = ";"
+-- return {
+--   'saghen/blink.nvim',
+--   build = 'cargo build --release', -- for delimiters
+--   lazy = false,                    -- lazy loading handled internally
+--   keys = {
+--     -- chartoggle
+--     {
+--       '<C-;>',
+--       function()
+--         require('blink.chartoggle').toggle_char_eol(';')
+--       end,
+--       mode = { 'n', 'v' },
+--       desc = 'Toggle ; at eol',
+--     },
+--     {
+--       ',',
+--       function()
+--         require('blink.chartoggle').toggle_char_eol(',')
+--       end,
+--       mode = { 'n', 'v' },
+--       desc = 'Toggle , at eol',
+--     },
+--
+--     -- tree
+--     { '<C-e>',     '<cmd>BlinkTree reveal<cr>',       desc = 'Reveal current file in tree' },
+--     { '<leader>E', '<cmd>BlinkTree toggle<cr>',       desc = 'Reveal current file in tree' },
+--     { '<leader>e', '<cmd>BlinkTree toggle-focus<cr>', desc = 'Toggle file tree focus' },
+--   },
+--   -- all modules handle lazy loading internally
+--   lazy = false,
+--   opts = {
+--     chartoggle = { enabled = true },
+--     indent = { enabled = true },
+--     tree = { enabled = true }
+--   }
+-- }
+
 
 return {
   {
@@ -136,7 +172,7 @@ return {
         },
 
         documentation = {
-          auto_show = true,
+          auto_show = false,
           auto_show_delay_ms = 500,
           treesitter_highlighting = true,
           window = {
