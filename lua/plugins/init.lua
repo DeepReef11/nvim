@@ -8,6 +8,7 @@ return {
     -- { import = "plugins.other" },
     { import = "plugins.util" },
     { import = "plugins.code" },
+    { import = "plugins.telescope" },
     -- { import = "plugins.file-management" },
   },
 

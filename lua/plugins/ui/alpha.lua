@@ -139,7 +139,7 @@ return {
         button("l", icons.timer .. " " .. "Load Last Session", "<cmd>SessionRestore<CR>", {}),
         button("f", icons.fileNoBg .. " " .. "Find File", "<cmd>Telescope find_files<CR>", {}),
         button("w", icons.word .. " " .. "Find Word",
-          "<cmd>lua require('plugins.telescope.multi-rg')()<CR>", {}),
+          "<cmd>lua require('plugins.telescope.other.multi-rg')()<CR>", {}),
         button("h", icons.fileRecent .. " " .. "Recents", "<cmd>Telescope oldfiles hidden=true<CR>", {}),
         button("u", icons.packageDown .. " " .. "Update Plugins", "<cmd>Lazy update<CR>", {}),
         button("m", icons.package .. " " .. "Manage Plugins", "<cmd>Lazy<CR>", {}),

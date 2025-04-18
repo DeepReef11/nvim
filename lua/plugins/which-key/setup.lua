@@ -155,7 +155,7 @@ wk.add({
 	{ "<leader>gl", group = "Log" },
 	{
 		"<leader>glA",
-		"<cmd>lua require('plugins.telescope.pickers').my_git_commits()<CR>",
+		"<cmd>lua require('plugins.telescope.other.pickers').my_git_commits()<CR>",
 		desc = "commits (Telescope)",
 	},
 	{ "<leader>gla", "<cmd>LazyGitFilter<CR>", desc = "commits" },

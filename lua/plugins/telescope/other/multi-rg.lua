@@ -11,7 +11,7 @@
 local conf = require("telescope.config").values
 local finders = require "telescope.finders"
 local make_entry = require "telescope.make_entry"
-local pickers = require "telescope.pickers"
+local pickers = require "telescope.other.pickers"
 
 local flatten = vim.tbl_flatten
 
