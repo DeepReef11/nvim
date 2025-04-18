@@ -11,7 +11,7 @@ return {
         FIX = {
           alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
         },
-        WARN = { alt = { "WARNING" } },
+        WARN = { alt = { "WARNING", "WARN" } },
         PERF = { alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
       },
       highlight = {
@@ -25,8 +25,9 @@ return {
       },
     },
     keys = {
-      { "n", "]t", function() require("todo-comments").jump_next() end, { desc = "Next todo comment" } },
-      { "n", "[t", function() require("todo-comments").jump_prev() end, { desc = "Previous todo comment" } }
+      -- FIXME: already exist
+      { "n", "]t", function() require("todo-comments").jump_next() end, { desc = "Next todo comment" } }, -- OPTIM: 
+      { "n", "[t", function() require("todo-comments").jump_prev() end, { desc = "Previous todo comment" } } -- OPTIM:
     }
   }
 }
