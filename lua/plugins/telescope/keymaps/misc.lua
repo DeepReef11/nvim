@@ -7,7 +7,21 @@ function M.get_keymaps()
   return {
 
     -- Notify search
-    { "<leader>ns",  "<CMD>Telescope notify<CR>",                   desc = "Search Notify" },
+    { "<leader>ns", "<CMD>Telescope notify<CR>", desc = "Search Notify" },
+    -- Text case telescope (normal mode)
+    {
+      "rc",
+      "<cmd>TextCaseOpenTelescope<CR>",
+      desc = "Refactor case telescope"
+    },
+
+    -- Text case telescope (visual mode)
+    {
+      "rc",
+      "<cmd>TextCaseOpenTelescope<CR>",
+      mode = "v",
+      desc = "Refactor case telescope"
+    }
   }
 end
 

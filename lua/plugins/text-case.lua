@@ -40,8 +40,9 @@ return {
         }
       )
       require("telescope").load_extension("textcase")
-      vim.api.nvim_set_keymap('n', 'gu.', '<cmd>TextCaseOpenTelescope<CR>', { desc = "Text case telescope" })
-      vim.api.nvim_set_keymap('v', 'gu.', "<cmd>TextCaseOpenTelescope<CR>", { desc = "Text case telescope" })
+      -- Moved in telescope/keymaps/misc.lua
+      -- vim.api.nvim_set_keymap('n', 'gu.', '<cmd>TextCaseOpenTelescope<CR>', { desc = "Text case telescope" })
+      -- vim.api.nvim_set_keymap('v', 'gu.', "<cmd>TextCaseOpenTelescope<CR>", { desc = "Text case telescope" })
     end,
     cmd = { "TextCaseOpenTelescope", "Subs" },
     keys = { "gu" }

@@ -218,11 +218,11 @@ wk.add({ -- Notification
 	{ "<leader>n", group = "Notification", mode = { "n" } },
 })
 -- Table mode For markdown?
-wk.add({
-	{ "<leader>t", group = "Table Mode", mode = { "n", "v" } },
-	{ "<leader>tm", desc = { "toggle" } },
-	{ "<leader>tt", desc = { "tableize" }, mode = { "n", "v" } },
-})
+-- wk.add({
+-- 	{ "<leader>t", group = "Table Mode", mode = { "n", "v" } },
+-- 	{ "<leader>tm", desc = { "toggle" } },
+-- 	{ "<leader>tt", desc = { "tableize" }, mode = { "n", "v" } },
+-- })
 
 wk.add({
 	{ "<leader>s", "<cmd>'<,'>sort<CR>", desc = "sort", mode = { "v" } },
