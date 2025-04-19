@@ -10,14 +10,14 @@ function M.get_keymaps()
     { "<leader>ns", "<CMD>Telescope notify<CR>", desc = "Search Notify" },
     -- Text case telescope (normal mode)
     {
-      "rc",
+      "<leader>rc",
       "<cmd>TextCaseOpenTelescope<CR>",
       desc = "Refactor case telescope"
     },
 
     -- Text case telescope (visual mode)
     {
-      "rc",
+      "<leader>rc",
       "<cmd>TextCaseOpenTelescope<CR>",
       mode = "v",
       desc = "Refactor case telescope"
