@@ -26,6 +26,8 @@
   "git-worktree.nvim": { "branch": "master", "commit": "f247308e68dab9f1133759b05d944569ad054546" },
   "gitlinker.nvim": { "branch": "master", "commit": "23982c86f50a9c3f4bc531d41b7a4a68ddd12355" },
   "gitsigns.nvim": { "branch": "main", "commit": "7010000889bfb6c26065e0b0f7f1e6aa9163edd9" },
+  "go.nvim": { "branch": "master", "commit": "ecffa1757ac8e84e1e128f12e0fdbf8418354f6f" },
+  "guihua.lua": { "branch": "master", "commit": "0cc9631914ffcbe3e474e809c610d12a75b660cf" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "lazygit.nvim": { "branch": "main", "commit": "b9eae3badab982e71abab96d3ee1d258f0c07961" },
