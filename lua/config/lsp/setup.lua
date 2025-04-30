@@ -20,7 +20,7 @@ mason_lsp.setup({
     "eslint",
     "graphql",
     "html",
-     
+
     "emmet_ls", -- HTML/CSS snippets
     "cssls",    -- css
     "jsonls",
@@ -148,6 +148,12 @@ require("mason-lspconfig").setup_handlers {
   end
 }
 
+require('lspconfig').csharp_ls.setup { root_dir = function(startpath)
+  return require('lspconfig.util').root_pattern(
+    '*.sln', '*.csproj', 'function.json')(startpath)
+end
+}
+
 require("ufo").setup({
   fold_virt_text_handler = ufo_config_handler,
   close_fold_kinds_for_ft = { default = { "imports" } },
@@ -156,7 +162,7 @@ require("ufo").setup({
 
 
 vim.filetype.add({
-    extension = {
-        mdx = "markdown"
-    }
+  extension = {
+    mdx = "markdown"
+  }
 })

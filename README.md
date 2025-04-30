@@ -1,5 +1,40 @@
-# Setup
+# Setup Windows
 
+```ps1
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+scoop install fzf
+scoop install nodejs
+scoop install ripgrep
+scoop install mingw
+```
+
+```
+cd C:\Users\USER\AppData\Local\nvim-data\lazy\telescope-fzf-native.nvim
+make
+```
+
+```
+dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
+dotnet tool install --global csharp-ls
+```
+
+## Setting windows terminal
+
+- Make sure wt.exe is installed and launch it
+- Download FiraCode nerd font and install
+- Right click title bar -> properties 
+    -  Default profile -> appearance -> set font to FiraCode nerd
+    - Actions -> remove alt + enter shortcut fullscreen (at bottom)
+- Install and launch powertoy
+- Input/output -> Keyboard manager -> Enable kb manager
+- Remap a key (if needed):
+    - win (left) to Disabled    
+- Remap a shortcut (if needed):
+    - Basically replace all win key shortcut needed with <C-S-A> modifier
+
+
+## ts <!-- TODO: remove, this is likely no longer needed -->
 
 `npm install -g typescript-language-server typescript`
 `:LspInstall ts_ls`
