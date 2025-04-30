@@ -24,10 +24,10 @@ dotnet tool install --global csharp-ls
 - Make sure wt.exe is installed and launch it
 - Download FiraCode nerd font and install
 - Right click title bar -> properties 
-    -  Default profile -> appearance -> set font to FiraCode nerd
+    -  Default profile -> appearance -> set font to FiraCode nerd, font size 18
     - Actions -> remove alt + enter shortcut fullscreen (at bottom)
 - Install and launch powertoy
-- Input/output -> Keyboard manager -> Enable kb manager
+- Input/output -> Keyboard manager -> Enable Keyboard manager
 - Remap a key (if needed):
     - win (left) to Disabled    
 - Remap a shortcut (if needed):
