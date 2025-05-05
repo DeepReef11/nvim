@@ -67,3 +67,12 @@ vim.api.nvim_create_autocmd({"FileType"}, {
     vim.wo.breakindentopt = "shift:2"
   end
 })
+
+
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = {"*/scroll/*.conf", "*/scroll/config*"},
+  callback = function()
+    vim.bo.filetype = "i3config"
+  end
+})
