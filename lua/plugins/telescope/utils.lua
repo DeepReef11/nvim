@@ -30,6 +30,9 @@ M.grep_exclusions_normal = function()
     "--glob=!*.min.js",
     "--glob=!node_modules/*",
     "--glob=!pnpm-lock.yaml",
+    "--glob=!*.lock",
+    "--glob=!package-lock.json",
+
   }
 end
 
