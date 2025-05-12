@@ -63,90 +63,55 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
-require("mason-lspconfig").setup_handlers {
-  -- The first entry (without a key) will be the default handler
-  -- and will be called for each installed server that doesn't have
-  -- a dedicated handler.
-  function(server_name)
-    require("lspconfig")[server_name].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      handlers = handlers,
-    }
-  end,
+vim.lsp.config("tailwindcss", {
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = require("config.lsp.servers.tailwindcss").on_attach,
+  filetypes = require("config.lsp.servers.tailwindcss").filetypes,
+  init_options = require("config.lsp.servers.tailwindcss").init_options,
+  settings = require("config.lsp.servers.tailwindcss").settings,
+})
 
-  ["tailwindcss"] = function()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
-    capabilities.textDocument.colorProvider = { dynamicRegistration = false }
-    capabilities.textDocument.foldingRange = {
-      dynamicRegistration = false,
-      lineFoldingOnly = true,
-    }
+vim.lsp.config("cssls", {
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = require("config.lsp.servers.cssls").on_attach,
+  settings = require("config.lsp.servers.cssls").settings,
+})
 
-    lspconfig.tailwindcss.setup({
-      capabilities = capabilities,
-      filetypes = require("config.lsp.servers.tailwindcss").filetypes,
-      handlers = handlers,
-      init_options = require("config.lsp.servers.tailwindcss").init_options,
-      on_attach = require("config.lsp.servers.tailwindcss").on_attach,
-      settings = require("config.lsp.servers.tailwindcss").settings,
-      flags = {
-        debounce_text_changes = 1000,
-      },
-    })
-  end,
+vim.lsp.config("eslint", {
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = require("config.lsp.servers.eslint").on_attach,
+  settings = require("config.lsp.servers.eslint").settings,
+  flags = {
+    debounce_text_changes = 1000,
+    exit_timeout = 1500,
+  },
+})
 
-  ["cssls"] = function()
-    lspconfig.cssls.setup({
-      capabilities = capabilities,
-      handlers = handlers,
-      on_attach = require("config.lsp.servers.cssls").on_attach,
-      settings = require("config.lsp.servers.cssls").settings,
-    })
-  end,
+vim.lsp.config("jsonls", {
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = on_attach,
+  settings = require("config.lsp.servers.jsonls").settings,
+})
 
-  ["eslint"] = function()
-    lspconfig.eslint.setup({
-      capabilities = capabilities,
-      handlers = handlers,
-      on_attach = require("config.lsp.servers.eslint").on_attach,
-      settings = require("config.lsp.servers.eslint").settings,
-      flags = {
-        allow_incremental_sync = false,
-        debounce_text_changes = 1000,
-        exit_timeout = 1500,
-      },
-    })
-  end,
+vim.lsp.config("lua_ls", {
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = on_attach,
+  settings = require("config.lsp.servers.lua_ls").settings,
+})
 
-  ["jsonls"] = function()
-    lspconfig.jsonls.setup({
-      capabilities = capabilities,
-      handlers = handlers,
-      on_attach = on_attach,
-      settings = require("config.lsp.servers.jsonls").settings,
-    })
-  end,
-
-  ["lua_ls"] = function()
-    lspconfig.lua_ls.setup({
-      capabilities = capabilities,
-      handlers = handlers,
-      on_attach = on_attach,
-      settings = require("config.lsp.servers.lua_ls").settings,
-    })
-  end,
-
-  ["vuels"] = function()
-    lspconfig.vuels.setup({
-      filetypes = require("config.lsp.servers.vuels").filetypes,
-      handlers = handlers,
-      init_options = require("config.lsp.servers.vuels").init_options,
-      on_attach = require("config.lsp.servers.vuels").on_attach,
-      settings = require("config.lsp.servers.vuels").settings,
-    })
-  end
-}
+vim.lsp.config("vuels", {
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = require("config.lsp.servers.vuels").on_attach,
+  filetypes = require("config.lsp.servers.vuels").filetypes,
+  init_options = require("config.lsp.servers.vuels").init_options,
+  settings = require("config.lsp.servers.vuels").settings,
+})
 
 require("ufo").setup({
   fold_virt_text_handler = ufo_config_handler,
