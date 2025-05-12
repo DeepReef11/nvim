@@ -1,29 +1,44 @@
 local M = {}
 
+
 function M.format()
-  local root_dir = vim.fn.getcwd() -- Adjust this if you have a more accurate way to find the project root
-  local eslintrc_json = root_dir .. "/.eslintrc.json"
-  local eslintrc_js = root_dir .. "/.eslintrc.js"
+  local bufnr = vim.api.nvim_get_current_buf()
+  local ft = vim.bo[bufnr].filetype
 
-  -- Check if eslint LSP is active
-  local active_clients = vim.lsp.buf_get_clients()
-  local eslint_is_active = false
+  -- Check for JS/TS files and eslint
+  local js_ts_filetypes = {
+    ["javascript"] = true, ["typescript"] = true,
+    ["javascriptreact"] = true, ["typescriptreact"] = true,
+    ["vue"] = true, ["svelte"] = true
+  }
 
-  for _, client in ipairs(active_clients) do
-    if client.name == "eslint" then
-      eslint_is_active = true
-      break
+  if js_ts_filetypes[ft] then
+    for _, client in ipairs(vim.lsp.get_clients({bufnr = bufnr})) do
+      if client.name == "eslint" then
+        local eslint_diagnostics = vim.diagnostic.get(bufnr, {namespace = vim.lsp.diagnostic.get_namespace(client.id)})
+
+        if #eslint_diagnostics > 0 then
+          vim.notify("Found " .. #eslint_diagnostics .. " eslint issues, fixing...", vim.log.levels.INFO)
+          vim.cmd("EslintFixAll")
+        else
+          -- vim.notify("No eslint issues found, using LSP format", vim.log.levels.INFO)
+          vim.lsp.buf.format({
+            bufnr = bufnr,
+            async = false,
+            timeout_ms = 3000
+          })
+        end
+        return
+      end
     end
   end
 
-  if eslint_is_active and (vim.fn.filereadable(eslintrc_json) == 1 or vim.fn.filereadable(eslintrc_js) == 1) then
-    vim.cmd("EslintFixAll")
-  else
-    vim.lsp.buf.format({
-      async = true,
-      timeout_ms = 5000
-    })
-  end
+  -- Use direct LSP formatting for non-JS/TS files or when eslint isn't available
+  vim.lsp.buf.format({
+    bufnr = bufnr,
+    async = false,
+    timeout_ms = 3000
+  })
 end
 
 function M.enable_format_on_save()
