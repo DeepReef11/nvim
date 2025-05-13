@@ -21,6 +21,8 @@ function M.setup()
         "rg", "--color=never", "--no-heading", "--with-filename",
         "--line-number", "--column", "--smart-case",
       },
+      path_display = { "truncate" },
+      dynamic_preview_title = true,
       sorting_strategy = "ascending",
       layout_config = {
         horizontal = { preview_cutoff = 120 },
