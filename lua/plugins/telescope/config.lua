@@ -25,8 +25,13 @@ function M.setup()
       dynamic_preview_title = true,
       sorting_strategy = "ascending",
       layout_config = {
-        horizontal = { preview_cutoff = 120 },
         prompt_position = "top",
+        horizontal = {
+          preview_cutoff = 120,
+          width = 0.99,       -- Width of the entire telescope window
+          height = 0.99,      -- Height of the entire telescope window
+          preview_width = 0.4, -- Width of the preview window (0.5 = 50%)
+        },
       },
       file_sorter = require("telescope.sorters").get_fzy_sorter,
       prompt_prefix = "  ",
