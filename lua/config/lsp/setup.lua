@@ -15,19 +15,22 @@ mason.setup({
 mason_lsp.setup({
   -- A list of servers to automatically install if they're not already installed
   ensure_installed = {
+    -- "gofumpt",
+    -- "golangci-lint",
+    "golangci_lint_ls",
+    -- "golines",
+    "gopls",
     "bashls",
     "cssls",
     "eslint",
     "graphql",
     "html",
-     
     "emmet_ls", -- HTML/CSS snippets
     "cssls",    -- css
     "jsonls",
     "lua_ls",
     "prismals",
     "tailwindcss",
-
     "powershell_es",
   },
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
@@ -62,6 +65,14 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts.border = opts.border or EcoVim.ui.float.border or "rounded" -- default to EcoVim border
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
+
+-- require('go').setup({
+--   lsp_setup = false,  -- Let nvim-lspconfig handle gopls
+--   lsp_on_attach = false,
+--   lsp_inlay_hints = { enable = false },
+-- })
+
 
 vim.lsp.config("tailwindcss", {
   capabilities = capabilities,
