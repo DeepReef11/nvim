@@ -52,6 +52,8 @@ function M.setup()
           ["<C-a>"] = actions.cycle_previewers_prev,
           -- ["<C-l>"] = actions.cycle_layout,
           ["<ESC>"] = actions.close,
+
+          ["<C-k>"] = actions.delete_buffer,
           ["<C-d>"] = actions.delete_buffer, -- normally down
           -- ["<C-d>"] = actions.delete_buffer, -- normally down
           ['<C-Up>'] = require('telescope.actions').preview_scrolling_up,
