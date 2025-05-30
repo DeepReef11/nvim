@@ -21,6 +21,11 @@ function M.get_keymaps()
       "<cmd>TextCaseOpenTelescope<CR>",
       mode = "v",
       desc = "Refactor case telescope"
+    },
+    {
+      "gd",
+      "<cmd>Telescope lsp_references<CR>",
+      desc = "Telescope lsp definitions"
     }
   }
 end

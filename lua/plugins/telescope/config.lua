@@ -28,9 +28,9 @@ function M.setup()
         prompt_position = "top",
         horizontal = {
           preview_cutoff = 120,
-          width = 0.99,       -- Width of the entire telescope window
-          height = 0.99,      -- Height of the entire telescope window
-          preview_width = 0.4, -- Width of the preview window (0.5 = 50%)
+          width = 0.99,        -- Width of the entire telescope window
+          height = 0.99,       -- Height of the entire telescope window
+          preview_width = 0.6, -- Width of the preview window (0.5 = 50%)
         },
       },
       file_sorter = require("telescope.sorters").get_fzy_sorter,
@@ -42,18 +42,28 @@ function M.setup()
       qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
       mappings = {
         i = {
-          ["<C-x>"] = false,
-          ["<C-j>"] = actions.move_selection_next,
-          ["<C-k>"] = actions.move_selection_previous,
+          ["<C-c>"] = { "<esc>", type = "command" }, -- normal mode
+          -- ["<C-x>"] = false, -- prevent open in split horizontal
+          -- ["<C-v>"] = false, -- prevent open in split vertical
+          -- ["<C-j>"] = actions.move_selection_next,
+          -- ["<C-k>"] = actions.move_selection_previous,
           ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
           ["<C-s>"] = actions.cycle_previewers_next,
           ["<C-a>"] = actions.cycle_previewers_prev,
+          -- ["<C-l>"] = actions.cycle_layout,
           ["<ESC>"] = actions.close,
-          ["<C-d>"] = actions.delete_buffer,
+          ["<C-d>"] = actions.delete_buffer, -- normally down
+          -- ["<C-d>"] = actions.delete_buffer, -- normally down
+          ['<C-Up>'] = require('telescope.actions').preview_scrolling_up,
+          ['<C-Down>'] = require('telescope.actions').preview_scrolling_down,
+          ['<C-Left>'] = require('telescope.actions').preview_scrolling_left,
+          ['<C-Right>'] = require('telescope.actions').preview_scrolling_right,
+          ["<C-p>"] = require('telescope.actions.layout').toggle_preview,
         },
         n = {
           ["<C-s>"] = actions.cycle_previewers_next,
           ["<C-a>"] = actions.cycle_previewers_prev,
+          ["<C-p>"] = require('telescope.actions.layout').toggle_preview,
         },
       },
     },

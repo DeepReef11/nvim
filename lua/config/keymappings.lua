@@ -168,7 +168,7 @@ else
 end
 
 -- LSP
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", silent)
+-- keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", silent)
 keymap("n", "gr", "<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", silent)
 keymap("n", "gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", silent)
 keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
