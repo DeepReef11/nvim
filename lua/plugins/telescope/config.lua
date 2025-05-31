@@ -30,7 +30,7 @@ function M.setup()
           preview_cutoff = 120,
           width = 0.99,        -- Width of the entire telescope window
           height = 0.99,       -- Height of the entire telescope window
-          preview_width = 0.6, -- Width of the preview window (0.5 = 50%)
+          preview_width = 0.3, -- Width of the preview window (0.5 = 50%)
         },
       },
       file_sorter = require("telescope.sorters").get_fzy_sorter,
