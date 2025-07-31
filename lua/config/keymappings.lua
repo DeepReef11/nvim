@@ -59,6 +59,7 @@ end, { desc = "Format selection then yank code to share as text" })
 
 local function launch_terminal()
   local term_program = vim.env.TERM_PROGRAM
+  vim.notify(term_program)
   if term_program then
     local wm = vim.fn.system("echo $XDG_CURRENT_DESKTOP"):gsub("%s+", "")
 
@@ -190,9 +191,10 @@ keymap("v", "<leader>cf", function()
 end, silent)
 keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
 keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
-keymap("n", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Lsp show signature (Press twice to focus)" })
 keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
+keymap("i", "<C-Space>", "<cmd>lua vim.lsp.buf.completion<CR>", { desc = "Lsp show suggestion, trigger completion" })
+keymap("n", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Lsp show signature (Press twice to focus)" })
 keymap("n", "<C-k>", function()
     local winid = require("ufo").peekFoldedLinesUnderCursor()
     if not winid then

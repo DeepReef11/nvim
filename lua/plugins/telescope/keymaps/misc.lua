@@ -24,7 +24,8 @@ function M.get_keymaps()
     },
     {
       "gd",
-      "<cmd>Telescope lsp_references<CR>",
+      -- "<cmd>Telescope lsp_references<CR>",
+      "<cmd>Telescope lsp_definitions<CR>",
       desc = "Telescope lsp definitions"
     }
   }
