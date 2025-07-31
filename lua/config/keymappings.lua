@@ -49,7 +49,7 @@ vim.api.nvim_create_user_command('CodeSnapText', function()
   local relative_filename = vim.fn.expand('%')
   local file_extension = vim.fn.expand('%:e')
   -- local selection = vim.fn.getreg('"')
-  local selection = table.concat(get_visual(),"\n")
+  local selection = table.concat(get_visual(), "\n")
   -- selection = string.gsub(selection,"```","``\\`")
   local formated_selection = "*" .. relative_filename .. "*\n" .. "```" .. file_extension .. "\n" .. selection .. "\n```"
   -- Yank the visual selection to the default register
@@ -58,17 +58,23 @@ vim.api.nvim_create_user_command('CodeSnapText', function()
 end, { desc = "Format selection then yank code to share as text" })
 
 local function launch_terminal()
-    local term_program = vim.env.TERM_PROGRAM
-    if term_program then
-        vim.fn.system(term_program .. ' &')
+  local term_program = vim.env.TERM_PROGRAM
+  vim.notify(term_program)
+  if term_program then
+    local wm = vim.fn.system("echo $XDG_CURRENT_DESKTOP"):gsub("%s+", "")
+
+    if wm == "niri" then
+      vim.fn.system(term_program ..
+        ' -e \'exec $SHELL -c "sleep 0.1 && niri msg action consume-or-expel-window-left && exec $SHELL"\' &')
     else
-        vim.notify('TERM_PROGRAM environment variable not set', vim.log.levels.ERROR)
+      vim.notify('TERM_PROGRAM environment variable not set', vim.log.levels.ERROR)
     end
+  end
 end
 
 vim.keymap.set('n', '<leader>T', launch_terminal, {
-    desc = "Execute terminal program in background",
-    silent = true
+  desc = "Execute terminal program in background",
+  silent = true
 })
 vim.keymap.set('x', '<leader>cy', '<Esc><cmd>CodeSnapText<CR>', { desc = 'Yank and format text for sharing' })
 vim.keymap.set('n', '<leader>cy', 'ggVG<Esc><cmd>CodeSnapText<CR><C-o>', { desc = 'Yank and format text for sharing' })
@@ -126,7 +132,7 @@ keymap("n", "x", '"_x', silent)
 keymap("n", "X", '"_X', silent)
 keymap("v", "x", '"_x', silent)
 keymap("v", "X", '"_X', silent)
-keymap({'n'}, '<Del>', '"_x')
+keymap({ 'n' }, '<Del>', '"_x')
 
 -- Don't yank on visual paste
 keymap("v", "p", '"_dP', silent)
@@ -195,6 +201,3 @@ keymap("n", "<C-k>", function()
   { desc = "Lsp hover, show additionnal information such as signature (Press twice to focus)" }
 
 )
-
-
-

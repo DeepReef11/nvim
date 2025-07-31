@@ -78,7 +78,12 @@
   "nvim-web-devicons": { "branch": "master", "commit": "50b5b06bff13a9b4eab946de7c7033649a6618a1" },
   "octo.nvim": { "branch": "master", "commit": "2a478f8b264a69f71bbff81b3affa2b1e1178b92" },
   "oil.nvim": { "branch": "master", "commit": "685cdb4ffa74473d75a1b97451f8654ceeab0f4a" },
+<<<<<<< HEAD
   "onedark.nvim": { "branch": "master", "commit": "0e5512d1bebd1f08954710086f87a5caa173a924" },
+=======
+  "onedark.nvim": { "branch": "master", "commit": "11de4da47f3e69cb70c3ae9816bd8af166cbe121" },
+  "openscad.nvim": { "branch": "main", "commit": "b78108a0a50c254d0964c790a1bd21ec5ec386ef" },
+>>>>>>> bd7a0d4 (feat: oil plugin and openscad)
   "package-info.nvim": { "branch": "master", "commit": "4f1b8287dde221153ec9f2acd46e8237d2d0881e" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },

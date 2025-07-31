@@ -9,6 +9,7 @@ return {
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
     config = function()
       require("oil").setup({
+
         -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
         -- Set to false if you want some other plugin (e.g. netrw) to open when you edit directories.
         default_file_explorer = false,
@@ -69,6 +70,10 @@ return {
         -- See :help oil-actions for a list of all available actions
         keymaps = {
           ["g?"] = "actions.show_help",
+          ["<M-Up>"] = { "actions.parent", desc = "Go to parent directory" },
+          ["<M-Down>"] = { "actions.select", desc = "Enter directory or open file" },
+          -- ["<M-Left>"] = { "actions.parent", desc = "Go to parent directory" },
+          -- ["<M-Right>"] = { "actions.select", desc = "Enter directory or open file" },
           ["<CR>"] = "actions.select",
           ["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
           ["<C-h>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
@@ -193,6 +198,19 @@ return {
           border = "rounded",
         },
       })
+
+      vim.keymap.set(
+        "n",
+        "<leader>e",
+        "<cmd>lua require('oil').open_float(vim.fn.expand('%:p:h'))<cr>",
+        { desc = "Open oil float at buffer location" }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>E",
+        "<cmd>lua require('oil').open_float()<cr>",
+        { desc = "Open oil float at cwd" }
+      )
     end
   }
 }

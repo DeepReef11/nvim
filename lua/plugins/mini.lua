@@ -36,18 +36,18 @@ return {
         --   show_help = '?',
         -- },
       })
-      vim.keymap.set(
-        "n",
-        "<leader>e",
-        "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>",
-        { desc = "Open minifiles at buffer location" }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>E",
-        "<cmd>lua MiniFiles.open()<cr>",
-        { desc = "Open minifiles at cwd" }
-      )
+      -- vim.keymap.set(
+      --   "n",
+      --   "<leader>e",
+      --   "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>",
+      --   { desc = "Open minifiles at buffer location" }
+      -- )
+      -- vim.keymap.set(
+      --   "n",
+      --   "<leader>E",
+      --   "<cmd>lua MiniFiles.open()<cr>",
+      --   { desc = "Open minifiles at cwd" }
+      -- )
       local go_in_plus = function()
         for _ = 1, vim.v.count1 do
           MiniFiles.go_in({ close_on_file = true })
