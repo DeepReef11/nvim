@@ -1,6 +1,7 @@
 return {
   {
     "salkin-mada/openscad.nvim",
+    enabled = false,
     config = function()
       vim.g.openscad_load_snippets = true
       vim.g.openscad_cheatsheet_toggle_key = '<Enter>'
