@@ -32,6 +32,7 @@ mason_lsp.setup({
     "prismals",
     "tailwindcss",
     "powershell_es",
+    "pyright",
   },
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
   -- This setting has no relation with the `ensure_installed` setting.
@@ -122,6 +123,13 @@ vim.lsp.config("vuels", {
   filetypes = require("config.lsp.servers.vuels").filetypes,
   init_options = require("config.lsp.servers.vuels").init_options,
   settings = require("config.lsp.servers.vuels").settings,
+})
+
+vim.lsp.config("pyright", {
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = on_attach,
+  settings = require("config.lsp.servers.pyright").settings,
 })
 
 require("ufo").setup({
