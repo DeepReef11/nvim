@@ -32,6 +32,7 @@ return {
 
   {
     "linux-cultist/venv-selector.nvim",
+    enabled = true,
     dependencies = {
       "neovim/nvim-lspconfig",
       "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", --optional
@@ -44,7 +45,25 @@ return {
     },
     ---@type venv-selector.Config
     opts = {
-      -- Your settings go here
+      -- settings = {
+      --   search = {
+      --     my_venvs = {
+      --       command = "find ~/pythonscad -maxdepth 1 -type d -name 'bin'",
+      --     }
+      --   }
+      -- }
     },
+
+    -- config = function()
+    --   require('venv-selector').setup({
+    --
+    --     enable_debug_output = true
+    --
+    --     --     search_venv_managers = true,
+    --     --     search_workspace = false,
+    --     --     path = vim.fn.expand("~/pythonscad"), -- Expand tilde
+    --   })
+    -- end,
+
   },
 }

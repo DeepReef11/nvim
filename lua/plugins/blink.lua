@@ -105,7 +105,7 @@ return {
           'path',
           'snippets',
           'buffer',
-          'codecompanion',
+          -- 'codecompanion',
           -- 'copilot',
         },
         -- cmdline = {},

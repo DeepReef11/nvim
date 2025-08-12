@@ -3,6 +3,10 @@ local silent = { silent = true }
 
 table.unpack = table.unpack or unpack -- 5.1 compatibility
 
+vim.keymap.set('n', '<leader>ps', function()
+  vim.system({'pythonscad', vim.fn.expand('%')})
+end, { desc = 'Launch PythonSCAD with current buffer' })
+
 -- inserst mode binding
 
 -- Delete word backward with Ctrl-Backspace in Insert mode

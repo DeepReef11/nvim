@@ -129,7 +129,17 @@ vim.lsp.config("pyright", {
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
-  settings = require("config.lsp.servers.pyright").settings,
+  -- settings = {require("config.lsp.servers.pyright").settings,
+  settings = {
+    python = {
+      pythonPath = vim.env.VIRTUAL_ENV and vim.env.VIRTUAL_ENV .. "/bin/python" or nil,
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "openFilesOnly",
+        useLibraryCodeForTypes = true
+      }
+    }
+  }
 })
 
 require("ufo").setup({

@@ -21,21 +21,21 @@ return {
     config = function()
       -- local starter = require 'mini.starter'
       -- Management
-      require("mini.files").setup({
-
-        -- mappings = {
-        --   -- Here 'L' will also close explorer after opening file.
-        --   -- Switch to `go_in` if you want to not close explorer.
-        --   go_in = '',
-        --   go_in_plus = '<Right>,l',
-        --   go_out = '<Left>',
-        --   go_out_plus = '',
-        --   -- Will be overriden by manual `<BS>`, which seems wasteful
-        --   reset = '',
-        --   -- Overrides built-in `?` for backward search
-        --   show_help = '?',
-        -- },
-      })
+      -- require("mini.files").setup({
+      --
+      --   -- mappings = {
+      --   --   -- Here 'L' will also close explorer after opening file.
+      --   --   -- Switch to `go_in` if you want to not close explorer.
+      --   --   go_in = '',
+      --   --   go_in_plus = '<Right>,l',
+      --   --   go_out = '<Left>',
+      --   --   go_out_plus = '',
+      --   --   -- Will be overriden by manual `<BS>`, which seems wasteful
+      --   --   reset = '',
+      --   --   -- Overrides built-in `?` for backward search
+      --   --   show_help = '?',
+      --   -- },
+      -- })
       -- vim.keymap.set(
       --   "n",
       --   "<leader>e",
@@ -48,30 +48,30 @@ return {
       --   "<cmd>lua MiniFiles.open()<cr>",
       --   { desc = "Open minifiles at cwd" }
       -- )
-      local go_in_plus = function()
-        for _ = 1, vim.v.count1 do
-          MiniFiles.go_in({ close_on_file = true })
-        end
-      end
-
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "MiniFilesBufferCreate",
-        callback = function(args)
-          local map_buf = function(lhs, rhs)
-            vim.keymap.set("n", lhs, rhs, { buffer = args.data.buf_id })
-          end
-
-          map_buf("<CR>", go_in_plus)
-          map_buf("<Right>", go_in_plus)
-
-          map_buf("<BS>", MiniFiles.go_out)
-          map_buf("<Left>", MiniFiles.go_out)
-
-          map_buf("<Esc>", MiniFiles.close)
-
-          -- Add extra mappings from *MiniFiles-examples*
-        end,
-      })
+      -- local go_in_plus = function()
+      --   for _ = 1, vim.v.count1 do
+      --     MiniFiles.go_in({ close_on_file = true })
+      --   end
+      -- end
+      --
+      -- vim.api.nvim_create_autocmd("User", {
+      --   pattern = "MiniFilesBufferCreate",
+      --   callback = function(args)
+      --     local map_buf = function(lhs, rhs)
+      --       vim.keymap.set("n", lhs, rhs, { buffer = args.data.buf_id })
+      --     end
+      --
+      --     map_buf("<CR>", go_in_plus)
+      --     map_buf("<Right>", go_in_plus)
+      --
+      --     map_buf("<BS>", MiniFiles.go_out)
+      --     map_buf("<Left>", MiniFiles.go_out)
+      --
+      --     map_buf("<Esc>", MiniFiles.close)
+      --
+      --     -- Add extra mappings from *MiniFiles-examples*
+      --   end,
+      -- })
       -- require('mini.tabline').setup() -- Using bufferline instead
 
       -- local sdir = "$NVIM_APPNAME/sessions"
