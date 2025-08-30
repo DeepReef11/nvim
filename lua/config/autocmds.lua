@@ -1,4 +1,3 @@
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -107,7 +106,6 @@ local function run_current_script()
 
   local output_file = get_output_path()
   local python_exec = specific_venv_path .. "/bin/python"
-  vim.notify("Scriptest code "..output_file.." pe: "..python_exec )
 
   -- Prepend executed file path and capture all output
   local cmd = string.format(
