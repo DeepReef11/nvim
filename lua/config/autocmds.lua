@@ -76,3 +76,85 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     vim.bo.filetype = "i3config"
   end
 })
+
+
+
+-- Configuration: Set your specific virtual environment path here
+local specific_venv_path = "/home/jo/venvs/ocp-vscode"
+
+local function is_python_buffer()
+  return vim.bo.filetype == "python"
+end
+
+local function is_target_venv_active()
+  local venv = os.getenv("VIRTUAL_ENV")
+  return venv == specific_venv_path
+end
+
+local function get_output_path()
+  return vim.fn.stdpath("state") .. "/.python_output.txt"
+end
+
+local function run_current_script()
+  local buf_path = vim.api.nvim_buf_get_name(0)
+  if buf_path == "" then
+    vim.notify("Save buffer first!", vim.log.levels.WARN)
+    return
+  end
+
+  -- Ensure state directory exists
+  vim.fn.mkdir(vim.fn.stdpath("state"), "p")
+
+  local output_file = get_output_path()
+  local python_exec = specific_venv_path .. "/bin/python"
+  vim.notify("Scriptest code "..output_file.." pe: "..python_exec )
+
+  -- Prepend executed file path and capture all output
+  local cmd = string.format(
+    "%s %s > %s 2>&1",
+    vim.fn.shellescape(python_exec),
+    vim.fn.shellescape(buf_path),
+    vim.fn.shellescape(output_file)
+  )
+
+  vim.fn.jobstart({"/bin/sh", "-c", cmd}, {
+    on_exit = function(_, exit_code)
+      if exit_code ~= 0 then
+        vim.notify("Script failed with exit code " .. exit_code, vim.log.levels.ERROR)
+      end
+    end,
+  })
+end
+
+-- Setup file watcher for Python buffers
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.py",
+  callback = function()
+    if is_python_buffer() and is_target_venv_active() then
+      run_current_script()
+    end
+  end,
+  desc = "Auto-run Python script on save within target venv",
+})
+
+-- Add both execution and output viewing keybindings
+vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+  pattern = "*.py",
+  callback = function()
+    if is_python_buffer() and is_target_venv_active() then
+      -- Execution binding
+      -- vim.keymap.set("n", "<leader>rr", run_current_script, {
+      --   buffer = true,
+      --   desc = "Run current Python script",
+      -- })
+
+      -- Output viewer binding
+      vim.keymap.set("n", "<leader>bo", function()
+        vim.cmd("edit " .. vim.fn.fnameescape(get_output_path()))
+      end, {
+        buffer = true,
+        desc = "Open Python output buffer",
+      })
+    end
+  end,
+})

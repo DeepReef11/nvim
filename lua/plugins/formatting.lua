@@ -16,8 +16,8 @@ return {
           json = { "prettierd", "prettier" },
           lua = { "stylua" },
           markdown = { "prettierd", "prettier" },
-          python = { "isort", "black" },
-          sql = { "sql-formatter" },
+          python = {  "black" },
+          -- sql = { "sql-formatter" }, //not working
           svelte = { "prettierd", "prettier" },
           typescript = { "prettierd", "prettier" },
           typescriptreact = { "prettierd", "prettier" },
