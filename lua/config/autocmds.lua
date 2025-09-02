@@ -106,10 +106,21 @@ local function run_current_script()
 
   local output_file = get_output_path()
   local python_exec = specific_venv_path .. "/bin/python"
+  local start_time = os.time()
 
-  -- Prepend executed file path and capture all output
+  -- Create header with file path and timestamp
+  local header = string.format("=== Executed: %s at %s ===\n", 
+    buf_path, os.date("%Y-%m-%d %H:%M:%S"))
+
+  -- Write header first
+  local file = io.open(output_file, "w")
+  if file then
+    file:write(header)
+    file:close()
+  end
+
   local cmd = string.format(
-    "%s %s > %s 2>&1",
+    "%s %s >> %s 2>&1",
     vim.fn.shellescape(python_exec),
     vim.fn.shellescape(buf_path),
     vim.fn.shellescape(output_file)
@@ -117,6 +128,19 @@ local function run_current_script()
 
   vim.fn.jobstart({"/bin/sh", "-c", cmd}, {
     on_exit = function(_, exit_code)
+      local end_time = os.time()
+      local duration = end_time - start_time
+
+      -- Append execution info
+      local footer = string.format("\n=== Execution time: %ds | Exit code: %d ===\n", 
+        duration, exit_code)
+
+      local file = io.open(output_file, "a")
+      if file then
+        file:write(footer)
+        file:close()
+      end
+
       if exit_code ~= 0 then
         vim.notify("Script failed with exit code " .. exit_code, vim.log.levels.ERROR)
       end
