@@ -4,7 +4,7 @@ local silent = { silent = true }
 table.unpack = table.unpack or unpack -- 5.1 compatibility
 
 vim.keymap.set('n', '<leader>ps', function()
-  vim.system({'pythonscad', vim.fn.expand('%')})
+  vim.system({ 'pythonscad', vim.fn.expand('%') })
 end, { desc = 'Launch PythonSCAD with current buffer' })
 
 -- inserst mode binding
@@ -68,8 +68,16 @@ local function launch_terminal()
     local wm = vim.fn.system("echo $XDG_CURRENT_DESKTOP"):gsub("%s+", "")
 
     if wm == "niri" then
-      vim.fn.system(term_program ..
-        ' -e \'exec $SHELL -c "sleep 0.1 && niri msg action consume-or-expel-window-left && exec $SHELL"\' &')
+      -- vim.fn.system(term_program ..
+      --   ' -e \'exec $SHELL --login -c "sleep 0.1 && niri msg action consume-or-expel-window-left && exec $SHELL"\' &')
+      vim.system({
+        term_program, -- or xterm, kitty, etc.
+        "-e", "sh", "-c",
+        "sleep 0.1 && niri msg action consume-or-expel-window-left && exec $SHELL --login"
+      }, {
+        detach = true,
+        clear_env = false,
+      })
     else
       -- vim.fn.system("notify-send \"" .. wm .. "\"")
       vim.fn.system(term_program .. ' &')

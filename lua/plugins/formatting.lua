@@ -2,7 +2,7 @@ return {
   {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
-    log_level = vim.log.levels.DEBUG,
+    -- log_level = vim.log.levels.DEBUG,
     config = function()
       local conform = require("conform")
 
@@ -16,7 +16,7 @@ return {
           json = { "prettierd", "prettier" },
           lua = { "stylua" },
           markdown = { "prettierd", "prettier" },
-          python = {  "black" },
+          python = { "black" },
           -- sql = { "sql-formatter" }, //not working
           svelte = { "prettierd", "prettier" },
           typescript = { "prettierd", "prettier" },
@@ -29,7 +29,7 @@ return {
         conform.format({
           lsp_fallback = true,
           async = false,
-          timeout_ms = 500,
+          timeout_ms = 2000,
         })
       end, { desc = "Buffer Format" })
 
