@@ -81,6 +81,12 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 -- Configuration: Set your specific virtual environment path here
 local specific_venv_path = "/home/jo/venvs/ocp-vscode"
 
+-- Global state for Python execution
+_G.python_runner = {
+  current_job_id = nil,
+  current_job_channel = nil,
+}
+
 local function is_python_buffer()
   return vim.bo.filetype == "python"
 end
@@ -101,6 +107,14 @@ local function run_current_script()
     return
   end
 
+  -- Kill previous job (cancels pending export)
+  if _G.python_runner.current_job_id then
+    vim.fn.jobstop(_G.python_runner.current_job_id)
+    vim.notify("Cancelled pending export", vim.log.levels.INFO)
+    _G.python_runner.current_job_id = nil
+    _G.python_runner.current_job_channel = nil
+  end
+
   -- Ensure state directory exists
   vim.fn.mkdir(vim.fn.stdpath("state"), "p")
 
@@ -109,7 +123,7 @@ local function run_current_script()
   local start_time = os.time()
 
   -- Create header with file path and timestamp
-  local header = string.format("=== Executed: %s at %s ===\n", 
+  local header = string.format("=== Executed: %s at %s ===\n",
     buf_path, os.date("%Y-%m-%d %H:%M:%S"))
 
   -- Write header first
@@ -126,13 +140,16 @@ local function run_current_script()
     vim.fn.shellescape(output_file)
   )
 
-  vim.fn.jobstart({"/bin/sh", "-c", cmd}, {
+  _G.python_runner.current_job_id = vim.fn.jobstart({"/bin/sh", "-c", cmd}, {
+    on_stdout = function(chan_id, data, name)
+      _G.python_runner.current_job_channel = chan_id
+    end,
     on_exit = function(_, exit_code)
       local end_time = os.time()
       local duration = end_time - start_time
 
       -- Append execution info
-      local footer = string.format("\n=== Execution time: %ds | Exit code: %d ===\n", 
+      local footer = string.format("\n=== Execution time: %ds | Exit code: %d ===\n",
         duration, exit_code)
 
       local file = io.open(output_file, "a")
@@ -144,9 +161,26 @@ local function run_current_script()
       if exit_code ~= 0 then
         vim.notify("Script failed with exit code " .. exit_code, vim.log.levels.ERROR)
       end
+
+      _G.python_runner.current_job_id = nil
+      _G.python_runner.current_job_channel = nil
     end,
   })
 end
+
+-- Send continue signal to waiting script
+vim.api.nvim_create_user_command('PyExport', function()
+  if not _G.python_runner.current_job_id then
+    vim.notify("No script running or waiting for export", vim.log.levels.WARN)
+    return
+  end
+
+  -- Send newline to stdin (tells script to continue)
+  vim.fn.chansend(_G.python_runner.current_job_id, "y\n")
+  vim.notify("Continuing export...", vim.log.levels.INFO)
+end, {
+  desc = "Continue with export for running script"
+})
 
 -- Setup file watcher for Python buffers
 vim.api.nvim_create_autocmd("BufWritePost", {
