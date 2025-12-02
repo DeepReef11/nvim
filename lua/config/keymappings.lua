@@ -3,6 +3,51 @@ local silent = { silent = true }
 
 table.unpack = table.unpack or unpack -- 5.1 compatibility
 
+local function launch_claude_docker(prompt)
+    local current_dir = vim.fn.getcwd()
+    -- Convert ~/workspace/path to /workspace/path
+    local container_dir = current_dir:gsub(vim.fn.expand('$HOME') .. '/workspace', '/workspace')
+
+    -- Build the docker-compose command
+    local docker_cmd = string.format(
+      'docker-compose -f ~/workspace/ai/safe-container/docker-compose.yml exec -w %s claude-dev claude --dangerously-skip-permissions %s',
+      vim.fn.shellescape(container_dir),
+      prompt
+    )
+
+    local term_program = vim.env.TERM_PROGRAM
+    if term_program then
+      local wm = vim.fn.system("echo $XDG_CURRENT_DESKTOP"):gsub("%s+", "")
+
+      if wm == "niri" then
+        vim.system({
+          term_program,
+          "-e", "sh", "-c",
+          string.format("sleep 0.1 && niri msg action consume-or-expel-window-left && %s", docker_cmd)
+        }, {
+          detach = true,
+          clear_env = false,
+        })
+      else
+        vim.fn.system(string.format("%s -e '%s' &", term_program, docker_cmd))
+      end
+    else
+      vim.notify('TERM_PROGRAM environment variable not set', vim.log.levels.ERROR)
+    end
+  end
+
+vim.api.nvim_create_user_command('Claude', function(opts)
+      launch_claude_docker(opts.args)
+  end, { nargs = '*' })
+
+vim.keymap.set('n', '<leader>cc', function()
+    launch_claude_docker('')
+  end, { desc = 'Launch Claude in Docker' })
+
+vim.keymap.set('n', '<leader>cC', function()
+    launch_claude_docker('-r')
+  end, { desc = 'Launch Claude in Docker (resume)' })
+
 vim.keymap.set('n', '<leader>ps', function()
   vim.system({ 'pythonscad', vim.fn.expand('%') })
 end, { desc = 'Launch PythonSCAD with current buffer' })
