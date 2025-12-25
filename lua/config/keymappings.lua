@@ -10,7 +10,7 @@ local function launch_claude_docker(prompt)
 
     -- Build the docker-compose command
     local docker_cmd = string.format(
-      'docker-compose -f ~/workspace/ai/safe-container/docker-compose.yml exec -w %s claude-dev claude --dangerously-skip-permissions %s',
+      'docker-compose -f ~/workspace/ai/safe-container/docker-compose.yml exec -u ubuntu -w %s claude-dev claude --dangerously-skip-permissions %s',
       vim.fn.shellescape(container_dir),
       prompt
     )

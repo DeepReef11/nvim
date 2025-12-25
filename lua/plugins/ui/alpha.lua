@@ -135,8 +135,8 @@ return {
       end
 
       dashboard.section.buttons.val = {
-        button("s", icons.timer .. " " .. "Session Lens", "<cmd>SessionSearch<CR>", {}),
-        button("l", icons.timer .. " " .. "Load Last Session", "<cmd>SessionRestore<CR>", {}),
+        button("s", icons.timer .. " " .. "Session Lens", "<cmd>AutoSession search<CR>", {}),
+        button("l", icons.timer .. " " .. "Load Last Session", "<cmd>AutoSession restore<CR>", {}),
         button("f", icons.fileNoBg .. " " .. "Find File", "<cmd>Telescope find_files<CR>", {}),
         button("w", icons.word .. " " .. "Find Word",
           "<cmd>lua require('plugins.telescope.other.multi-rg')()<CR>", {}),

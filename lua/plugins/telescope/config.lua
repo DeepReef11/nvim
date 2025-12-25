@@ -58,8 +58,8 @@ function M.setup()
           -- ["<C-d>"] = actions.delete_buffer, -- normally down
           ['<C-Up>'] = require('telescope.actions').preview_scrolling_up,
           ['<C-Down>'] = require('telescope.actions').preview_scrolling_down,
-          ['<C-Left>'] = require('telescope.actions').preview_scrolling_left,
-          ['<C-Right>'] = require('telescope.actions').preview_scrolling_right,
+          -- ['<C-Left>'] = require('telescope.actions').preview_scrolling_left,
+          -- ['<C-Right>'] = require('telescope.actions').preview_scrolling_right,
           ["<C-p>"] = require('telescope.actions.layout').toggle_preview,
         },
         n = {
