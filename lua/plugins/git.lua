@@ -147,23 +147,94 @@ return {
       { "<Leader>gci", '<cmd>GitConflictChooseTheirs<CR>', desc = 'choose incoming' },
     }
   },
-
+-- {
+  --   "polarmutex/git-worktree.nvim",
+  --   enabled = false,
+  --   lazy = false,
+  --   dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+  --   config = function()
+  --     local ok, git_worktree = pcall(require, "git-worktree")
+  --     if not ok then
+  --       vim.notify("Failed to load git-worktree: " .. tostring(git_worktree), vim.log.levels.ERROR)
+  --       return
+  --     end
+  --
+  --     git_worktree.setup({
+  --       change_directory_command = "cd",
+  --       update_on_change = true,
+  --       update_on_change_command = "e .",
+  --       clearjumps_on_change = true,
+  --       autopush = false,
+  --     })
+  --
+  --     local telescope_ok, telescope = pcall(require, "telescope")
+  --     if telescope_ok then
+  --       telescope.load_extension("git_worktree")
+  --     end
+  --   end,
+  --   keys = {
+  --     {
+  --       "<Leader>gww",
+  --       function()
+  --         require('telescope').extensions.git_worktree.git_worktree()
+  --       end,
+  --       desc = "git worktrees"
+  --     },
+  --     {
+  --       "<Leader>gwc",
+  --       function()
+  --         require('telescope').extensions.git_worktree.create_git_worktree()
+  --       end,
+  --       desc = "create worktree"
+  --     },
+  --   },
+  -- },
   {
     "ThePrimeagen/git-worktree.nvim",
     lazy = false,
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
     config = function()
-      require("plugins.git.worktree")
+      local worktree = require("git-worktree")
+
+      worktree.setup({
+        change_directory_command = "cd",
+        update_on_change = true,
+        update_on_change_command = "e .",
+        clearjumps_on_change = true,
+        autopush = false,
+      })
+
+      -- Setup hooks
+      worktree.on_tree_change(function(op, metadata)
+        if op == worktree.Operations.Switch then
+          -- Close other buffers when switching worktrees
+          local current_buf = vim.api.nvim_get_current_buf()
+          for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+            if buf ~= current_buf and vim.api.nvim_buf_is_loaded(buf) then
+              vim.api.nvim_buf_delete(buf, { force = true })
+            end
+          end
+          vim.cmd('e')
+        end
+      end)
+
+      require("telescope").load_extension("git_worktree")
     end,
-    opts = {
-      change_directory_command = "cd",  -- default: "cd",
-      update_on_change = true,          -- default: true,
-      update_on_change_command = "e .", -- default: "e .",
-      clearjumps_on_change = true,      -- default: true,
-      autopush = false,                 -- default: false,
-    },
     keys = {
-      { "<Leader>gww", desc = "worktrees" },
-      { "<Leader>gwc", desc = "create worktree" }
+      {
+        "<Leader>gww",
+        function()
+          require('telescope').extensions.git_worktree.git_worktrees()
+        end,
+        desc = "worktrees"
+      },
+      {
+        "<Leader>gwc",
+        function()
+          require('telescope').extensions.git_worktree.create_git_worktree()
+        end,
+        desc = "create worktree"
+      }
     }
   },
 
