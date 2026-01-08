@@ -317,4 +317,15 @@ return {
       },
     },
   },
+  {
+    "leoluz/nvim-dap-go",
+    event = "BufReadPost",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+    },
+    config = function()
+      require("dap-go").setup()
+    end,
+  },
 }
