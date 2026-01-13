@@ -76,6 +76,17 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
   end
 })
 
+-- Dap config, to load environment variable for instance.
+-- Add `.nvim/nvim-dap.lua` to project, configure for dap to load
+vim.api.nvim_create_autocmd("VimEnter", {
+    pattern = "*",
+    callback = function()
+      local project_dap = vim.fn.getcwd() .. '/.nvim/nvim-dap.lua'
+      if vim.fn.filereadable(project_dap) == 1 then
+        dofile(project_dap)
+      end
+    end
+  })
 
 
 -- Configuration: Set your specific virtual environment path here
