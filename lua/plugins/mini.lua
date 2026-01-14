@@ -7,6 +7,7 @@ return {
   },
   {
     "echasnovski/mini.ai",
+    enabled = true,
     lazy = false,
     version = "*",
     config = function()

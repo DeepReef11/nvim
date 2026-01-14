@@ -21,6 +21,7 @@ return {
           "markdown",
           "prisma",
           "vim",
+          "go",
         "powershell",
         },                              -- one of "all", or a list of languages
         sync_install = false,           -- install languages synchronously (only applied to `ensure_installed`)
@@ -50,22 +51,24 @@ return {
             enable = true,
             set_jumps = true, -- whether to set jumps in the jumplist
             goto_next_start = {
-              ["]]"] = "@jsx.element",
+              ["]["] = "@block.outer",
               ["]f"] = "@function.outer",
-              ["]m"] = "@class.outer",
+              ["]c"] = "@class.outer",
             },
             goto_next_end = {
+              ["]]"] = "@block.outer",
               ["]F"] = "@function.outer",
-              ["]M"] = "@class.outer",
+              ["]C"] = "@class.outer",
             },
             goto_previous_start = {
-              ["[["] = "@jsx.element",
+              ["[["] = "@block.outer",
               ["[f"] = "@function.outer",
-              ["[m"] = "@class.outer",
+              ["[c"] = "@class.outer",
             },
             goto_previous_end = {
+              ["[]"] = "@block.outer",
               ["[F"] = "@function.outer",
-              ["[M"] = "@class.outer",
+              ["[C"] = "@class.outer",
             },
           },
           select = {

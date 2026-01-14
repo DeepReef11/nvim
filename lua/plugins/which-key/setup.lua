@@ -12,7 +12,7 @@ wk.setup({
 		-- No actual key bindings are created
 		spelling = {
 			enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-			suggestions = 20, -- how many suggestions should be shown in the list?
+			suggestions = 25, -- how many suggestions should be shown in the list?
 		},
 		presets = {
 			operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
@@ -39,7 +39,6 @@ wk.setup({
 		align = "left", -- align columns left, center or right
 	},
 	show_help = true, -- show help message on the command line when the popup is visible
-  
 })
 
 -- ignore

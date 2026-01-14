@@ -134,6 +134,18 @@ function M.get_keymaps()
       "<leader>fG",
       function()
         builtin.live_grep({
+          -- grep_open_files = true,
+          prompt_title = "Live Grep in project Files including hidden files",
+          hidden = true,
+          additional_args = utils.grep_exclusions_hidden
+        })
+      end,
+      desc = "Find by grep in open files"
+    },
+    {
+      "<leader>fo",
+      function()
+        builtin.live_grep({
           grep_open_files = true,
           prompt_title = "Live Grep in Open Files including hidden files",
           hidden = true,

@@ -119,8 +119,8 @@ return {
       -- ╭──────────────────────────────────────────────────────────╮
       -- │ Icons                                                    │
       -- ╰──────────────────────────────────────────────────────────╯
-      vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
-      vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapStopped", { text = "➔", texthl = "", linehl = "", numhl = "" })
 
       -- ╭──────────────────────────────────────────────────────────╮
       -- │ Keybindings                                              │
@@ -132,12 +132,12 @@ return {
       keymap("n", "<Leader>di", "<CMD>lua require('dap').step_into()<CR>", opts)
       keymap("n", "<Leader>do", "<CMD>lua require('dap').step_over()<CR>", opts)
       keymap("n", "<Leader>dO", "<CMD>lua require('dap').step_out()<CR>", opts)
-      keymap("n", "<Leader>dt", "<CMD>lua require('dap').terminate()<CR>", opts)
+      keymap("n", "<Leader>dT", "<CMD>lua require('dap').terminate()<CR>", opts)
       keymap("n", "<Leader>du", "<CMD>lua require('dapui').open()<CR>", opts)
       keymap("n", "<Leader>dc", "<CMD>lua require('dapui').close()<CR>", opts)
 
 
-      keymap("n", "<Leader>dT", "<CMD>lua require('dap-go').debug_test()<CR>", opts)
+      keymap("n", "<Leader>dx", "<CMD>lua require('dap-go').debug_test()<CR>", opts)
 
       keymap("n", "<Leader>dw", "<CMD>lua require('dapui').float_element('watches', { enter = true })<CR>", opts)
       keymap("n", "<Leader>ds", "<CMD>lua require('dapui').float_element('scopes', { enter = true })<CR>", opts)
@@ -299,11 +299,12 @@ return {
       "<Leader>di",
       "<Leader>do",
       "<Leader>dO",
-      "<Leader>dt",
+      -- "<Leader>dt",
     },
     dependencies = {
       "theHamsta/nvim-dap-virtual-text",
       "rcarriga/nvim-dap-ui",
+      "lucaSartore/nvim-dap-exception-breakpoints",
       "mxsdev/nvim-dap-vscode-js",
       {
         "LiadOz/nvim-dap-repl-highlights",
@@ -320,6 +321,60 @@ return {
       },
     },
   },
+{
+  "Carcuis/dap-breakpoints.nvim",
+  lazy = false,
+  dependencies = {
+    "Weissle/persistent-breakpoints.nvim",
+    "mfussenegger/nvim-dap",
+  },
+  config = function()
+    require("dap-breakpoints").setup({
+      auto_load = true,
+      auto_save = true,
+      auto_reveal_popup = true,
+      virtual_text = {
+        enabled = true,
+        priority = 10,
+        current_line_only = false,
+        preset = "default",
+        order = "chl",
+        layout = {
+          position = 121,
+          spaces = 4,
+        },
+        prefix = {
+          normal = "",
+          log_point = "󰰍 ",
+          conditional = "󰯲 ",
+          hit_condition = "󰰁 ",
+        },
+        custom_text_handler = nil,
+      },
+    })
+
+    vim.schedule(function()
+      local dapbp_api = require("dap-breakpoints.api")
+      local keymap = vim.keymap.set
+      local opts = { noremap = true, silent = true }
+
+      keymap("n", "<leader>dts", dapbp_api.set_breakpoint, opts)
+      keymap("n", "<leader>dtc", dapbp_api.set_conditional_breakpoint, opts)
+      keymap("n", "<leader>dth", dapbp_api.set_hit_condition_breakpoint, opts)
+      keymap("n", "<leader>dtl", dapbp_api.set_log_point, opts)
+      keymap("n", "<leader>dtL", function() dapbp_api.load_breakpoints({ notify = "always" }) end, opts)
+      keymap("n", "<leader>dtS", function() dapbp_api.save_breakpoints({ notify = "always" }) end, opts)
+      keymap("n", "<leader>dte", dapbp_api.edit_property, opts)
+      keymap("n", "<leader>dtE", function() dapbp_api.edit_property({ all = true }) end, opts)
+      keymap("n", "<leader>dtv", dapbp_api.toggle_virtual_text, opts)
+      keymap("n", "<leader>dtC", dapbp_api.clear_all_breakpoints, opts)
+      keymap("n", "[b", dapbp_api.go_to_previous, opts)
+      keymap("n", "]b", dapbp_api.go_to_next, opts)
+      keymap("n", "<M-b>", dapbp_api.popup_reveal, opts)
+      keymap("n", "<leader>def", dapbp_api.edit_exception_filters, opts)
+    end)
+  end,
+},
   {
     "leoluz/nvim-dap-go",
     event = "BufReadPost",
