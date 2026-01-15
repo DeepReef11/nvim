@@ -1,3 +1,5 @@
+-- Plugin to track time spend on project file/branch/etc.
+
 return {
   "ptdewey/pendulum-nvim",
   config = function()

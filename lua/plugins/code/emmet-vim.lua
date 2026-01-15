@@ -2,7 +2,7 @@
 
 -- return { 'mattn/emmet-vim' }
 return { {
--- enabled = false,
+enabled = false,
    "mattn/emmet-vim",
 
   config = function()
