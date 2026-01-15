@@ -1,0 +1,5355 @@
+{
+  "tasks": [
+    "parse_keymappings",
+    "parse_init",
+    "analyze_vim_defaults",
+    "plugin_file:lua/plugins/ai/claude-code.lua",
+    "plugin_file:lua/plugins/ai/codecompanion.lua",
+    "plugin_file:lua/plugins/ai/codeium.lua",
+    "plugin_file:lua/plugins/ai/copilot-chat.lua",
+    "plugin_file:lua/plugins/ai/copilot.lua",
+    "plugin_file:lua/plugins/autopairs.lua",
+    "plugin_file:lua/plugins/blink.lua",
+    "plugin_file:lua/plugins/code/comment.lua",
+    "plugin_file:lua/plugins/code/emmet-vim.lua",
+    "plugin_file:lua/plugins/code/neogen.lua",
+    "plugin_file:lua/plugins/code/package-info.lua",
+    "plugin_file:lua/plugins/code/printer.lua",
+    "plugin_file:lua/plugins/code/vim-doge.lua",
+    "plugin_file:lua/plugins/codesnap.lua",
+    "plugin_file:lua/plugins/dap.lua",
+    "plugin_file:lua/plugins/editor/flash.lua",
+    "plugin_file:lua/plugins/editor/multicursors.lua",
+    "plugin_file:lua/plugins/editor/openscad.lua",
+    "plugin_file:lua/plugins/editor/stay-in-place.lua",
+    "plugin_file:lua/plugins/formatting.lua",
+    "plugin_file:lua/plugins/git.lua",
+    "plugin_file:lua/plugins/git/diffview.lua",
+    "plugin_file:lua/plugins/git/worktree.lua",
+    "plugin_file:lua/plugins/init.lua",
+    "plugin_file:lua/plugins/languages/go.lua",
+    "plugin_file:lua/plugins/languages/markdown.lua",
+    "plugin_file:lua/plugins/languages/typescript.lua",
+    "plugin_file:lua/plugins/linting.lua",
+    "plugin_file:lua/plugins/lsp.lua",
+    "plugin_file:lua/plugins/markdown-preview.lua",
+    "plugin_file:lua/plugins/mini.lua",
+    "plugin_file:lua/plugins/neogit.lua",
+    "plugin_file:lua/plugins/notify.lua",
+    "plugin_file:lua/plugins/nvim-ufo.lua",
+    "plugin_file:lua/plugins/nvim-web-devicons.lua",
+    "plugin_file:lua/plugins/oil.lua",
+    "plugin_file:lua/plugins/qmk.lua",
+    "plugin_file:lua/plugins/refactoring.lua",
+    "plugin_file:lua/plugins/scissors.lua",
+    "plugin_file:lua/plugins/session-manager.lua",
+    "plugin_file:lua/plugins/smart-splits.lua",
+    "plugin_file:lua/plugins/snacks.lua",
+    "plugin_file:lua/plugins/spectre.lua",
+    "plugin_file:lua/plugins/spider.lua",
+    "plugin_file:lua/plugins/tabout.lua",
+    "plugin_file:lua/plugins/telescope.lua",
+    "plugin_file:lua/plugins/telescope/config.lua",
+    "plugin_file:lua/plugins/telescope/keymaps.lua",
+    "plugin_file:lua/plugins/telescope/keymaps/find.lua",
+    "plugin_file:lua/plugins/telescope/keymaps/misc.lua",
+    "plugin_file:lua/plugins/telescope/keymaps/search.lua",
+    "plugin_file:lua/plugins/telescope/other/multi-rg.lua",
+    "plugin_file:lua/plugins/telescope/other/pickers.lua",
+    "plugin_file:lua/plugins/telescope/utils.lua",
+    "plugin_file:lua/plugins/testing.lua",
+    "plugin_file:lua/plugins/text-case.lua",
+    "plugin_file:lua/plugins/todo-comments.lua",
+    "plugin_file:lua/plugins/toggleterm.lua",
+    "plugin_file:lua/plugins/treesitter.lua",
+    "plugin_file:lua/plugins/treesj.lua",
+    "plugin_file:lua/plugins/trouble.lua",
+    "plugin_file:lua/plugins/ui/alpha.lua",
+    "plugin_file:lua/plugins/ui/barbecue.lua",
+    "plugin_file:lua/plugins/ui/bqf-init.lua",
+    "plugin_file:lua/plugins/ui/bufferline.lua",
+    "plugin_file:lua/plugins/ui/colorizer.lua",
+    "plugin_file:lua/plugins/ui/colorscheme.lua",
+    "plugin_file:lua/plugins/ui/dressing.lua",
+    "plugin_file:lua/plugins/ui/fidget.lua",
+    "plugin_file:lua/plugins/ui/image.lua",
+    "plugin_file:lua/plugins/ui/indent.lua",
+    "plugin_file:lua/plugins/ui/lualine.lua",
+    "plugin_file:lua/plugins/ui/marks.lua",
+    "plugin_file:lua/plugins/ui/navic.lua",
+    "plugin_file:lua/plugins/ui/noice.lua",
+    "plugin_file:lua/plugins/ui/numb.lua",
+    "plugin_file:lua/plugins/ui/scratch.lua",
+    "plugin_file:lua/plugins/util/auto-session.lua",
+    "plugin_file:lua/plugins/util/faster.lua",
+    "plugin_file:lua/plugins/util/pendulum.lua",
+    "plugin_file:lua/plugins/which-key.lua",
+    "plugin_file:lua/plugins/which-key/setup.lua",
+    "plugin_file:lua/plugins/yanky.lua",
+    "plugin_defaults:Comment.nvim",
+    "plugin_defaults:CopilotChat.nvim",
+    "plugin_defaults:alpha-nvim",
+    "plugin_defaults:auto-session",
+    "plugin_defaults:blink.cmp",
+    "plugin_defaults:bufferline.nvim",
+    "plugin_defaults:claude-code.nvim",
+    "plugin_defaults:codecompanion.nvim",
+    "plugin_defaults:conform.nvim",
+    "plugin_defaults:copilot.lua",
+    "plugin_defaults:diffview.nvim",
+    "plugin_defaults:flash.nvim",
+    "plugin_defaults:fzf-lua",
+    "plugin_defaults:git-conflict.nvim",
+    "plugin_defaults:git-worktree.nvim",
+    "plugin_defaults:gitlinker.nvim",
+    "plugin_defaults:gitsigns.nvim",
+    "plugin_defaults:go.nvim",
+    "plugin_defaults:lazygit.nvim",
+    "plugin_defaults:marks.nvim",
+    "plugin_defaults:mini.ai",
+    "plugin_defaults:mini.align",
+    "plugin_defaults:mini.bufremove",
+    "plugin_defaults:mini.surround",
+    "plugin_defaults:multicursors.nvim",
+    "plugin_defaults:neogen",
+    "plugin_defaults:neogit",
+    "plugin_defaults:neotest",
+    "plugin_defaults:noice.nvim",
+    "plugin_defaults:nvim-autopairs",
+    "plugin_defaults:nvim-bqf",
+    "plugin_defaults:nvim-dap",
+    "plugin_defaults:nvim-dap-ui",
+    "plugin_defaults:nvim-lint",
+    "plugin_defaults:nvim-lspconfig",
+    "plugin_defaults:nvim-scissors",
+    "plugin_defaults:nvim-spectre",
+    "plugin_defaults:nvim-spider",
+    "plugin_defaults:nvim-surround",
+    "plugin_defaults:nvim-tree.lua",
+    "plugin_defaults:nvim-treesitter",
+    "plugin_defaults:nvim-treesitter-textobjects",
+    "plugin_defaults:nvim-ufo",
+    "plugin_defaults:octo.nvim",
+    "plugin_defaults:oil.nvim",
+    "plugin_defaults:package-info.nvim",
+    "plugin_defaults:refactoring.nvim",
+    "plugin_defaults:smart-splits.nvim",
+    "plugin_defaults:snacks.nvim",
+    "plugin_defaults:tabout.nvim",
+    "plugin_defaults:telescope.nvim",
+    "plugin_defaults:text-case.nvim",
+    "plugin_defaults:todo-comments.nvim",
+    "plugin_defaults:toggleterm.nvim",
+    "plugin_defaults:treesj",
+    "plugin_defaults:trouble.nvim",
+    "plugin_defaults:which-key.nvim",
+    "plugin_defaults:yanky.nvim",
+    "detect_conflicts",
+    "generate_suggestions",
+    "compile_report"
+  ],
+  "completed": [
+    "parse_keymappings",
+    "parse_init",
+    "analyze_vim_defaults",
+    "plugin_file:lua/plugins/ai/claude-code.lua",
+    "plugin_file:lua/plugins/ai/codecompanion.lua",
+    "plugin_file:lua/plugins/ai/codeium.lua",
+    "plugin_file:lua/plugins/ai/copilot-chat.lua",
+    "plugin_file:lua/plugins/ai/copilot.lua",
+    "plugin_file:lua/plugins/autopairs.lua",
+    "plugin_file:lua/plugins/blink.lua",
+    "plugin_file:lua/plugins/code/comment.lua",
+    "plugin_file:lua/plugins/code/emmet-vim.lua",
+    "plugin_file:lua/plugins/code/neogen.lua",
+    "plugin_file:lua/plugins/code/package-info.lua",
+    "plugin_file:lua/plugins/code/printer.lua",
+    "plugin_file:lua/plugins/code/vim-doge.lua",
+    "plugin_file:lua/plugins/codesnap.lua",
+    "plugin_file:lua/plugins/dap.lua",
+    "plugin_file:lua/plugins/editor/flash.lua",
+    "plugin_file:lua/plugins/editor/multicursors.lua",
+    "plugin_file:lua/plugins/editor/openscad.lua",
+    "plugin_file:lua/plugins/editor/stay-in-place.lua",
+    "plugin_file:lua/plugins/formatting.lua",
+    "plugin_file:lua/plugins/git.lua",
+    "plugin_file:lua/plugins/git/diffview.lua",
+    "plugin_file:lua/plugins/git/worktree.lua",
+    "plugin_file:lua/plugins/init.lua",
+    "plugin_file:lua/plugins/languages/go.lua",
+    "plugin_file:lua/plugins/languages/markdown.lua",
+    "plugin_file:lua/plugins/languages/typescript.lua",
+    "plugin_file:lua/plugins/linting.lua",
+    "plugin_file:lua/plugins/lsp.lua",
+    "plugin_file:lua/plugins/markdown-preview.lua",
+    "plugin_file:lua/plugins/mini.lua",
+    "plugin_file:lua/plugins/neogit.lua",
+    "plugin_file:lua/plugins/notify.lua",
+    "plugin_file:lua/plugins/nvim-ufo.lua",
+    "plugin_file:lua/plugins/nvim-web-devicons.lua",
+    "plugin_file:lua/plugins/oil.lua",
+    "plugin_file:lua/plugins/qmk.lua",
+    "plugin_file:lua/plugins/refactoring.lua",
+    "plugin_file:lua/plugins/scissors.lua",
+    "plugin_file:lua/plugins/session-manager.lua",
+    "plugin_file:lua/plugins/smart-splits.lua",
+    "plugin_file:lua/plugins/snacks.lua",
+    "plugin_file:lua/plugins/spectre.lua",
+    "plugin_file:lua/plugins/spider.lua",
+    "plugin_file:lua/plugins/tabout.lua",
+    "plugin_file:lua/plugins/telescope.lua",
+    "plugin_file:lua/plugins/telescope/config.lua",
+    "plugin_file:lua/plugins/telescope/keymaps.lua",
+    "plugin_file:lua/plugins/telescope/keymaps/find.lua",
+    "plugin_file:lua/plugins/telescope/keymaps/misc.lua",
+    "plugin_file:lua/plugins/telescope/keymaps/search.lua",
+    "plugin_file:lua/plugins/telescope/other/multi-rg.lua",
+    "plugin_file:lua/plugins/telescope/other/pickers.lua",
+    "plugin_file:lua/plugins/telescope/utils.lua",
+    "plugin_file:lua/plugins/testing.lua",
+    "plugin_file:lua/plugins/text-case.lua",
+    "plugin_file:lua/plugins/todo-comments.lua",
+    "plugin_file:lua/plugins/toggleterm.lua",
+    "plugin_file:lua/plugins/treesitter.lua",
+    "plugin_file:lua/plugins/treesj.lua",
+    "plugin_file:lua/plugins/trouble.lua",
+    "plugin_file:lua/plugins/ui/alpha.lua",
+    "plugin_file:lua/plugins/ui/barbecue.lua",
+    "plugin_file:lua/plugins/ui/bqf-init.lua",
+    "plugin_file:lua/plugins/ui/bufferline.lua",
+    "plugin_file:lua/plugins/ui/colorizer.lua",
+    "plugin_file:lua/plugins/ui/colorscheme.lua",
+    "plugin_file:lua/plugins/ui/dressing.lua",
+    "plugin_file:lua/plugins/ui/fidget.lua",
+    "plugin_file:lua/plugins/ui/image.lua",
+    "plugin_file:lua/plugins/ui/indent.lua",
+    "plugin_file:lua/plugins/ui/lualine.lua",
+    "plugin_file:lua/plugins/ui/marks.lua",
+    "plugin_file:lua/plugins/ui/navic.lua",
+    "plugin_file:lua/plugins/ui/noice.lua",
+    "plugin_file:lua/plugins/ui/numb.lua",
+    "plugin_file:lua/plugins/ui/scratch.lua",
+    "plugin_file:lua/plugins/util/auto-session.lua",
+    "plugin_file:lua/plugins/util/faster.lua",
+    "plugin_file:lua/plugins/util/pendulum.lua",
+    "plugin_file:lua/plugins/which-key.lua",
+    "plugin_file:lua/plugins/which-key/setup.lua",
+    "plugin_file:lua/plugins/yanky.lua",
+    "plugin_defaults:Comment.nvim",
+    "plugin_defaults:CopilotChat.nvim",
+    "plugin_defaults:alpha-nvim",
+    "plugin_defaults:auto-session",
+    "plugin_defaults:blink.cmp",
+    "plugin_defaults:bufferline.nvim",
+    "plugin_defaults:claude-code.nvim",
+    "plugin_defaults:codecompanion.nvim",
+    "plugin_defaults:conform.nvim",
+    "plugin_defaults:copilot.lua",
+    "plugin_defaults:diffview.nvim",
+    "plugin_defaults:flash.nvim",
+    "plugin_defaults:fzf-lua",
+    "plugin_defaults:git-conflict.nvim",
+    "plugin_defaults:git-worktree.nvim",
+    "plugin_defaults:gitlinker.nvim",
+    "plugin_defaults:gitsigns.nvim",
+    "plugin_defaults:go.nvim",
+    "plugin_defaults:lazygit.nvim",
+    "plugin_defaults:marks.nvim",
+    "plugin_defaults:mini.ai",
+    "plugin_defaults:mini.align",
+    "plugin_defaults:mini.bufremove",
+    "plugin_defaults:mini.surround",
+    "plugin_defaults:multicursors.nvim",
+    "plugin_defaults:neogen",
+    "plugin_defaults:neogit",
+    "plugin_defaults:neotest",
+    "plugin_defaults:noice.nvim",
+    "plugin_defaults:nvim-autopairs",
+    "plugin_defaults:nvim-bqf",
+    "plugin_defaults:nvim-dap",
+    "plugin_defaults:nvim-dap-ui",
+    "plugin_defaults:nvim-lint",
+    "plugin_defaults:nvim-lspconfig",
+    "plugin_defaults:nvim-scissors",
+    "plugin_defaults:nvim-spectre",
+    "plugin_defaults:nvim-spider",
+    "plugin_defaults:nvim-surround",
+    "plugin_defaults:nvim-tree.lua",
+    "plugin_defaults:nvim-treesitter",
+    "plugin_defaults:nvim-treesitter-textobjects",
+    "plugin_defaults:nvim-ufo",
+    "plugin_defaults:octo.nvim",
+    "plugin_defaults:oil.nvim",
+    "plugin_defaults:package-info.nvim",
+    "plugin_defaults:refactoring.nvim",
+    "plugin_defaults:smart-splits.nvim",
+    "plugin_defaults:snacks.nvim",
+    "plugin_defaults:tabout.nvim",
+    "plugin_defaults:telescope.nvim",
+    "plugin_defaults:text-case.nvim",
+    "plugin_defaults:todo-comments.nvim",
+    "plugin_defaults:toggleterm.nvim",
+    "plugin_defaults:treesj",
+    "plugin_defaults:trouble.nvim",
+    "plugin_defaults:which-key.nvim",
+    "plugin_defaults:yanky.nvim",
+    "detect_conflicts",
+    "generate_suggestions",
+    "compile_report"
+  ],
+  "current": null,
+  "errors": [],
+  "data": {
+    "custom_keybindings": [
+      {
+        "key": "<leader>cc",
+        "mode": "n",
+        "action": "launch_claude_docker('')",
+        "desc": "Launch Claude in Docker",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>cC",
+        "mode": "n",
+        "action": "launch_claude_docker('-r')",
+        "desc": "Launch Claude in Docker (resume)",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>ps",
+        "mode": "n",
+        "action": "pythonscad",
+        "desc": "Launch PythonSCAD with current buffer",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<C-BS>",
+        "mode": "i",
+        "action": "<C-w>",
+        "desc": "Delete word backward",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<C-h>",
+        "mode": "i",
+        "action": "<C-w>",
+        "desc": "Delete word backward (terminal fallback)",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<C-Del>",
+        "mode": "i",
+        "action": "<C-o>dw",
+        "desc": "Delete word forward",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "i",
+        "mode": "n",
+        "action": "smart_indent",
+        "desc": "Properly indent on empty line when insert",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "gV",
+        "mode": "n",
+        "action": "v`]o`[",
+        "desc": "Select last pasted (Visual mode)",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<C-I>",
+        "mode": "n",
+        "action": "<C-I>",
+        "desc": "Fix moving forward in jumplist",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "H",
+        "mode": "n",
+        "action": "^",
+        "desc": "Move to first non-blank character",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<S-Up>",
+        "mode": "v",
+        "action": "<Up>",
+        "desc": "Visual mode prevent page up",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<S-Down>",
+        "mode": "v",
+        "action": "<Down>",
+        "desc": "Visual mode prevent page down",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<S-Left>",
+        "mode": "v",
+        "action": "<Left>",
+        "desc": "Visual mode move left",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<S-Right>",
+        "mode": "v",
+        "action": "<Right>",
+        "desc": "Visual mode move right",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<",
+        "mode": "v",
+        "action": "<gv",
+        "desc": "Keep visual mode after indent left",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": ">",
+        "mode": "v",
+        "action": ">gv",
+        "desc": "Keep visual mode after indent right",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "`",
+        "mode": "v",
+        "action": "u",
+        "desc": "Lowercase in visual mode",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<A-`>",
+        "mode": "v",
+        "action": "U",
+        "desc": "Uppercase in visual mode",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<CR>",
+        "mode": "n",
+        "action": ":noh<CR><CR>",
+        "desc": "Remove highlights",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>bk",
+        "mode": "n",
+        "action": "<cmd>bd<CR>",
+        "desc": "Buffer Delete",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>bd",
+        "mode": "n",
+        "action": "<cmd>bd!<CR>",
+        "desc": "Buffer Delete force!",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<Esc>",
+        "mode": "n",
+        "action": "<cmd>nohlsearch<CR>",
+        "desc": "Remove highlights on escape",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "jj",
+        "mode": "i",
+        "action": "<Esc>",
+        "desc": "Exit insert mode",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "x",
+        "mode": "n",
+        "action": "\"_x",
+        "desc": "Delete char without yank",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "X",
+        "mode": "n",
+        "action": "\"_X",
+        "desc": "Delete char backward without yank",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "x",
+        "mode": "v",
+        "action": "\"_x",
+        "desc": "Delete without yank",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "X",
+        "mode": "v",
+        "action": "\"_X",
+        "desc": "Delete backward without yank",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<Del>",
+        "mode": "n",
+        "action": "\"_x",
+        "desc": "Delete char without yank",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "p",
+        "mode": "v",
+        "action": "\"_dP",
+        "desc": "Paste without yank",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>q",
+        "mode": "n",
+        "action": "toggle_quicklist()",
+        "desc": "Toggle quicklist",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<C-a>",
+        "mode": "n",
+        "action": "switch/speeddating increment",
+        "desc": "Manually invoke speeddating/switch",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<C-x>",
+        "mode": "n",
+        "action": "switch/speeddating decrement",
+        "desc": "Manually invoke speeddating/switch (reverse)",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "gx",
+        "mode": "n",
+        "action": "xdg-open",
+        "desc": "Open links under cursor in browser",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "gr",
+        "mode": "n",
+        "action": "vim.lsp.buf.references()",
+        "desc": "Go to references (excluding declaration)",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "gy",
+        "mode": "n",
+        "action": "vim.lsp.buf.type_definition()",
+        "desc": "Go to type definition",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<C-Space>",
+        "mode": "n",
+        "action": "vim.lsp.buf.code_action()",
+        "desc": "LSP Code Action",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>ca",
+        "mode": "n",
+        "action": "vim.lsp.buf.code_action()",
+        "desc": "LSP Code Action",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>ca",
+        "mode": "v",
+        "action": "vim.lsp.buf.code_action()",
+        "desc": "LSP Code Action (visual)",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>cr",
+        "mode": "n",
+        "action": "vim.lsp.buf.rename()",
+        "desc": "LSP Rename",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>cf",
+        "mode": "n",
+        "action": "lsp.format()",
+        "desc": "LSP Format",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>cf",
+        "mode": "v",
+        "action": "lsp.buf.format(range)",
+        "desc": "LSP Format (visual range)",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>cl",
+        "mode": "n",
+        "action": "vim.diagnostic.open_float()",
+        "desc": "Open diagnostic float",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "gl",
+        "mode": "n",
+        "action": "vim.diagnostic.open_float()",
+        "desc": "Open diagnostic float",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "]g",
+        "mode": "n",
+        "action": "vim.diagnostic.goto_next()",
+        "desc": "Go to next diagnostic",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "[g",
+        "mode": "n",
+        "action": "vim.diagnostic.goto_prev()",
+        "desc": "Go to previous diagnostic",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<C-Space>",
+        "mode": "i",
+        "action": "vim.lsp.buf.completion",
+        "desc": "LSP show suggestion, trigger completion",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<C-s>",
+        "mode": "n",
+        "action": "vim.lsp.buf.signature_help()",
+        "desc": "LSP show signature (Press twice to focus)",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<C-k>",
+        "mode": "n",
+        "action": "ufo.peek/lsp.hover",
+        "desc": "Peek folded lines or LSP hover",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>T",
+        "mode": "n",
+        "action": "launch_terminal()",
+        "desc": "Execute terminal program in background",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>cy",
+        "mode": "x",
+        "action": "CodeSnapText",
+        "desc": "Yank and format text for sharing",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<leader>cy",
+        "mode": "n",
+        "action": "CodeSnapText",
+        "desc": "Yank and format text for sharing",
+        "source": "keymappings.lua"
+      },
+      {
+        "key": "<C-.>",
+        "mode": "n",
+        "action": "Toggle Claude Code",
+        "desc": "Toggle Claude Code terminal (disabled plugin)",
+        "source": "claude-code.lua"
+      },
+      {
+        "key": "<C-.>",
+        "mode": "t",
+        "action": "Toggle Claude Code",
+        "desc": "Toggle Claude Code from terminal (disabled plugin)",
+        "source": "claude-code.lua"
+      },
+      {
+        "key": "<leader>ccl",
+        "mode": "n",
+        "action": "<cmd>CodeCompanion<CR>",
+        "desc": "CodeCompanion Inline (disabled plugin)",
+        "source": "codecompanion.lua"
+      },
+      {
+        "key": "<leader>ccc",
+        "mode": "n",
+        "action": "<cmd>CodeCompanionChat<CR>",
+        "desc": "CodeCompanion Chat (disabled plugin)",
+        "source": "codecompanion.lua"
+      },
+      {
+        "key": "<C-x>",
+        "mode": "i",
+        "action": "keymaps.completion",
+        "desc": "CodeCompanion Chat Completion Menu (disabled plugin)",
+        "source": "codecompanion.lua"
+      },
+      {
+        "key": "<leader>cce",
+        "mode": "n",
+        "action": "<cmd>CopilotChatExplain<cr>",
+        "desc": "CopilotChat - Explain code (disabled plugin)",
+        "source": "copilot-chat.lua"
+      },
+      {
+        "key": "<leader>cct",
+        "mode": "n",
+        "action": "<cmd>CopilotChatTests<cr>",
+        "desc": "CopilotChat - Generate tests (disabled plugin)",
+        "source": "copilot-chat.lua"
+      },
+      {
+        "key": "<leader>ccc",
+        "mode": "n,x",
+        "action": ":CopilotChatToggle<CR>",
+        "desc": "CopilotChat (disabled plugin)",
+        "source": "copilot-chat.lua"
+      },
+      {
+        "key": "<leader>ccf",
+        "mode": "n",
+        "action": "<cmd>CopilotChatFixDiagnostic<cr>",
+        "desc": "CopilotChat Fix Diagnostic (disabled plugin)",
+        "source": "copilot-chat.lua"
+      },
+      {
+        "key": "<TAB>",
+        "mode": "suggestion",
+        "action": "accept",
+        "desc": "Accept Copilot suggestion (disabled plugin)",
+        "source": "copilot.lua"
+      },
+      {
+        "key": "<C-w>",
+        "mode": "suggestion",
+        "action": "accept_word",
+        "desc": "Accept word from Copilot suggestion (disabled plugin)",
+        "source": "copilot.lua"
+      },
+      {
+        "key": "<C-l>",
+        "mode": "suggestion",
+        "action": "accept_line",
+        "desc": "Accept line from Copilot suggestion (disabled plugin)",
+        "source": "copilot.lua"
+      },
+      {
+        "key": "<C-j>",
+        "mode": "suggestion",
+        "action": "next",
+        "desc": "Next Copilot suggestion (disabled plugin)",
+        "source": "copilot.lua"
+      },
+      {
+        "key": "<C-k>",
+        "mode": "suggestion",
+        "action": "prev",
+        "desc": "Previous Copilot suggestion (disabled plugin)",
+        "source": "copilot.lua"
+      },
+      {
+        "key": "<ESC>",
+        "mode": "suggestion",
+        "action": "dismiss",
+        "desc": "Dismiss Copilot suggestion (disabled plugin)",
+        "source": "copilot.lua"
+      },
+      {
+        "key": "<C-space>",
+        "mode": "i",
+        "action": "show/show_documentation/hide_documentation",
+        "desc": "Toggle completion and documentation (blink.cmp)",
+        "source": "blink.lua"
+      },
+      {
+        "key": "<S-k>",
+        "mode": "i",
+        "action": "scroll_documentation_up",
+        "desc": "Scroll documentation up (blink.cmp)",
+        "source": "blink.lua"
+      },
+      {
+        "key": "<S-j>",
+        "mode": "i",
+        "action": "scroll_documentation_down",
+        "desc": "Scroll documentation down (blink.cmp)",
+        "source": "blink.lua"
+      },
+      {
+        "key": "<PageUp>",
+        "mode": "i",
+        "action": "scroll_documentation_up",
+        "desc": "Scroll documentation up (blink.cmp)",
+        "source": "blink.lua"
+      },
+      {
+        "key": "<PageDown>",
+        "mode": "i",
+        "action": "scroll_documentation_down",
+        "desc": "Scroll documentation down (blink.cmp)",
+        "source": "blink.lua"
+      },
+      {
+        "key": "<A-CR>",
+        "mode": "i",
+        "action": "accept",
+        "desc": "Accept completion with Alt+Enter (blink.cmp)",
+        "source": "blink.lua"
+      },
+      {
+        "key": "<Tab>",
+        "mode": "i",
+        "action": "select_next/accept/snippet_forward",
+        "desc": "Navigate completions or accept (blink.cmp super-tab preset)",
+        "source": "blink.lua"
+      },
+      {
+        "key": "<S-Tab>",
+        "mode": "i",
+        "action": "select_prev/snippet_backward",
+        "desc": "Navigate completions backward (blink.cmp super-tab preset)",
+        "source": "blink.lua"
+      },
+      {
+        "key": "<C-e>",
+        "mode": "i",
+        "action": "hide",
+        "desc": "Hide completion menu (blink.cmp super-tab preset)",
+        "source": "blink.lua"
+      },
+      {
+        "key": "gcc",
+        "mode": "n",
+        "action": "toggle line comment",
+        "desc": "Toggle line comment on current line (Comment.nvim)",
+        "source": "comment.lua"
+      },
+      {
+        "key": "gbc",
+        "mode": "n",
+        "action": "toggle block comment",
+        "desc": "Toggle block comment on current line (Comment.nvim)",
+        "source": "comment.lua"
+      },
+      {
+        "key": "gc{motion}",
+        "mode": "n,v",
+        "action": "line comment with motion",
+        "desc": "Comment/uncomment using line comment (Comment.nvim)",
+        "source": "comment.lua"
+      },
+      {
+        "key": "gb{motion}",
+        "mode": "n,v",
+        "action": "block comment with motion",
+        "desc": "Comment/uncomment using block comment (Comment.nvim)",
+        "source": "comment.lua"
+      },
+      {
+        "key": "gco",
+        "mode": "n",
+        "action": "comment below",
+        "desc": "Insert comment on next line and enter insert mode (Comment.nvim)",
+        "source": "comment.lua"
+      },
+      {
+        "key": "gcO",
+        "mode": "n",
+        "action": "comment above",
+        "desc": "Insert comment on previous line and enter insert mode (Comment.nvim)",
+        "source": "comment.lua"
+      },
+      {
+        "key": "gcA",
+        "mode": "n",
+        "action": "comment end of line",
+        "desc": "Insert comment at end of line and enter insert mode (Comment.nvim)",
+        "source": "comment.lua"
+      },
+      {
+        "key": "<Leader>D",
+        "mode": "n",
+        "action": "require('neogen').generate()",
+        "desc": "Generate documentation annotation (neogen)",
+        "source": "neogen.lua"
+      },
+      {
+        "key": "<leader>cp",
+        "mode": "n",
+        "action": "printer operator",
+        "desc": "Print operator for debugging (printer.nvim)",
+        "source": "printer.lua"
+      },
+      {
+        "key": "gP",
+        "mode": "n",
+        "action": "<Plug>(printer_print)iw",
+        "desc": "Print inner word under cursor (printer.nvim)",
+        "source": "printer.lua"
+      },
+      {
+        "key": "<Leader>D",
+        "mode": "n",
+        "action": "<Plug>(doge-generate)",
+        "desc": "Generate documentation (vim-doge - disabled plugin)",
+        "source": "vim-doge.lua"
+      },
+      {
+        "key": "<leader>cYy",
+        "mode": "x",
+        "action": "<Esc><cmd>CodeSnap<cr>",
+        "desc": "Save selected code snapshot into clipboard (codesnap.nvim)",
+        "source": "codesnap.lua"
+      },
+      {
+        "key": "<leader>cYY",
+        "mode": "x",
+        "action": "<Esc><cmd>CodeSnapSave<cr>",
+        "desc": "Save selected code snapshot in ~/Pictures (codesnap.nvim)",
+        "source": "codesnap.lua"
+      },
+      {
+        "key": "<Leader>da",
+        "mode": "n",
+        "action": "require('dap').continue()",
+        "desc": "Start/continue debugging (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<Leader>db",
+        "mode": "n",
+        "action": "require('dap').toggle_breakpoint()",
+        "desc": "Toggle breakpoint (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<Leader>dd",
+        "mode": "n",
+        "action": "require('dap').continue()",
+        "desc": "Start/continue debugging (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<Leader>dh",
+        "mode": "n",
+        "action": "require('dapui').eval()",
+        "desc": "Evaluate expression under cursor (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<Leader>di",
+        "mode": "n",
+        "action": "require('dap').step_into()",
+        "desc": "Step into (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<Leader>do",
+        "mode": "n",
+        "action": "require('dap').step_over()",
+        "desc": "Step over (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<Leader>dO",
+        "mode": "n",
+        "action": "require('dap').step_out()",
+        "desc": "Step out (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<Leader>dT",
+        "mode": "n",
+        "action": "require('dap').terminate()",
+        "desc": "Terminate debug session (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<Leader>du",
+        "mode": "n",
+        "action": "require('dapui').open()",
+        "desc": "Open DAP UI (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<Leader>dc",
+        "mode": "n",
+        "action": "require('dapui').close()",
+        "desc": "Close DAP UI (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<Leader>dx",
+        "mode": "n",
+        "action": "require('dap-go').debug_test()",
+        "desc": "Debug Go test (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<Leader>dw",
+        "mode": "n",
+        "action": "dapui.float_element('watches')",
+        "desc": "Open watches float (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<Leader>ds",
+        "mode": "n",
+        "action": "dapui.float_element('scopes')",
+        "desc": "Open scopes float (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<Leader>dr",
+        "mode": "n",
+        "action": "dapui.float_element('repl')",
+        "desc": "Open REPL float (nvim-dap)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<leader>dts",
+        "mode": "n",
+        "action": "set_breakpoint",
+        "desc": "Set breakpoint (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<leader>dtc",
+        "mode": "n",
+        "action": "set_conditional_breakpoint",
+        "desc": "Set conditional breakpoint (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<leader>dth",
+        "mode": "n",
+        "action": "set_hit_condition_breakpoint",
+        "desc": "Set hit condition breakpoint (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<leader>dtl",
+        "mode": "n",
+        "action": "set_log_point",
+        "desc": "Set log point (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<leader>dtL",
+        "mode": "n",
+        "action": "load_breakpoints",
+        "desc": "Load breakpoints from file (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<leader>dtS",
+        "mode": "n",
+        "action": "save_breakpoints",
+        "desc": "Save breakpoints to file (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<leader>dte",
+        "mode": "n",
+        "action": "edit_property",
+        "desc": "Edit breakpoint property (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<leader>dtE",
+        "mode": "n",
+        "action": "edit_property({ all = true })",
+        "desc": "Edit all breakpoints properties (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<leader>dtv",
+        "mode": "n",
+        "action": "toggle_virtual_text",
+        "desc": "Toggle breakpoint virtual text (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<leader>dtC",
+        "mode": "n",
+        "action": "clear_all_breakpoints",
+        "desc": "Clear all breakpoints (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "[b",
+        "mode": "n",
+        "action": "go_to_previous",
+        "desc": "Go to previous breakpoint (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "]b",
+        "mode": "n",
+        "action": "go_to_next",
+        "desc": "Go to next breakpoint (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<M-b>",
+        "mode": "n",
+        "action": "popup_reveal",
+        "desc": "Show breakpoint popup (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "<leader>def",
+        "mode": "n",
+        "action": "edit_exception_filters",
+        "desc": "Edit exception filters (dap-breakpoints.nvim)",
+        "source": "dap.lua"
+      },
+      {
+        "key": "s",
+        "mode": "n,x,o",
+        "action": "require('flash').jump()",
+        "desc": "Flash - jump to any location",
+        "source": "flash.lua"
+      },
+      {
+        "key": "S",
+        "mode": "n,o,x",
+        "action": "require('flash').treesitter()",
+        "desc": "Flash Treesitter - jump using treesitter nodes",
+        "source": "flash.lua"
+      },
+      {
+        "key": "r",
+        "mode": "o",
+        "action": "require('flash').remote()",
+        "desc": "Remote Flash - operate on remote location",
+        "source": "flash.lua"
+      },
+      {
+        "key": "R",
+        "mode": "o,x",
+        "action": "require('flash').treesitter_search()",
+        "desc": "Treesitter Search",
+        "source": "flash.lua"
+      },
+      {
+        "key": "<C-s>",
+        "mode": "c",
+        "action": "require('flash').toggle()",
+        "desc": "Toggle Flash Search in command mode",
+        "source": "flash.lua"
+      },
+      {
+        "key": "f",
+        "mode": "n,x,o",
+        "action": "flash enhanced f",
+        "desc": "Find character forward with labels (flash.nvim)",
+        "source": "flash.lua"
+      },
+      {
+        "key": "F",
+        "mode": "n,x,o",
+        "action": "flash enhanced F",
+        "desc": "Find character backward with labels (flash.nvim)",
+        "source": "flash.lua"
+      },
+      {
+        "key": "t",
+        "mode": "n,x,o",
+        "action": "flash enhanced t",
+        "desc": "Till character forward with labels (flash.nvim)",
+        "source": "flash.lua"
+      },
+      {
+        "key": "T",
+        "mode": "n,x,o",
+        "action": "flash enhanced T",
+        "desc": "Till character backward with labels (flash.nvim)",
+        "source": "flash.lua"
+      },
+      {
+        "key": "<Leader>m",
+        "mode": "n",
+        "action": "<CMD>MCstart<CR>",
+        "desc": "Start multicursor mode (disabled plugin)",
+        "source": "multicursors.lua"
+      },
+      {
+        "key": "<Leader>m",
+        "mode": "v",
+        "action": "<CMD>MCvisual<CR>",
+        "desc": "Start multicursor from visual selection (disabled plugin)",
+        "source": "multicursors.lua"
+      },
+      {
+        "key": "<C-Down>",
+        "mode": "n",
+        "action": "<CMD>MCunderCursor<CR>",
+        "desc": "Add cursor below current position (disabled plugin)",
+        "source": "multicursors.lua"
+      },
+      {
+        "key": "<Enter>",
+        "mode": "n",
+        "action": "openscad_cheatsheet_toggle",
+        "desc": "Toggle OpenSCAD cheatsheet (openscad.nvim, filetype-specific)",
+        "source": "openscad.lua"
+      },
+      {
+        "key": "<A-h>",
+        "mode": "n",
+        "action": "openscad_help_trig",
+        "desc": "Show OpenSCAD help (openscad.nvim, filetype-specific)",
+        "source": "openscad.lua"
+      },
+      {
+        "key": "<A-m>",
+        "mode": "n",
+        "action": "openscad_help_manual_trig",
+        "desc": "Show OpenSCAD manual help (openscad.nvim, filetype-specific)",
+        "source": "openscad.lua"
+      },
+      {
+        "key": "<A-o>",
+        "mode": "n",
+        "action": "openscad_exec_openscad_trig",
+        "desc": "Execute OpenSCAD (openscad.nvim, filetype-specific)",
+        "source": "openscad.lua"
+      },
+      {
+        "key": "<A-c>",
+        "mode": "n",
+        "action": "openscad_top_toggle",
+        "desc": "Toggle OpenSCAD top view (openscad.nvim, filetype-specific)",
+        "source": "openscad.lua"
+      },
+      {
+        "key": "<leader>bf",
+        "mode": "n",
+        "action": "conform.format()",
+        "desc": "Buffer Format (conform.nvim)",
+        "source": "formatting.lua"
+      },
+      {
+        "key": "<leader>f",
+        "mode": "v",
+        "action": "conform.format()",
+        "desc": "Format selection (conform.nvim)",
+        "source": "formatting.lua"
+      },
+      {
+        "key": "]h",
+        "mode": "n",
+        "action": "gs.next_hunk()",
+        "desc": "Navigate to next hunk (gitsigns.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "[h",
+        "mode": "n",
+        "action": "gs.prev_hunk()",
+        "desc": "Navigate to previous hunk (gitsigns.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<leader>ghs",
+        "mode": "n,v",
+        "action": "gs.stage_hunk",
+        "desc": "Stage hunk (gitsigns.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<leader>ghr",
+        "mode": "n,v",
+        "action": "gs.reset_hunk",
+        "desc": "Reset hunk (gitsigns.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<leader>ghS",
+        "mode": "n",
+        "action": "gs.stage_buffer",
+        "desc": "Stage buffer (gitsigns.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<leader>ghu",
+        "mode": "n",
+        "action": "gs.undo_stage_hunk",
+        "desc": "Undo stage hunk (gitsigns.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<leader>ghR",
+        "mode": "n",
+        "action": "gs.reset_buffer",
+        "desc": "Reset buffer (gitsigns.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<leader>ghp",
+        "mode": "n",
+        "action": "gs.preview_hunk",
+        "desc": "Preview hunk (gitsigns.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<leader>gm",
+        "mode": "n",
+        "action": "gs.blame_line{full=true}",
+        "desc": "Show full blame for line (gitsigns.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<leader>ghd",
+        "mode": "n",
+        "action": "gs.diffthis",
+        "desc": "Diff this hunk (gitsigns.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<leader>ght",
+        "mode": "n",
+        "action": "gs.toggle_deleted",
+        "desc": "Toggle deleted lines display (gitsigns.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "ih",
+        "mode": "o,x",
+        "action": "select_hunk",
+        "desc": "Select inside hunk text object (gitsigns.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<Leader>gd",
+        "mode": "n",
+        "action": "toggle_file_history()",
+        "desc": "Toggle diff file history (diffview.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<Leader>gS",
+        "mode": "n",
+        "action": "toggle_status()",
+        "desc": "Toggle git status (diffview.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<Leader>gcb",
+        "mode": "n",
+        "action": "GitConflictChooseBoth",
+        "desc": "Choose both (git-conflict.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<Leader>gcn",
+        "mode": "n",
+        "action": "GitConflictNextConflict",
+        "desc": "Move to next conflict (git-conflict.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<Leader>gcc",
+        "mode": "n",
+        "action": "GitConflictChooseOurs",
+        "desc": "Choose current/ours (git-conflict.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<Leader>gcp",
+        "mode": "n",
+        "action": "GitConflictPrevConflict",
+        "desc": "Move to prev conflict (git-conflict.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<Leader>gci",
+        "mode": "n",
+        "action": "GitConflictChooseTheirs",
+        "desc": "Choose incoming/theirs (git-conflict.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<Leader>gww",
+        "mode": "n",
+        "action": "telescope git_worktrees",
+        "desc": "List and switch worktrees (git-worktree.nvim)",
+        "source": "worktree.lua"
+      },
+      {
+        "key": "<Leader>gwc",
+        "mode": "n",
+        "action": "telescope create_git_worktree",
+        "desc": "Create new worktree (git-worktree.nvim)",
+        "source": "worktree.lua"
+      },
+      {
+        "key": "<Leader>gL",
+        "mode": "x",
+        "action": "GitLink",
+        "desc": "Get URL for selection (gitlinker.nvim)",
+        "source": "git.lua"
+      },
+      {
+        "key": "<Enter>",
+        "mode": "telescope-worktree",
+        "action": "switch",
+        "desc": "Switch to selected worktree (git-worktree telescope)",
+        "source": "worktree.lua"
+      },
+      {
+        "key": "<C-d>",
+        "mode": "telescope-worktree",
+        "action": "delete",
+        "desc": "Delete selected worktree (git-worktree telescope)",
+        "source": "worktree.lua"
+      },
+      {
+        "key": "<C-f>",
+        "mode": "telescope-worktree",
+        "action": "toggle force",
+        "desc": "Toggle force delete (git-worktree telescope)",
+        "source": "worktree.lua"
+      },
+      {
+        "key": "<Leader>cv",
+        "mode": "n",
+        "action": "<CMD>TWValues<CR>",
+        "desc": "Tailwind CSS values (tw-values.nvim)",
+        "source": "typescript.lua"
+      },
+      {
+        "key": "<Leader>cS",
+        "mode": "n",
+        "action": "<CMD>TailwindSortOnSaveToggle<CR>",
+        "desc": "Toggle Tailwind CSS classes sort on save (tailwind-sorter.nvim)",
+        "source": "typescript.lua"
+      },
+      {
+        "key": "<leader>cm",
+        "mode": "n",
+        "action": "<cmd>Mason<cr>",
+        "desc": "Mason",
+        "source": "lsp.lua"
+      },
+      {
+        "key": ",v",
+        "mode": "n",
+        "action": "<cmd>VenvSelect<cr>",
+        "desc": "Select Python venv",
+        "source": "lsp.lua"
+      },
+      {
+        "key": "<M-Up>",
+        "mode": "x",
+        "action": "MiniMove.move_selection('up')",
+        "desc": "Move selection up (mini.move)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "<M-Down>",
+        "mode": "x",
+        "action": "MiniMove.move_selection('down')",
+        "desc": "Move selection down (mini.move)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "<M-Left>",
+        "mode": "x",
+        "action": "MiniMove.move_selection('left')",
+        "desc": "Move selection left (mini.move)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "<M-Right>",
+        "mode": "x",
+        "action": "MiniMove.move_selection('right')",
+        "desc": "Move selection right (mini.move)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "<M-Up>",
+        "mode": "n",
+        "action": "MiniMove.move_line('up')",
+        "desc": "Move line up (mini.move)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "<M-Down>",
+        "mode": "n",
+        "action": "MiniMove.move_line('down')",
+        "desc": "Move line down (mini.move)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "<M-Left>",
+        "mode": "n",
+        "action": "MiniMove.move_line('left')",
+        "desc": "Move line left/dedent (mini.move)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "<M-Right>",
+        "mode": "n",
+        "action": "MiniMove.move_line('right')",
+        "desc": "Move line right/indent (mini.move)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "gS",
+        "mode": "n",
+        "action": "split/join",
+        "desc": "Split or join arguments (mini.splitjoin)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "gsa",
+        "mode": "n,v",
+        "action": "add surrounding",
+        "desc": "Add surrounding (mini.surround)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "gsd",
+        "mode": "n",
+        "action": "delete surrounding",
+        "desc": "Delete surrounding (mini.surround)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "gsf",
+        "mode": "n",
+        "action": "find surrounding right",
+        "desc": "Find surrounding to the right (mini.surround)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "gsF",
+        "mode": "n",
+        "action": "find surrounding left",
+        "desc": "Find surrounding to the left (mini.surround)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "gsh",
+        "mode": "n",
+        "action": "highlight surrounding",
+        "desc": "Highlight surrounding (mini.surround)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "gsr",
+        "mode": "n",
+        "action": "replace surrounding",
+        "desc": "Replace surrounding (mini.surround)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "gsn",
+        "mode": "n",
+        "action": "update n_lines",
+        "desc": "Update n_lines setting (mini.surround)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "ii",
+        "mode": "o,v",
+        "action": "object_scope",
+        "desc": "Select inner indent scope (mini.indentscope)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "ai",
+        "mode": "o,v",
+        "action": "object_scope_with_border",
+        "desc": "Select indent scope with border (mini.indentscope)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "[i",
+        "mode": "n",
+        "action": "goto_top",
+        "desc": "Jump to top of indent scope (mini.indentscope)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "]i",
+        "mode": "n",
+        "action": "goto_bottom",
+        "desc": "Jump to bottom of indent scope (mini.indentscope)",
+        "source": "mini.lua"
+      },
+      {
+        "key": "<Leader>ggg",
+        "mode": "n",
+        "action": "<cmd>Neogit<CR>",
+        "desc": "Open Neogit",
+        "source": "neogit.lua"
+      },
+      {
+        "key": "<Leader>ggc",
+        "mode": "n",
+        "action": "<cmd>Neogit commit<CR>",
+        "desc": "Open Neogit commit",
+        "source": "neogit.lua"
+      },
+      {
+        "key": "<Leader>ggP",
+        "mode": "n",
+        "action": "<cmd>Neogit push<CR>",
+        "desc": "Push (neogit)",
+        "source": "neogit.lua"
+      },
+      {
+        "key": "<Leader>ggp",
+        "mode": "n",
+        "action": "<cmd>Neogit pull<CR>",
+        "desc": "Pull (neogit)",
+        "source": "neogit.lua"
+      },
+      {
+        "key": "<leader>nd",
+        "mode": "n",
+        "action": "notify.dismiss",
+        "desc": "Notify Dismiss (nvim-notify)",
+        "source": "notify.lua"
+      },
+      {
+        "key": "zR",
+        "mode": "n",
+        "action": "require('ufo').openAllFolds",
+        "desc": "Open all folds (nvim-ufo, overrides vim default)",
+        "source": "nvim-ufo.lua"
+      },
+      {
+        "key": "zM",
+        "mode": "n",
+        "action": "require('ufo').closeAllFolds",
+        "desc": "Close all folds (nvim-ufo, overrides vim default)",
+        "source": "nvim-ufo.lua"
+      },
+      {
+        "key": "zr",
+        "mode": "n",
+        "action": "require('ufo').openFoldsExceptKinds",
+        "desc": "Open folds except certain kinds (nvim-ufo)",
+        "source": "nvim-ufo.lua"
+      },
+      {
+        "key": "<leader>e",
+        "mode": "n",
+        "action": "require('oil').open_float(vim.fn.expand('%:p:h'))",
+        "desc": "Open oil float at buffer location",
+        "source": "oil.lua"
+      },
+      {
+        "key": "<leader>E",
+        "mode": "n",
+        "action": "require('oil').open_float()",
+        "desc": "Open oil float at cwd",
+        "source": "oil.lua"
+      },
+      {
+        "key": "g?",
+        "mode": "oil-buffer",
+        "action": "actions.show_help",
+        "desc": "Show help for oil keybindings (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "<M-Up>",
+        "mode": "oil-buffer",
+        "action": "actions.parent",
+        "desc": "Go to parent directory (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "<M-Down>",
+        "mode": "oil-buffer",
+        "action": "actions.select",
+        "desc": "Enter directory or open file (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "<CR>",
+        "mode": "oil-buffer",
+        "action": "actions.select",
+        "desc": "Enter directory or open file (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "<C-s>",
+        "mode": "oil-buffer",
+        "action": "actions.select (vertical)",
+        "desc": "Open the entry in a vertical split (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "<C-h>",
+        "mode": "oil-buffer",
+        "action": "actions.select (horizontal)",
+        "desc": "Open the entry in a horizontal split (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "<C-t>",
+        "mode": "oil-buffer",
+        "action": "actions.select (tab)",
+        "desc": "Open the entry in new tab (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "<C-p>",
+        "mode": "oil-buffer",
+        "action": "actions.preview",
+        "desc": "Preview file (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "<C-c>",
+        "mode": "oil-buffer",
+        "action": "actions.close",
+        "desc": "Close oil buffer (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "<C-l>",
+        "mode": "oil-buffer",
+        "action": "actions.refresh",
+        "desc": "Refresh oil view (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "-",
+        "mode": "oil-buffer",
+        "action": "actions.parent",
+        "desc": "Go to parent directory (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "_",
+        "mode": "oil-buffer",
+        "action": "actions.open_cwd",
+        "desc": "Open current working directory (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "`",
+        "mode": "oil-buffer",
+        "action": "actions.cd",
+        "desc": "Change directory to current oil directory (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "~",
+        "mode": "oil-buffer",
+        "action": "actions.cd (tab scope)",
+        "desc": ":tcd to the current oil directory (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "gs",
+        "mode": "oil-buffer",
+        "action": "actions.change_sort",
+        "desc": "Change sort method (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "gx",
+        "mode": "oil-buffer",
+        "action": "actions.open_external",
+        "desc": "Open with external program (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "g.",
+        "mode": "oil-buffer",
+        "action": "actions.toggle_hidden",
+        "desc": "Toggle hidden files visibility (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "g\\",
+        "mode": "oil-buffer",
+        "action": "actions.toggle_trash",
+        "desc": "Toggle trash view (oil.nvim)",
+        "source": "oil.lua"
+      },
+      {
+        "key": "<leader>re",
+        "mode": "x",
+        "action": ":Refactor extract ",
+        "desc": "Extract function (refactoring.nvim)",
+        "source": "refactoring.lua"
+      },
+      {
+        "key": "<leader>rf",
+        "mode": "x",
+        "action": ":Refactor extract_to_file ",
+        "desc": "Extract function to file (refactoring.nvim)",
+        "source": "refactoring.lua"
+      },
+      {
+        "key": "<leader>rv",
+        "mode": "x",
+        "action": ":Refactor extract_var ",
+        "desc": "Extract variable (refactoring.nvim)",
+        "source": "refactoring.lua"
+      },
+      {
+        "key": "<leader>ri",
+        "mode": "x,n",
+        "action": ":Refactor inline_var",
+        "desc": "Inline variable (refactoring.nvim)",
+        "source": "refactoring.lua"
+      },
+      {
+        "key": "<leader>rI",
+        "mode": "n",
+        "action": ":Refactor inline_func",
+        "desc": "Inline function (refactoring.nvim)",
+        "source": "refactoring.lua"
+      },
+      {
+        "key": "<leader>rb",
+        "mode": "n",
+        "action": ":Refactor extract_block",
+        "desc": "Extract block (refactoring.nvim)",
+        "source": "refactoring.lua"
+      },
+      {
+        "key": "<leader>rf",
+        "mode": "n",
+        "action": ":Refactor extract_block_to_file",
+        "desc": "Extract block to file (refactoring.nvim)",
+        "source": "refactoring.lua"
+      },
+      {
+        "key": "<Leader>asa",
+        "mode": "n",
+        "action": "require('scissors').addNewSnippet()",
+        "desc": "Add new snippet (nvim-scissors)",
+        "source": "scissors.lua"
+      },
+      {
+        "key": "<Leader>ase",
+        "mode": "n",
+        "action": "require('scissors').editSnippet()",
+        "desc": "Edit snippet (nvim-scissors)",
+        "source": "scissors.lua"
+      },
+      {
+        "key": "<Leader>asa",
+        "mode": "x",
+        "action": "require('scissors').addNewSnippet()",
+        "desc": "Add new snippet from selection (nvim-scissors)",
+        "source": "scissors.lua"
+      },
+      {
+        "key": "<leader>psl",
+        "mode": "n",
+        "action": "<cmd>SessionManager load_session<CR>",
+        "desc": "Load session (session-manager - disabled)",
+        "source": "session-manager.lua"
+      },
+      {
+        "key": "<leader>psL",
+        "mode": "n",
+        "action": "<cmd>SessionManager load_last_session<CR>",
+        "desc": "Load last session (session-manager - disabled)",
+        "source": "session-manager.lua"
+      },
+      {
+        "key": "<leader>pss",
+        "mode": "n",
+        "action": "<cmd>SessionManager save_current_session<CR>",
+        "desc": "Save session (session-manager - disabled)",
+        "source": "session-manager.lua"
+      },
+      {
+        "key": "<leader>psm",
+        "mode": "n",
+        "action": "<cmd>SessionManager available_commands<CR>",
+        "desc": "Available commands (session-manager - disabled)",
+        "source": "session-manager.lua"
+      },
+      {
+        "key": "<M-S-Left>",
+        "mode": "n",
+        "action": "smartsplits.resize_left",
+        "desc": "Resize pane left (smart-splits.nvim)",
+        "source": "smart-splits.lua"
+      },
+      {
+        "key": "<M-S-Right>",
+        "mode": "n",
+        "action": "smartsplits.resize_right",
+        "desc": "Resize pane right (smart-splits.nvim)",
+        "source": "smart-splits.lua"
+      },
+      {
+        "key": "<M-S-Up>",
+        "mode": "n",
+        "action": "smartsplits.resize_up",
+        "desc": "Resize pane up (smart-splits.nvim)",
+        "source": "smart-splits.lua"
+      },
+      {
+        "key": "<M-S-Down>",
+        "mode": "n",
+        "action": "smartsplits.resize_down",
+        "desc": "Resize pane down (smart-splits.nvim)",
+        "source": "smart-splits.lua"
+      },
+      {
+        "key": "<C-w><left>",
+        "mode": "n",
+        "action": "smartsplits.move_cursor_left",
+        "desc": "Move cursor to left split (smart-splits.nvim)",
+        "source": "smart-splits.lua"
+      },
+      {
+        "key": "<C-w><down>",
+        "mode": "n",
+        "action": "smartsplits.move_cursor_down",
+        "desc": "Move cursor to split below (smart-splits.nvim)",
+        "source": "smart-splits.lua"
+      },
+      {
+        "key": "<C-w><up>",
+        "mode": "n",
+        "action": "smartsplits.move_cursor_up",
+        "desc": "Move cursor to split above (smart-splits.nvim)",
+        "source": "smart-splits.lua"
+      },
+      {
+        "key": "<C-w><right>",
+        "mode": "n",
+        "action": "smartsplits.move_cursor_right",
+        "desc": "Move cursor to right split (smart-splits.nvim)",
+        "source": "smart-splits.lua"
+      },
+      {
+        "key": "<C-\\>",
+        "mode": "n",
+        "action": "smartsplits.move_cursor_previous",
+        "desc": "Move cursor to previous split (smart-splits.nvim)",
+        "source": "smart-splits.lua"
+      },
+      {
+        "key": "<leader><C-h>",
+        "mode": "n",
+        "action": "swap_buf_left",
+        "desc": "Swap buffer with left window (smart-splits.nvim)",
+        "source": "smart-splits.lua"
+      },
+      {
+        "key": "<leader><C-j>",
+        "mode": "n",
+        "action": "swap_buf_down",
+        "desc": "Swap buffer with window below (smart-splits.nvim)",
+        "source": "smart-splits.lua"
+      },
+      {
+        "key": "<leader><C-k>",
+        "mode": "n",
+        "action": "swap_buf_up",
+        "desc": "Swap buffer with window above (smart-splits.nvim)",
+        "source": "smart-splits.lua"
+      },
+      {
+        "key": "<leader><C-l>",
+        "mode": "n",
+        "action": "swap_buf_right",
+        "desc": "Swap buffer with right window (smart-splits.nvim)",
+        "source": "smart-splits.lua"
+      },
+      {
+        "key": "<Leader>rp",
+        "mode": "n",
+        "action": "require('spectre').open_visual({select_word=true})",
+        "desc": "Refactor Project with spectre Search and replace",
+        "source": "spectre.lua"
+      },
+      {
+        "key": "<Leader>rp",
+        "mode": "v",
+        "action": "require('spectre').open_visual()",
+        "desc": "Refactor Project with spectre Search and replace",
+        "source": "spectre.lua"
+      },
+      {
+        "key": "W",
+        "mode": "n,o,x",
+        "action": "w",
+        "desc": "Normal w (move forward one word)",
+        "source": "spider.lua"
+      },
+      {
+        "key": "<M-w>",
+        "mode": "n,o,x",
+        "action": "spider.motion('w')",
+        "desc": "Spider-w (CamelCase-aware word forward)",
+        "source": "spider.lua"
+      },
+      {
+        "key": "<M-e>",
+        "mode": "n,o,x",
+        "action": "spider.motion('e')",
+        "desc": "Spider-e (CamelCase-aware end of word)",
+        "source": "spider.lua"
+      },
+      {
+        "key": "<M-b>",
+        "mode": "n,o,x",
+        "action": "spider.motion('b')",
+        "desc": "Spider-b (CamelCase-aware word backward)",
+        "source": "spider.lua"
+      },
+      {
+        "key": "\u00df",
+        "mode": "n,o,x",
+        "action": "spider.motion('b')",
+        "desc": "Spider-b (AltGr+b alternative)",
+        "source": "spider.lua"
+      },
+      {
+        "key": "\u00e5",
+        "mode": "n,o,x",
+        "action": "spider.motion('w')",
+        "desc": "Spider-w (AltGr+w alternative)",
+        "source": "spider.lua"
+      },
+      {
+        "key": "\u00e9",
+        "mode": "n,o,x",
+        "action": "spider.motion('e')",
+        "desc": "Spider-e (AltGr+e alternative)",
+        "source": "spider.lua"
+      },
+      {
+        "key": "ge",
+        "mode": "n,o,x",
+        "action": "spider.motion('ge')",
+        "desc": "Spider-ge (CamelCase-aware end of previous word)",
+        "source": "spider.lua"
+      },
+      {
+        "key": "<Tab>",
+        "mode": "i",
+        "action": "tabout",
+        "desc": "Jump out of brackets/quotes to the right (tabout.nvim)",
+        "source": "tabout.lua"
+      },
+      {
+        "key": "<S-Tab>",
+        "mode": "i",
+        "action": "backwards tabout",
+        "desc": "Jump out of brackets/quotes to the left (tabout.nvim)",
+        "source": "tabout.lua"
+      },
+      {
+        "key": "<C-t>",
+        "mode": "i",
+        "action": "default_tab",
+        "desc": "Shift content when tabout not possible (tabout.nvim)",
+        "source": "tabout.lua"
+      },
+      {
+        "key": "<C-d>",
+        "mode": "i",
+        "action": "default_shift_tab",
+        "desc": "Reverse shift when backwards tabout not possible (tabout.nvim)",
+        "source": "tabout.lua"
+      },
+      {
+        "key": "<C-c>",
+        "mode": "telescope-i",
+        "action": "<esc>",
+        "desc": "Exit to normal mode in telescope (telescope.nvim)",
+        "source": "telescope/config.lua"
+      },
+      {
+        "key": "<C-q>",
+        "mode": "telescope-i",
+        "action": "smart_send_to_qflist + open_qflist",
+        "desc": "Send results to quickfix and open (telescope.nvim)",
+        "source": "telescope/config.lua"
+      },
+      {
+        "key": "<C-s>",
+        "mode": "telescope-i,n",
+        "action": "cycle_previewers_next",
+        "desc": "Cycle to next previewer (telescope.nvim)",
+        "source": "telescope/config.lua"
+      },
+      {
+        "key": "<C-a>",
+        "mode": "telescope-i,n",
+        "action": "cycle_previewers_prev",
+        "desc": "Cycle to previous previewer (telescope.nvim)",
+        "source": "telescope/config.lua"
+      },
+      {
+        "key": "<ESC>",
+        "mode": "telescope-i",
+        "action": "close",
+        "desc": "Close Telescope (telescope.nvim)",
+        "source": "telescope/config.lua"
+      },
+      {
+        "key": "<C-k>",
+        "mode": "telescope-i",
+        "action": "delete_buffer",
+        "desc": "Delete the selected buffer (telescope.nvim)",
+        "source": "telescope/config.lua"
+      },
+      {
+        "key": "<C-d>",
+        "mode": "telescope-i",
+        "action": "delete_buffer",
+        "desc": "Delete the selected buffer (telescope.nvim)",
+        "source": "telescope/config.lua"
+      },
+      {
+        "key": "<C-Up>",
+        "mode": "telescope-i",
+        "action": "preview_scrolling_up",
+        "desc": "Scroll preview up (telescope.nvim)",
+        "source": "telescope/config.lua"
+      },
+      {
+        "key": "<C-Down>",
+        "mode": "telescope-i",
+        "action": "preview_scrolling_down",
+        "desc": "Scroll preview down (telescope.nvim)",
+        "source": "telescope/config.lua"
+      },
+      {
+        "key": "<C-p>",
+        "mode": "telescope-i,n",
+        "action": "toggle_preview",
+        "desc": "Toggle preview window (telescope.nvim)",
+        "source": "telescope/config.lua"
+      },
+      {
+        "key": "<leader><leader>",
+        "mode": "n",
+        "action": "builtin.buffers()",
+        "desc": "Find existing buffers (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>/",
+        "mode": "n",
+        "action": "builtin.current_buffer_fuzzy_find()",
+        "desc": "Fuzzily search in current buffer (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>ff",
+        "mode": "n",
+        "action": "builtin.find_files()",
+        "desc": "Search Files (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>Ff",
+        "mode": "n",
+        "action": "builtin.find_files({ cwd = '~' })",
+        "desc": "Search Files in Home (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>fF",
+        "mode": "n",
+        "action": "builtin.find_files({ hidden = true })",
+        "desc": "Find . files including hidden (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>f+",
+        "mode": "n",
+        "action": "builtin.find_files({ hidden = true, no_ignore = true })",
+        "desc": "Find . files including hidden and git ignore (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>FF",
+        "mode": "n",
+        "action": "builtin.find_files({ cwd = '~', hidden = true })",
+        "desc": "Find . files in Home including hidden (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>fg",
+        "mode": "n",
+        "action": "builtin.live_grep()",
+        "desc": "Find by Grep in project files (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>f.g",
+        "mode": "n",
+        "action": "builtin.live_grep() in buffer dir",
+        "desc": "Find by Grep in current buffer's directory (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>f.f",
+        "mode": "n",
+        "action": "builtin.find_files() in buffer dir",
+        "desc": "Find file in current buffer's directory (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>Fg",
+        "mode": "n",
+        "action": "builtin.live_grep({ cwd = '~' })",
+        "desc": "Find by Grep in Home (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>FG",
+        "mode": "n",
+        "action": "builtin.live_grep({ cwd = '~', hidden = true })",
+        "desc": "Find by Grep in Home including hidden files (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>fG",
+        "mode": "n",
+        "action": "builtin.live_grep({ hidden = true })",
+        "desc": "Find by grep in project including hidden (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>fo",
+        "mode": "n",
+        "action": "builtin.live_grep({ grep_open_files = true })",
+        "desc": "Find by grep in open files (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>Fr",
+        "mode": "n",
+        "action": "builtin.oldfiles()",
+        "desc": "Find Recent Files (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>FN",
+        "mode": "n",
+        "action": "builtin.find_files({ cwd = stdpath('config') })",
+        "desc": "Find Neovim files (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>fnf",
+        "mode": "n",
+        "action": "builtin.find_files() dropdown",
+        "desc": "Search Files fast no preview (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>Fnf",
+        "mode": "n",
+        "action": "builtin.find_files({ cwd = '~' }) dropdown",
+        "desc": "Search Files in Home fast no preview (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>fnF",
+        "mode": "n",
+        "action": "builtin.find_files({ hidden = true }) dropdown",
+        "desc": "Find . files including hidden fast no preview (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>fn+",
+        "mode": "n",
+        "action": "builtin.find_files({ hidden = true, no_ignore = true }) dropdown",
+        "desc": "Find . files including hidden and git ignore fast no preview (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>FnF",
+        "mode": "n",
+        "action": "builtin.find_files({ cwd = '~', hidden = true }) dropdown",
+        "desc": "Find . files in Home including hidden fast no preview (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>fng",
+        "mode": "n",
+        "action": "builtin.live_grep() dropdown",
+        "desc": "Find by Grep in project fast no preview (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>fn.",
+        "mode": "n",
+        "action": "builtin.live_grep() in buffer dir dropdown",
+        "desc": "Find by Grep in current buffer's directory fast no preview (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>Fng",
+        "mode": "n",
+        "action": "builtin.live_grep({ cwd = '~' }) dropdown",
+        "desc": "Find by Grep in Home fast no preview (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>FnG",
+        "mode": "n",
+        "action": "builtin.live_grep({ cwd = '~', hidden = true }) dropdown",
+        "desc": "Find by Grep in Home including hidden fast no preview (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>fnG",
+        "mode": "n",
+        "action": "builtin.live_grep({ grep_open_files = true }) dropdown",
+        "desc": "Find by grep in open files fast no preview (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>Fnr",
+        "mode": "n",
+        "action": "builtin.oldfiles() dropdown",
+        "desc": "Find Recent Files fast no preview (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>Fnn",
+        "mode": "n",
+        "action": "builtin.find_files({ cwd = stdpath('config') }) dropdown",
+        "desc": "Find Neovim files fast no preview (telescope.nvim)",
+        "source": "telescope/keymaps/find.lua"
+      },
+      {
+        "key": "<leader>ns",
+        "mode": "n",
+        "action": "<CMD>Telescope notify<CR>",
+        "desc": "Search Notify (telescope.nvim)",
+        "source": "telescope/keymaps/misc.lua"
+      },
+      {
+        "key": "<leader>rc",
+        "mode": "n",
+        "action": "<cmd>TextCaseOpenTelescope<CR>",
+        "desc": "Refactor case telescope (text-case.nvim)",
+        "source": "telescope/keymaps/misc.lua"
+      },
+      {
+        "key": "<leader>rc",
+        "mode": "v",
+        "action": "<cmd>TextCaseOpenTelescope<CR>",
+        "desc": "Refactor case telescope (text-case.nvim)",
+        "source": "telescope/keymaps/misc.lua"
+      },
+      {
+        "key": "gd",
+        "mode": "n",
+        "action": "<cmd>Telescope lsp_definitions<CR>",
+        "desc": "Telescope lsp definitions (overrides vim default)",
+        "source": "telescope/keymaps/misc.lua"
+      },
+      {
+        "key": "<leader>sh",
+        "mode": "n",
+        "action": "builtin.help_tags()",
+        "desc": "Search Help (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "<leader>sk",
+        "mode": "n",
+        "action": "builtin.keymaps()",
+        "desc": "Search Keymaps (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "<leader>st",
+        "mode": "n",
+        "action": "builtin.builtin()",
+        "desc": "Search Telescope (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "<leader>sq",
+        "mode": "n",
+        "action": "builtin.quickfix()",
+        "desc": "Search Quickfix (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "<leader>ssa",
+        "mode": "n",
+        "action": "builtin.lsp_document_symbols()",
+        "desc": "Search Symbols All (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "<leader>ssr",
+        "mode": "n",
+        "action": "builtin.lsp_references()",
+        "desc": "Search Symbols References (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "<leader>sss",
+        "mode": "n",
+        "action": "builtin.lsp_document_symbols({ symbols = { 'method', 'function', 'string' } })",
+        "desc": "Search Symbols Select functions and methods (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "<leader>ssv",
+        "mode": "n",
+        "action": "builtin.lsp_document_symbols({ symbols = { 'constant', 'variable' } })",
+        "desc": "Search Symbols Variable (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "<leader>ssc",
+        "mode": "n",
+        "action": "builtin.lsp_document_symbols({ symbols = { 'class' } })",
+        "desc": "Search Symbols Class (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "<leader>ssp",
+        "mode": "n",
+        "action": "builtin.lsp_document_symbols({ symbols = { 'property' } })",
+        "desc": "Search Symbols Property (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "<leader>sw",
+        "mode": "n",
+        "action": "builtin.grep_string()",
+        "desc": "Search current Word (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "<leader>sv",
+        "mode": "v",
+        "action": "builtin.current_buffer_fuzzy_find({ default_text = text })",
+        "desc": "Search current Selection in Buffer (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "<leader>sd",
+        "mode": "n",
+        "action": "builtin.diagnostics()",
+        "desc": "Search Diagnostics (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "<leader>sr",
+        "mode": "n",
+        "action": "builtin.resume()",
+        "desc": "Search Resume (telescope.nvim)",
+        "source": "telescope/keymaps/search.lua"
+      },
+      {
+        "key": "a",
+        "mode": "neotest-summary",
+        "action": "attach",
+        "desc": "Attach to running test (neotest)",
+        "source": "testing.lua"
+      },
+      {
+        "key": "<CR>",
+        "mode": "neotest-summary",
+        "action": "expand",
+        "desc": "Expand test node (neotest)",
+        "source": "testing.lua"
+      },
+      {
+        "key": "<2-LeftMouse>",
+        "mode": "neotest-summary",
+        "action": "expand",
+        "desc": "Expand test node - mouse (neotest)",
+        "source": "testing.lua"
+      },
+      {
+        "key": "e",
+        "mode": "neotest-summary",
+        "action": "expand_all",
+        "desc": "Expand all test nodes (neotest)",
+        "source": "testing.lua"
+      },
+      {
+        "key": "i",
+        "mode": "neotest-summary",
+        "action": "jumpto",
+        "desc": "Jump to test file (neotest)",
+        "source": "testing.lua"
+      },
+      {
+        "key": "o",
+        "mode": "neotest-summary",
+        "action": "output",
+        "desc": "Show test output (neotest)",
+        "source": "testing.lua"
+      },
+      {
+        "key": "r",
+        "mode": "neotest-summary",
+        "action": "run",
+        "desc": "Run test (neotest)",
+        "source": "testing.lua"
+      },
+      {
+        "key": "O",
+        "mode": "neotest-summary",
+        "action": "short",
+        "desc": "Short output (neotest)",
+        "source": "testing.lua"
+      },
+      {
+        "key": "u",
+        "mode": "neotest-summary",
+        "action": "stop",
+        "desc": "Stop running test (neotest)",
+        "source": "testing.lua"
+      },
+      {
+        "key": "gu",
+        "mode": "n",
+        "action": "text-case prefix",
+        "desc": "Text-case prefix (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "guu",
+        "mode": "n",
+        "action": "to_upper_case (word)",
+        "desc": "Convert current word to UPPER CASE (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "gul",
+        "mode": "n",
+        "action": "to_lower_case (word)",
+        "desc": "Convert current word to lower case (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "guc",
+        "mode": "n",
+        "action": "to_camel_case (word)",
+        "desc": "Convert current word to camelCase (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "gus",
+        "mode": "n",
+        "action": "to_snake_case (word)",
+        "desc": "Convert current word to snake_case (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "gut",
+        "mode": "n",
+        "action": "to_title_dash_case (word)",
+        "desc": "Convert current word to Title-Dash-Case (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "gun",
+        "mode": "n",
+        "action": "to_constant_case (word)",
+        "desc": "Convert current word to CONSTANT_CASE (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "gud",
+        "mode": "n",
+        "action": "to_dot_case (word)",
+        "desc": "Convert current word to dot.case (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "gup",
+        "mode": "n",
+        "action": "to_phrase_case (word)",
+        "desc": "Convert current word to Phrase case (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "gua",
+        "mode": "n",
+        "action": "to_pascal_case (word)",
+        "desc": "Convert current word to PascalCase (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "gui",
+        "mode": "n",
+        "action": "to_title_case (word)",
+        "desc": "Convert current word to Title Case (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "guf",
+        "mode": "n",
+        "action": "to_path_case (word)",
+        "desc": "Convert current word to path/case (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "guU",
+        "mode": "n",
+        "action": "to_upper_phrase_case (word)",
+        "desc": "Convert current word to UPPER PHRASE CASE (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "guL",
+        "mode": "n",
+        "action": "to_lower_phrase_case (word)",
+        "desc": "Convert current word to lower phrase case (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "guo{X}",
+        "mode": "n",
+        "action": "operator mode",
+        "desc": "Apply case transformation to motion/text object (text-case.nvim)",
+        "source": "text-case.lua"
+      },
+      {
+        "key": "]t",
+        "mode": "n",
+        "action": "require('todo-comments').jump_next()",
+        "desc": "Next todo comment (todo-comments.nvim)",
+        "source": "todo-comments.lua"
+      },
+      {
+        "key": "[t",
+        "mode": "n",
+        "action": "require('todo-comments').jump_prev()",
+        "desc": "Previous todo comment (todo-comments.nvim)",
+        "source": "todo-comments.lua"
+      },
+      {
+        "key": "<F12>",
+        "mode": "n",
+        "action": "open_mapping",
+        "desc": "Toggle terminal (toggleterm.nvim - disabled plugin)",
+        "source": "toggleterm.lua"
+      },
+      {
+        "key": "<Leader>wf",
+        "mode": "n",
+        "action": "<cmd>ToggleTerm direction=float<CR>",
+        "desc": "Terminal float (toggleterm.nvim - disabled plugin)",
+        "source": "toggleterm.lua"
+      },
+      {
+        "key": "<Esc>",
+        "mode": "t",
+        "action": "<C-\\><C-n>",
+        "desc": "Exit terminal mode to normal mode (toggleterm.nvim - disabled plugin)",
+        "source": "toggleterm.lua"
+      },
+      {
+        "key": "<C-h>",
+        "mode": "t",
+        "action": "<C-\\><C-n><C-W>h",
+        "desc": "Switch to left window from terminal (toggleterm.nvim - disabled plugin)",
+        "source": "toggleterm.lua"
+      },
+      {
+        "key": "<C-j>",
+        "mode": "t",
+        "action": "<C-\\><C-n><C-W>j",
+        "desc": "Switch to window below from terminal (toggleterm.nvim - disabled plugin)",
+        "source": "toggleterm.lua"
+      },
+      {
+        "key": "<C-k>",
+        "mode": "t",
+        "action": "<C-\\><C-n><C-W>k",
+        "desc": "Switch to window above from terminal (toggleterm.nvim - disabled plugin)",
+        "source": "toggleterm.lua"
+      },
+      {
+        "key": "<C-l>",
+        "mode": "t",
+        "action": "<C-\\><C-n><C-W>l",
+        "desc": "Switch to right window from terminal (toggleterm.nvim - disabled plugin)",
+        "source": "toggleterm.lua"
+      },
+      {
+        "key": "][",
+        "mode": "n,o,x",
+        "action": "goto_next_start @block.outer",
+        "desc": "Go to next block start (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "]f",
+        "mode": "n,o,x",
+        "action": "goto_next_start @function.outer",
+        "desc": "Go to next function start (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "]c",
+        "mode": "n,o,x",
+        "action": "goto_next_start @class.outer",
+        "desc": "Go to next class start (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "]]",
+        "mode": "n,o,x",
+        "action": "goto_next_end @block.outer",
+        "desc": "Go to next block end (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "]F",
+        "mode": "n,o,x",
+        "action": "goto_next_end @function.outer",
+        "desc": "Go to next function end (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "]C",
+        "mode": "n,o,x",
+        "action": "goto_next_end @class.outer",
+        "desc": "Go to next class end (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "[[",
+        "mode": "n,o,x",
+        "action": "goto_previous_start @block.outer",
+        "desc": "Go to previous block start (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "[f",
+        "mode": "n,o,x",
+        "action": "goto_previous_start @function.outer",
+        "desc": "Go to previous function start (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "[c",
+        "mode": "n,o,x",
+        "action": "goto_previous_start @class.outer",
+        "desc": "Go to previous class start (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "[]",
+        "mode": "n,o,x",
+        "action": "goto_previous_end @block.outer",
+        "desc": "Go to previous block end (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "[F",
+        "mode": "n,o,x",
+        "action": "goto_previous_end @function.outer",
+        "desc": "Go to previous function end (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "[C",
+        "mode": "n,o,x",
+        "action": "goto_previous_end @class.outer",
+        "desc": "Go to previous class end (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "af",
+        "mode": "o,x",
+        "action": "@function.outer",
+        "desc": "Select around function (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "if",
+        "mode": "o,x",
+        "action": "@function.inner",
+        "desc": "Select inside function (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "ac",
+        "mode": "o,x",
+        "action": "@class.outer",
+        "desc": "Select around class (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "ic",
+        "mode": "o,x",
+        "action": "@class.inner",
+        "desc": "Select inside class (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "~",
+        "mode": "n",
+        "action": "swap_next @parameter.inner",
+        "desc": "Swap parameter with next (nvim-treesitter-textobjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "<CR>",
+        "mode": "v",
+        "action": "textsubjects-smart",
+        "desc": "Smart expand selection (nvim-treesitter-textsubjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "<BS>",
+        "mode": "v",
+        "action": "prev_selection",
+        "desc": "Return to previous selection (nvim-treesitter-textsubjects)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": ";",
+        "mode": "n,x,o",
+        "action": "repeat_last_move_next",
+        "desc": "Repeat last movement forward (nvim-treesitter repeatable_move)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": ",",
+        "mode": "n,x,o",
+        "action": "repeat_last_move_previous",
+        "desc": "Repeat last movement backward (nvim-treesitter repeatable_move)",
+        "source": "treesitter.lua"
+      },
+      {
+        "key": "gJ",
+        "mode": "n",
+        "action": "<cmd>TSJToggle<CR>",
+        "desc": "Toggle Split/Join (treesj - disabled plugin)",
+        "source": "treesj.lua"
+      },
+      {
+        "key": "s",
+        "mode": "alpha-dashboard",
+        "action": "<cmd>AutoSession search<CR>",
+        "desc": "Session Lens - search sessions (alpha.nvim)",
+        "source": "alpha.lua"
+      },
+      {
+        "key": "l",
+        "mode": "alpha-dashboard",
+        "action": "<cmd>AutoSession restore<CR>",
+        "desc": "Load Last Session (alpha.nvim)",
+        "source": "alpha.lua"
+      },
+      {
+        "key": "f",
+        "mode": "alpha-dashboard",
+        "action": "<cmd>Telescope find_files<CR>",
+        "desc": "Find File (alpha.nvim)",
+        "source": "alpha.lua"
+      },
+      {
+        "key": "w",
+        "mode": "alpha-dashboard",
+        "action": "multi-rg()",
+        "desc": "Find Word with multi-rg (alpha.nvim)",
+        "source": "alpha.lua"
+      },
+      {
+        "key": "h",
+        "mode": "alpha-dashboard",
+        "action": "<cmd>Telescope oldfiles hidden=true<CR>",
+        "desc": "Recent files (alpha.nvim)",
+        "source": "alpha.lua"
+      },
+      {
+        "key": "u",
+        "mode": "alpha-dashboard",
+        "action": "<cmd>Lazy update<CR>",
+        "desc": "Update Plugins (alpha.nvim)",
+        "source": "alpha.lua"
+      },
+      {
+        "key": "m",
+        "mode": "alpha-dashboard",
+        "action": "<cmd>Lazy<CR>",
+        "desc": "Manage Plugins (alpha.nvim)",
+        "source": "alpha.lua"
+      },
+      {
+        "key": "<C-M-l>",
+        "mode": "n",
+        "action": "<cmd>BufferLineCycleNext<CR>",
+        "desc": "Bufferline cycle next buffer",
+        "source": "bufferline.lua"
+      },
+      {
+        "key": "<C-M-h>",
+        "mode": "n",
+        "action": "<cmd>BufferLineCyclePrev<CR>",
+        "desc": "Bufferline cycle prev buffer",
+        "source": "bufferline.lua"
+      },
+      {
+        "key": "<C-M-Right>",
+        "mode": "n",
+        "action": "<cmd>BufferLineCycleNext<CR>",
+        "desc": "Bufferline cycle next buffer",
+        "source": "bufferline.lua"
+      },
+      {
+        "key": "<C-M-Left>",
+        "mode": "n",
+        "action": "<cmd>BufferLineCyclePrev<CR>",
+        "desc": "Bufferline cycle prev buffer",
+        "source": "bufferline.lua"
+      },
+      {
+        "key": "L",
+        "mode": "n",
+        "action": "<cmd>BufferLineCycleNext<CR>",
+        "desc": "Bufferline cycle next buffer",
+        "source": "bufferline.lua"
+      },
+      {
+        "key": "H",
+        "mode": "n",
+        "action": "<cmd>BufferLineCyclePrev<CR>",
+        "desc": "Bufferline cycle prev buffer",
+        "source": "bufferline.lua"
+      },
+      {
+        "key": "<S-Right>",
+        "mode": "n",
+        "action": "<cmd>BufferLineCycleNext<CR>",
+        "desc": "Bufferline cycle next buffer",
+        "source": "bufferline.lua"
+      },
+      {
+        "key": "<S-Left>",
+        "mode": "n",
+        "action": "<cmd>BufferLineCyclePrev<CR>",
+        "desc": "Bufferline cycle prev buffer",
+        "source": "bufferline.lua"
+      },
+      {
+        "key": "<leader>bp",
+        "mode": "n",
+        "action": "<cmd>BufferLineTogglePin<CR>",
+        "desc": "Bufferline Pin Toggle",
+        "source": "bufferline.lua"
+      },
+      {
+        "key": "<Esc>",
+        "mode": "dressing-input-n",
+        "action": "Close",
+        "desc": "Close input window (dressing.nvim)",
+        "source": "dressing.lua"
+      },
+      {
+        "key": "<CR>",
+        "mode": "dressing-input-n",
+        "action": "Confirm",
+        "desc": "Confirm input (dressing.nvim)",
+        "source": "dressing.lua"
+      },
+      {
+        "key": "<C-c>",
+        "mode": "dressing-input-i",
+        "action": "Close",
+        "desc": "Close input window (dressing.nvim)",
+        "source": "dressing.lua"
+      },
+      {
+        "key": "<CR>",
+        "mode": "dressing-input-i",
+        "action": "Confirm",
+        "desc": "Confirm input (dressing.nvim)",
+        "source": "dressing.lua"
+      },
+      {
+        "key": "<Up>",
+        "mode": "dressing-input-i",
+        "action": "HistoryPrev",
+        "desc": "Previous history entry (dressing.nvim)",
+        "source": "dressing.lua"
+      },
+      {
+        "key": "<Down>",
+        "mode": "dressing-input-i",
+        "action": "HistoryNext",
+        "desc": "Next history entry (dressing.nvim)",
+        "source": "dressing.lua"
+      },
+      {
+        "key": "<Esc>",
+        "mode": "dressing-select",
+        "action": "Close",
+        "desc": "Close select window (dressing.nvim)",
+        "source": "dressing.lua"
+      },
+      {
+        "key": "<C-c>",
+        "mode": "dressing-select",
+        "action": "Close",
+        "desc": "Close select window (dressing.nvim)",
+        "source": "dressing.lua"
+      },
+      {
+        "key": "<CR>",
+        "mode": "dressing-select",
+        "action": "Confirm",
+        "desc": "Confirm selection (dressing.nvim)",
+        "source": "dressing.lua"
+      },
+      {
+        "mode": "n",
+        "key": "0",
+        "action": "Track pending keys",
+        "source": "lua/plugins/ui/lualine.lua",
+        "description": "Updates vim.g.pending_keys and redraws statusline (expr mapping, returns '0')"
+      },
+      {
+        "mode": "n",
+        "key": "1",
+        "action": "Track pending keys",
+        "source": "lua/plugins/ui/lualine.lua",
+        "description": "Updates vim.g.pending_keys and redraws statusline (expr mapping, returns '1')"
+      },
+      {
+        "mode": "n",
+        "key": "2",
+        "action": "Track pending keys",
+        "source": "lua/plugins/ui/lualine.lua",
+        "description": "Updates vim.g.pending_keys and redraws statusline (expr mapping, returns '2')"
+      },
+      {
+        "mode": "n",
+        "key": "3",
+        "action": "Track pending keys",
+        "source": "lua/plugins/ui/lualine.lua",
+        "description": "Updates vim.g.pending_keys and redraws statusline (expr mapping, returns '3')"
+      },
+      {
+        "mode": "n",
+        "key": "4",
+        "action": "Track pending keys",
+        "source": "lua/plugins/ui/lualine.lua",
+        "description": "Updates vim.g.pending_keys and redraws statusline (expr mapping, returns '4')"
+      },
+      {
+        "mode": "n",
+        "key": "5",
+        "action": "Track pending keys",
+        "source": "lua/plugins/ui/lualine.lua",
+        "description": "Updates vim.g.pending_keys and redraws statusline (expr mapping, returns '5')"
+      },
+      {
+        "mode": "n",
+        "key": "6",
+        "action": "Track pending keys",
+        "source": "lua/plugins/ui/lualine.lua",
+        "description": "Updates vim.g.pending_keys and redraws statusline (expr mapping, returns '6')"
+      },
+      {
+        "mode": "n",
+        "key": "7",
+        "action": "Track pending keys",
+        "source": "lua/plugins/ui/lualine.lua",
+        "description": "Updates vim.g.pending_keys and redraws statusline (expr mapping, returns '7')"
+      },
+      {
+        "mode": "n",
+        "key": "8",
+        "action": "Track pending keys",
+        "source": "lua/plugins/ui/lualine.lua",
+        "description": "Updates vim.g.pending_keys and redraws statusline (expr mapping, returns '8')"
+      },
+      {
+        "mode": "n",
+        "key": "9",
+        "action": "Track pending keys",
+        "source": "lua/plugins/ui/lualine.lua",
+        "description": "Updates vim.g.pending_keys and redraws statusline (expr mapping, returns '9')"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>wo",
+        "command": "<CMD>ScratchOpen<CR>",
+        "description": "Open scratch",
+        "source": "lua/plugins/ui/scratch.lua",
+        "plugin": "scratch.nvim"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>wn",
+        "command": "<CMD>Scratch<CR>",
+        "description": "New scratch",
+        "source": "lua/plugins/ui/scratch.lua",
+        "plugin": "scratch.nvim"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>wN",
+        "command": "<CMD>ScratchWithName<CR>",
+        "description": "New scratch with name",
+        "source": "lua/plugins/ui/scratch.lua",
+        "plugin": "scratch.nvim"
+      },
+      {
+        "mode": "n,i,v",
+        "key": "<C-r>",
+        "command": "<CMD>RunShellCurrentLine<CR>",
+        "description": "Run shell current line (local key for sh files)",
+        "source": "lua/plugins/ui/scratch.lua",
+        "plugin": "scratch.nvim",
+        "local_key": true,
+        "condition": "filename contains 'sh'"
+      },
+      {
+        "key": "<leader>wl",
+        "mode": "n",
+        "action": "<cmd>AutoSession search<CR>",
+        "desc": "[S]ession lens",
+        "source": "plugins/util/auto-session.lua"
+      },
+      {
+        "key": "<leader>ws",
+        "mode": "n",
+        "action": "<cmd>AutoSession save<CR>",
+        "desc": "Save session",
+        "source": "plugins/util/auto-session.lua"
+      },
+      {
+        "key": "<leader>wa",
+        "mode": "n",
+        "action": "<cmd>SessionToggleAutoSave<CR>",
+        "desc": "Toggle autosave",
+        "source": "plugins/util/auto-session.lua"
+      },
+      {
+        "key": "<C-D>",
+        "mode": "i",
+        "action": "delete_session",
+        "desc": "Delete session (in session lens picker)",
+        "source": "plugins/util/auto-session.lua",
+        "context": "session_lens_picker"
+      },
+      {
+        "key": "<C-S>",
+        "mode": "i",
+        "action": "alternate_session",
+        "desc": "Alternate session (in session lens picker)",
+        "source": "plugins/util/auto-session.lua",
+        "context": "session_lens_picker"
+      },
+      {
+        "key": "<C-Y>",
+        "mode": "i",
+        "action": "copy_session",
+        "desc": "Copy session (in session lens picker)",
+        "source": "plugins/util/auto-session.lua",
+        "context": "session_lens_picker"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>?",
+        "action": "require('which-key').show({ global = true })",
+        "desc": "Buffer Keymaps (which-key)",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n,v",
+        "key": "gs",
+        "action": "(group)",
+        "desc": "Surround",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>=",
+        "action": "<cmd>vertical resize +5<CR>",
+        "desc": "resize +5",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>-",
+        "action": "<cmd>vertical resize -5<CR>",
+        "desc": "resize -5",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>v",
+        "action": "<C-W>v",
+        "desc": "split right",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>V",
+        "action": "<C-W>s",
+        "desc": "split below",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>bc",
+        "action": "require('utils').closeOtherBuffers()",
+        "desc": "Close but current",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>ba",
+        "action": "<cmd>edit ~/.config/nvim/.claude_last_answer.md<CR>",
+        "desc": "Claude answer",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>cd",
+        "action": "<cmd>Trouble diagnostics toggle<CR>",
+        "desc": "diagnostics (Trouble)",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>cD",
+        "action": "<cmd>Telescope diagnostics wrap_results=true<CR>",
+        "desc": "workspace diagnostics",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>ct",
+        "action": "<cmd>LspToggleAutoFormat<CR>",
+        "desc": "toggle format on save",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>ga",
+        "action": "<cmd>!git add %:p<CR>",
+        "desc": "add current",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>gA",
+        "action": "<cmd>!git add .<CR>",
+        "desc": "add all",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>gb",
+        "action": "<cmd>BlameToggle window<CR>",
+        "desc": "blame",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>gB",
+        "action": "<cmd>Telescope git_branches<CR>",
+        "desc": "branches",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>gi",
+        "action": "<cmd>Octo issue list<CR>",
+        "desc": "Issues List",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>glA",
+        "action": "require('plugins.telescope.other.pickers').my_git_commits()",
+        "desc": "commits (Telescope)",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>gla",
+        "action": "<cmd>LazyGitFilter<CR>",
+        "desc": "commits",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>glC",
+        "action": "require('plugins.telescope.pickers').my_git_bcommits()",
+        "desc": "buffer commits (Telescope)",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>glc",
+        "action": "<cmd>LazyGitFilterCurrentFile<CR>",
+        "desc": "buffer commits",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>gp",
+        "action": "<cmd>Octo pr list<CR>",
+        "desc": "Pull Requests List",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>gs",
+        "action": "<cmd>Telescope git_status<CR>",
+        "desc": "telescope status",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>pl",
+        "action": "require'telescope'.extensions.repo.cached_list{...}",
+        "desc": "list",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>pt",
+        "action": "<cmd>TodoTrouble<CR>",
+        "desc": "todo",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "v",
+        "key": "<leader>s",
+        "action": "<cmd>'<,'>sort<CR>",
+        "desc": "sort",
+        "source": "which-key/setup.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>am",
+        "action": "<cmd>MarkdownPreviewToggle<CR>",
+        "desc": "markdown preview",
+        "source": "which-key/setup.lua (markdown)",
+        "filetype": "markdown"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>ce",
+        "action": "<cmd>TSC<CR>",
+        "desc": "workspace errors (TSC)",
+        "source": "which-key/setup.lua (typescript)",
+        "filetype": "typescript"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>cF",
+        "action": "<cmd>TSToolsFixAll<CR>",
+        "desc": "fix all",
+        "source": "which-key/setup.lua (typescript)",
+        "filetype": "typescript"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>ci",
+        "action": "<cmd>TSToolsAddMissingImports<CR>",
+        "desc": "import all",
+        "source": "which-key/setup.lua (typescript)",
+        "filetype": "typescript"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>co",
+        "action": "<cmd>TSToolsOrganizeImports<CR>",
+        "desc": "organize imports",
+        "source": "which-key/setup.lua (typescript)",
+        "filetype": "typescript"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>cs",
+        "action": "<cmd>TSToolsSortImports<CR>",
+        "desc": "sort imports",
+        "source": "which-key/setup.lua (typescript)",
+        "filetype": "typescript"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>cu",
+        "action": "<cmd>TSToolsRemoveUnused<CR>",
+        "desc": "remove unused",
+        "source": "which-key/setup.lua (typescript)",
+        "filetype": "typescript"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>cR",
+        "action": "<cmd>TSToolsRenameFile<CR>",
+        "desc": "rename file",
+        "source": "which-key/setup.lua (typescript)",
+        "filetype": "typescript"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>nc",
+        "action": "require('package-info').change_version()",
+        "desc": "change version",
+        "source": "which-key/setup.lua (npm)",
+        "filetype": "json"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>nd",
+        "action": "require('package-info').delete()",
+        "desc": "delete package",
+        "source": "which-key/setup.lua (npm)",
+        "filetype": "json"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>nh",
+        "action": "require('package-info').hide()",
+        "desc": "hide",
+        "source": "which-key/setup.lua (npm)",
+        "filetype": "json"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>ni",
+        "action": "require('package-info').install()",
+        "desc": "install new package",
+        "source": "which-key/setup.lua (npm)",
+        "filetype": "json"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>nr",
+        "action": "require('package-info').reinstall()",
+        "desc": "reinstall dependencies",
+        "source": "which-key/setup.lua (npm)",
+        "filetype": "json"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>ns",
+        "action": "require('package-info').show()",
+        "desc": "show",
+        "source": "which-key/setup.lua (npm)",
+        "filetype": "json"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>nu",
+        "action": "require('package-info').update()",
+        "desc": "update package",
+        "source": "which-key/setup.lua (npm)",
+        "filetype": "json"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>z",
+        "action": "<cmd>ZenMode<CR>",
+        "desc": "zen",
+        "source": "which-key/setup.lua (zen)"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>jf",
+        "action": "require('neotest').run.run(vim.fn.expand('%'))",
+        "desc": "run current file",
+        "source": "which-key/setup.lua (jest)"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>ji",
+        "action": "require('neotest').summary.toggle()",
+        "desc": "toggle info panel",
+        "source": "which-key/setup.lua (jest)"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>jj",
+        "action": "require('neotest').run.run()",
+        "desc": "run nearest test",
+        "source": "which-key/setup.lua (jest)"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>jl",
+        "action": "require('neotest').run.run_last()",
+        "desc": "run last test",
+        "source": "which-key/setup.lua (jest)"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>jo",
+        "action": "require('neotest').output.open({ enter = true })",
+        "desc": "open test output",
+        "source": "which-key/setup.lua (jest)"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>js",
+        "action": "require('neotest').run.stop()",
+        "desc": "stop",
+        "source": "which-key/setup.lua (jest)"
+      },
+      {
+        "mode": "n",
+        "key": "<LocalLeader>r",
+        "action": "(desc)",
+        "desc": "Replace all",
+        "source": "which-key/setup.lua (spectre)"
+      },
+      {
+        "mode": "n",
+        "key": "<LocalLeader>o",
+        "action": "(desc)",
+        "desc": "Show options",
+        "source": "which-key/setup.lua (spectre)"
+      },
+      {
+        "mode": "n",
+        "key": "<LocalLeader>q",
+        "action": "(desc)",
+        "desc": "Send all to Quicklist",
+        "source": "which-key/setup.lua (spectre)"
+      },
+      {
+        "mode": "n",
+        "key": "<LocalLeader>v",
+        "action": "(desc)",
+        "desc": "Change view mode",
+        "source": "which-key/setup.lua (spectre)"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>=",
+        "action": "<cmd>NvimTreeResize +5<CR>",
+        "desc": "resize +5",
+        "source": "which-key/setup.lua (nvim-tree)",
+        "filetype": "NvimTree"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>-",
+        "action": "<cmd>NvimTreeResize -5<CR>",
+        "desc": "resize -5",
+        "source": "which-key/setup.lua (nvim-tree)",
+        "filetype": "NvimTree"
+      },
+      {
+        "mode": "n",
+        "key": "<leader>pp",
+        "action": "telescope.extensions.yank_history.yank_history",
+        "desc": "Open Yank History",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": [
+          "n",
+          "x"
+        ],
+        "key": "y",
+        "action": "<Plug>(YankyYank)",
+        "desc": "Yank text",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": [
+          "n",
+          "x"
+        ],
+        "key": "p",
+        "action": "<Plug>(YankyPutAfter)",
+        "desc": "Put yanked text after cursor",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": [
+          "n",
+          "x"
+        ],
+        "key": "P",
+        "action": "<Plug>(YankyPutBefore)",
+        "desc": "Put yanked text before cursor",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": [
+          "n",
+          "x"
+        ],
+        "key": "<M-p>",
+        "action": "<Plug>(YankyPutAfterCharwise)",
+        "desc": "Put yanked text right after cursor charwise",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": [
+          "n",
+          "x"
+        ],
+        "key": "<M-P>",
+        "action": "<Plug>(YankyPutBeforeCharwise)",
+        "desc": "Put yanked text right before cursor charwise",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": [
+          "n",
+          "x"
+        ],
+        "key": "\u00f8",
+        "action": "<Plug>(YankyPutAfterCharwise)",
+        "desc": "Charwise Put yanked text right after cursor",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": [
+          "n",
+          "x"
+        ],
+        "key": "\u00d8",
+        "action": "<Plug>(YankyPutBeforeCharwise)",
+        "desc": "Charwise Put yanked text right before cursor",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": [
+          "n",
+          "x"
+        ],
+        "key": "gp",
+        "action": "<Plug>(YankyGPutAfter)",
+        "desc": "Put yanked text after selection",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": [
+          "n",
+          "x"
+        ],
+        "key": "gP",
+        "action": "<Plug>(YankyGPutBefore)",
+        "desc": "Put yanked text before selection",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<c-p>",
+        "action": "<Plug>(YankyPreviousEntry)",
+        "desc": "Select previous entry through yank history",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<c-n>",
+        "action": "<Plug>(YankyNextEntry)",
+        "desc": "Select next entry through yank history",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": "n",
+        "key": "]p",
+        "action": "<Plug>(YankyPutIndentAfterLinewise)",
+        "desc": "Put indented after cursor (linewise)",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": "n",
+        "key": "[p",
+        "action": "<Plug>(YankyPutIndentBeforeLinewise)",
+        "desc": "Put indented before cursor (linewise)",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": "n",
+        "key": "]P",
+        "action": "<Plug>(YankyPutIndentAfterLinewise)",
+        "desc": "Put indented after cursor (linewise)",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": "n",
+        "key": "[P",
+        "action": "<Plug>(YankyPutIndentBeforeLinewise)",
+        "desc": "Put indented before cursor (linewise)",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": "n",
+        "key": ">p",
+        "action": "<Plug>(YankyPutIndentAfterShiftRight)",
+        "desc": "Put and indent right",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<p",
+        "action": "<Plug>(YankyPutIndentAfterShiftLeft)",
+        "desc": "Put and indent left",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": "n",
+        "key": ">P",
+        "action": "<Plug>(YankyPutIndentBeforeShiftRight)",
+        "desc": "Put before and indent right",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": "n",
+        "key": "<P",
+        "action": "<Plug>(YankyPutIndentBeforeShiftLeft)",
+        "desc": "Put before and indent left",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": "n",
+        "key": "=p",
+        "action": "<Plug>(YankyPutAfterFilter)",
+        "desc": "Put after applying a filter",
+        "source": "yanky.lua"
+      },
+      {
+        "mode": "n",
+        "key": "=P",
+        "action": "<Plug>(YankyPutBeforeFilter)",
+        "desc": "Put before applying a filter",
+        "source": "yanky.lua"
+      }
+    ],
+    "plugin_keybindings": [
+      {
+        "plugin": "Comment.nvim",
+        "mode": "n",
+        "key": "gcc",
+        "action": "Toggle line comment",
+        "default": true
+      },
+      {
+        "plugin": "Comment.nvim",
+        "mode": "n",
+        "key": "gbc",
+        "action": "Toggle block comment",
+        "default": true
+      },
+      {
+        "plugin": "Comment.nvim",
+        "mode": "n",
+        "key": "gc{motion}",
+        "action": "Line comment with motion",
+        "default": true
+      },
+      {
+        "plugin": "Comment.nvim",
+        "mode": "n",
+        "key": "gb{motion}",
+        "action": "Block comment with motion",
+        "default": true
+      },
+      {
+        "plugin": "Comment.nvim",
+        "mode": "v",
+        "key": "gc",
+        "action": "Toggle line comment selection",
+        "default": true
+      },
+      {
+        "plugin": "Comment.nvim",
+        "mode": "v",
+        "key": "gb",
+        "action": "Toggle block comment selection",
+        "default": true
+      },
+      {
+        "plugin": "Comment.nvim",
+        "mode": "n",
+        "key": "gco",
+        "action": "Comment below and enter insert",
+        "default": true
+      },
+      {
+        "plugin": "Comment.nvim",
+        "mode": "n",
+        "key": "gcO",
+        "action": "Comment above and enter insert",
+        "default": true
+      },
+      {
+        "plugin": "Comment.nvim",
+        "mode": "n",
+        "key": "gcA",
+        "action": "Comment end of line and enter insert",
+        "default": true
+      },
+      {
+        "plugin": "CopilotChat.nvim",
+        "mode": "n",
+        "key": "<CR>",
+        "action": "Submit prompt (in chat window)",
+        "default": true,
+        "scope": "chat_buffer"
+      },
+      {
+        "plugin": "CopilotChat.nvim",
+        "mode": "n,i",
+        "key": "<C-s>",
+        "action": "Submit prompt (in chat window)",
+        "default": true,
+        "scope": "chat_buffer"
+      },
+      {
+        "plugin": "CopilotChat.nvim",
+        "mode": "n",
+        "key": "q",
+        "action": "Close chat window",
+        "default": true,
+        "scope": "chat_buffer"
+      },
+      {
+        "plugin": "CopilotChat.nvim",
+        "mode": "n,i",
+        "key": "<C-c>",
+        "action": "Stop generation",
+        "default": true,
+        "scope": "chat_buffer"
+      },
+      {
+        "plugin": "CopilotChat.nvim",
+        "mode": "n",
+        "key": "gy",
+        "action": "Yank diff to clipboard",
+        "default": true,
+        "scope": "chat_buffer"
+      },
+      {
+        "plugin": "CopilotChat.nvim",
+        "mode": "n",
+        "key": "gd",
+        "action": "Show diff in vertical split",
+        "default": true,
+        "scope": "chat_buffer"
+      },
+      {
+        "plugin": "CopilotChat.nvim",
+        "mode": "n",
+        "key": "gs",
+        "action": "Show system prompt",
+        "default": true,
+        "scope": "chat_buffer"
+      },
+      {
+        "plugin": "CopilotChat.nvim",
+        "mode": "n",
+        "key": "gu",
+        "action": "Show user selection",
+        "default": true,
+        "scope": "chat_buffer"
+      },
+      {
+        "plugin": "CopilotChat.nvim",
+        "mode": "n",
+        "key": "?",
+        "action": "Show help",
+        "default": true,
+        "scope": "chat_buffer"
+      },
+      {
+        "plugin": "alpha-nvim",
+        "mode": "n",
+        "key": "j/k",
+        "action": "Navigate between dashboard buttons",
+        "default": true,
+        "scope": "alpha_buffer"
+      },
+      {
+        "plugin": "alpha-nvim",
+        "mode": "n",
+        "key": "<CR>",
+        "action": "Execute selected button action",
+        "default": true,
+        "scope": "alpha_buffer"
+      },
+      {
+        "plugin": "alpha-nvim",
+        "mode": "n",
+        "key": "<Up>/<Down>",
+        "action": "Alternative button navigation",
+        "default": true,
+        "scope": "alpha_buffer"
+      },
+      {
+        "plugin": "alpha-nvim",
+        "mode": "n",
+        "key": "q",
+        "action": "Close dashboard (if configured)",
+        "default": true,
+        "scope": "alpha_buffer"
+      },
+      {
+        "plugin": "auto-session",
+        "source": "plugin_default",
+        "mode": "i",
+        "key": "<CR>",
+        "action": "Load highlighted session",
+        "context": "session-lens picker"
+      },
+      {
+        "plugin": "auto-session",
+        "source": "plugin_default",
+        "mode": "i",
+        "key": "<C-s>",
+        "action": "Swap to previous session",
+        "context": "session-lens picker"
+      },
+      {
+        "plugin": "auto-session",
+        "source": "plugin_default",
+        "mode": "i",
+        "key": "<C-d>",
+        "action": "Delete highlighted session",
+        "context": "session-lens picker"
+      },
+      {
+        "plugin": "auto-session",
+        "source": "plugin_default",
+        "mode": "i",
+        "key": "<C-y>",
+        "action": "Copy highlighted session",
+        "context": "session-lens picker"
+      },
+      {
+        "plugin": "blink.cmp",
+        "source": "plugin_default",
+        "mode": "i",
+        "key": "<Tab>",
+        "action": "Select next item or snippet forward",
+        "default": true,
+        "preset": "super-tab"
+      },
+      {
+        "plugin": "blink.cmp",
+        "source": "plugin_default",
+        "mode": "i",
+        "key": "<S-Tab>",
+        "action": "Select prev item or snippet backward",
+        "default": true,
+        "preset": "super-tab"
+      },
+      {
+        "plugin": "blink.cmp",
+        "source": "plugin_default",
+        "mode": "i",
+        "key": "<CR>",
+        "action": "Accept completion",
+        "default": true,
+        "preset": "super-tab"
+      },
+      {
+        "plugin": "blink.cmp",
+        "source": "plugin_default",
+        "mode": "i",
+        "key": "<C-e>",
+        "action": "Hide completion menu",
+        "default": true,
+        "preset": "super-tab"
+      },
+      {
+        "plugin": "blink.cmp",
+        "source": "custom_config",
+        "mode": "i",
+        "key": "<C-space>",
+        "action": "Toggle show/documentation",
+        "default": false
+      },
+      {
+        "plugin": "blink.cmp",
+        "source": "custom_config",
+        "mode": "i",
+        "key": "<S-k>",
+        "action": "Scroll documentation up",
+        "default": false
+      },
+      {
+        "plugin": "blink.cmp",
+        "source": "custom_config",
+        "mode": "i",
+        "key": "<S-j>",
+        "action": "Scroll documentation down",
+        "default": false
+      },
+      {
+        "plugin": "blink.cmp",
+        "source": "custom_config",
+        "mode": "i",
+        "key": "<PageUp>",
+        "action": "Scroll documentation up",
+        "default": false
+      },
+      {
+        "plugin": "blink.cmp",
+        "source": "custom_config",
+        "mode": "i",
+        "key": "<PageDown>",
+        "action": "Scroll documentation down",
+        "default": false
+      },
+      {
+        "plugin": "blink.cmp",
+        "source": "custom_config",
+        "mode": "i",
+        "key": "<A-CR>",
+        "action": "Accept completion (Alt+Enter)",
+        "default": false
+      },
+      {
+        "plugin": "bufferline.nvim",
+        "has_default_keybindings": false,
+        "commands_available": [
+          ":BufferLineCycleNext",
+          ":BufferLineCyclePrev",
+          ":BufferLineMoveNext",
+          ":BufferLineMovePrev",
+          ":BufferLineGoToBuffer",
+          ":BufferLinePick",
+          ":BufferLinePickClose",
+          ":BufferLineCloseRight",
+          ":BufferLineCloseLeft",
+          ":BufferLineCloseOthers",
+          ":BufferLineTogglePin",
+          ":BufferLineSortByExtension",
+          ":BufferLineSortByDirectory"
+        ],
+        "user_keybindings": [
+          {
+            "key": "<C-M-l>",
+            "mode": "n",
+            "action": "BufferLineCycleNext",
+            "desc": "Cycle next buffer"
+          },
+          {
+            "key": "<C-M-h>",
+            "mode": "n",
+            "action": "BufferLineCyclePrev",
+            "desc": "Cycle prev buffer"
+          },
+          {
+            "key": "<C-M-Right>",
+            "mode": "n",
+            "action": "BufferLineCycleNext",
+            "desc": "Cycle next buffer"
+          },
+          {
+            "key": "<C-M-Left>",
+            "mode": "n",
+            "action": "BufferLineCyclePrev",
+            "desc": "Cycle prev buffer"
+          },
+          {
+            "key": "L",
+            "mode": "n",
+            "action": "BufferLineCycleNext",
+            "desc": "Cycle next buffer"
+          },
+          {
+            "key": "H",
+            "mode": "n",
+            "action": "BufferLineCyclePrev",
+            "desc": "Cycle prev buffer"
+          },
+          {
+            "key": "<S-Right>",
+            "mode": "n",
+            "action": "BufferLineCycleNext",
+            "desc": "Cycle next buffer"
+          },
+          {
+            "key": "<S-Left>",
+            "mode": "n",
+            "action": "BufferLineCyclePrev",
+            "desc": "Cycle prev buffer"
+          },
+          {
+            "key": "<leader>bp",
+            "mode": "n",
+            "action": "BufferLineTogglePin",
+            "desc": "Toggle pin"
+          }
+        ],
+        "overrides_vim_defaults": [
+          "H",
+          "L"
+        ],
+        "notes": "H and L override Vim's default screen movement commands"
+      },
+      {
+        "plugin": "claude-code.nvim",
+        "key": "<C-,>",
+        "mode": "n,t",
+        "action": "Toggle Claude Code terminal",
+        "default": true,
+        "overridden": true,
+        "overridden_to": "<C-.>"
+      },
+      {
+        "plugin": "claude-code.nvim",
+        "key": "<leader>ac",
+        "mode": "n",
+        "action": "Toggle Claude Code terminal",
+        "default": true,
+        "overridden": false
+      },
+      {
+        "plugin": "claude-code.nvim",
+        "key": "<leader>cC",
+        "mode": "n",
+        "action": "Launch with --continue flag",
+        "default": true,
+        "overridden": true,
+        "note": "Disabled in user config"
+      },
+      {
+        "plugin": "claude-code.nvim",
+        "key": "<leader>cV",
+        "mode": "n",
+        "action": "Launch with --verbose flag",
+        "default": true,
+        "overridden": true,
+        "note": "Disabled in user config"
+      },
+      {
+        "plugin": "claude-code.nvim",
+        "key": "<C-h>",
+        "mode": "t",
+        "action": "Move to left window",
+        "default": true,
+        "overridden": false,
+        "configurable": "keymaps.window_navigation"
+      },
+      {
+        "plugin": "claude-code.nvim",
+        "key": "<C-j>",
+        "mode": "t",
+        "action": "Move to window below",
+        "default": true,
+        "overridden": false,
+        "configurable": "keymaps.window_navigation"
+      },
+      {
+        "plugin": "claude-code.nvim",
+        "key": "<C-k>",
+        "mode": "t",
+        "action": "Move to window above",
+        "default": true,
+        "overridden": false,
+        "configurable": "keymaps.window_navigation"
+      },
+      {
+        "plugin": "claude-code.nvim",
+        "key": "<C-l>",
+        "mode": "t",
+        "action": "Move to right window",
+        "default": true,
+        "overridden": false,
+        "configurable": "keymaps.window_navigation"
+      },
+      {
+        "plugin": "claude-code.nvim",
+        "key": "<C-f>",
+        "mode": "t",
+        "action": "Scroll full-page down",
+        "default": true,
+        "overridden": false,
+        "configurable": "keymaps.scrolling"
+      },
+      {
+        "plugin": "claude-code.nvim",
+        "key": "<C-b>",
+        "mode": "t",
+        "action": "Scroll full-page up",
+        "default": true,
+        "overridden": false,
+        "configurable": "keymaps.scrolling"
+      },
+      {
+        "key": "<CR>",
+        "mode": "n",
+        "action": "Send message",
+        "desc": "Send message to LLM",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "<C-s>",
+        "mode": "n",
+        "action": "Send message",
+        "desc": "Send message to LLM (alternative)",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "<C-c>",
+        "mode": "n",
+        "action": "Close",
+        "desc": "Close chat buffer",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "q",
+        "mode": "n",
+        "action": "Stop",
+        "desc": "Stop current request",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "ga",
+        "mode": "n",
+        "action": "Change adapter",
+        "desc": "Change adapter for current chat",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gba",
+        "mode": "n",
+        "action": "Sync buffer",
+        "desc": "Sync entire buffer on every turn",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gbd",
+        "mode": "n",
+        "action": "Sync diff",
+        "desc": "Sync only buffer diff on every turn",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gc",
+        "mode": "n",
+        "action": "Insert codeblock",
+        "desc": "Insert codeblock in chat buffer",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gd",
+        "mode": "n",
+        "action": "Debug",
+        "desc": "View/debug chat buffer contents",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gD",
+        "mode": "n",
+        "action": "Super diff",
+        "desc": "Access super diff feature",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gf",
+        "mode": "n",
+        "action": "Fold",
+        "desc": "Fold codeblocks in chat buffer",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gM",
+        "mode": "n",
+        "action": "Clear rules",
+        "desc": "Clear all rules from chat buffer",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gr",
+        "mode": "n",
+        "action": "Regenerate",
+        "desc": "Regenerate last response",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gR",
+        "mode": "n",
+        "action": "Jump to file",
+        "desc": "Jump to file under cursor",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gs",
+        "mode": "n",
+        "action": "Toggle system prompt",
+        "desc": "Toggle system prompt on/off",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gS",
+        "mode": "n",
+        "action": "Stats",
+        "desc": "Show Copilot usage stats",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gta",
+        "mode": "n",
+        "action": "Auto tool mode",
+        "desc": "Toggle auto tool mode",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gtx",
+        "mode": "n",
+        "action": "Reset approvals",
+        "desc": "Reset approvals for chat buffer",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gty",
+        "mode": "n",
+        "action": "YOLO mode",
+        "desc": "Enable YOLO mode (auto-approve tools)",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gx",
+        "mode": "n",
+        "action": "Clear",
+        "desc": "Clear chat buffer contents",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gy",
+        "mode": "n",
+        "action": "Yank codeblock",
+        "desc": "Yank last codeblock in chat buffer",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "[[",
+        "mode": "n",
+        "action": "Previous header",
+        "desc": "Move to previous header",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "]]",
+        "mode": "n",
+        "action": "Next header",
+        "desc": "Move to next header",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "{",
+        "mode": "n",
+        "action": "Previous chat",
+        "desc": "Move to previous chat",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "}",
+        "mode": "n",
+        "action": "Next chat",
+        "desc": "Move to next chat",
+        "source": "codecompanion.nvim (chat buffer)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gda",
+        "mode": "n",
+        "action": "Accept",
+        "desc": "Accept suggested inline change",
+        "source": "codecompanion.nvim (inline)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gdr",
+        "mode": "n",
+        "action": "Reject",
+        "desc": "Reject suggested inline change",
+        "source": "codecompanion.nvim (inline)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "key": "gdy",
+        "mode": "n",
+        "action": "Accept all",
+        "desc": "Accept all changes (YOLO mode)",
+        "source": "codecompanion.nvim (inline)",
+        "plugin": "codecompanion.nvim"
+      },
+      {
+        "plugin": "conform.nvim",
+        "has_defaults": false,
+        "note": "conform.nvim does not provide any default keybindings",
+        "commands": [
+          ":ConformInfo",
+          ":Format (user custom)"
+        ],
+        "user_overrides": [
+          {
+            "mode": "n",
+            "key": "<leader>bf",
+            "action": "Buffer Format"
+          },
+          {
+            "mode": "v",
+            "key": "<leader>f",
+            "action": "Format selection"
+          }
+        ]
+      },
+      {
+        "plugin": "diffview.nvim",
+        "custom_keys": [
+          {
+            "key": "<Leader>gd",
+            "mode": "n",
+            "action": "toggle_file_history()",
+            "desc": "diff file"
+          },
+          {
+            "key": "<Leader>gS",
+            "mode": "n",
+            "action": "toggle_status()",
+            "desc": "status"
+          }
+        ],
+        "default_keys": [
+          {
+            "key": "<Tab>",
+            "mode": "n",
+            "action": "select_next_entry",
+            "desc": "Open diff for next file",
+            "context": "view"
+          },
+          {
+            "key": "<S-Tab>",
+            "mode": "n",
+            "action": "select_prev_entry",
+            "desc": "Open diff for previous file",
+            "context": "view"
+          },
+          {
+            "key": "gf",
+            "mode": "n",
+            "action": "goto_file",
+            "desc": "Open local file in different tabpage",
+            "context": "view"
+          },
+          {
+            "key": "<C-w><C-f>",
+            "mode": "n",
+            "action": "goto_file_split",
+            "desc": "Open local file in new split",
+            "context": "view"
+          },
+          {
+            "key": "<C-w>gf",
+            "mode": "n",
+            "action": "goto_file_tab",
+            "desc": "Open local file in new tabpage",
+            "context": "view"
+          },
+          {
+            "key": "<leader>e",
+            "mode": "n",
+            "action": "focus_files",
+            "desc": "Bring focus to file panel",
+            "context": "view"
+          },
+          {
+            "key": "<leader>b",
+            "mode": "n",
+            "action": "toggle_files",
+            "desc": "Toggle file panel",
+            "context": "view"
+          },
+          {
+            "key": "j",
+            "mode": "n",
+            "action": "next_entry",
+            "desc": "Move cursor to next entry",
+            "context": "file_panel"
+          },
+          {
+            "key": "k",
+            "mode": "n",
+            "action": "prev_entry",
+            "desc": "Move cursor to previous entry",
+            "context": "file_panel"
+          },
+          {
+            "key": "o",
+            "mode": "n",
+            "action": "select_entry",
+            "desc": "Open diff for selected file",
+            "context": "file_panel"
+          },
+          {
+            "key": "<CR>",
+            "mode": "n",
+            "action": "select_entry",
+            "desc": "Open diff for selected file",
+            "context": "file_panel"
+          },
+          {
+            "key": "-",
+            "mode": "n",
+            "action": "toggle_stage_entry",
+            "desc": "Stage/unstage file entry",
+            "context": "file_panel"
+          },
+          {
+            "key": "S",
+            "mode": "n",
+            "action": "stage_all",
+            "desc": "Stage all entries",
+            "context": "file_panel"
+          },
+          {
+            "key": "U",
+            "mode": "n",
+            "action": "unstage_all",
+            "desc": "Unstage all entries",
+            "context": "file_panel"
+          },
+          {
+            "key": "X",
+            "mode": "n",
+            "action": "restore_entry",
+            "desc": "Revert file to left side state",
+            "context": "file_panel"
+          },
+          {
+            "key": "R",
+            "mode": "n",
+            "action": "refresh_files",
+            "desc": "Refresh file list",
+            "context": "file_panel"
+          },
+          {
+            "key": "<leader>co",
+            "mode": "n",
+            "action": "conflict_choose_ours",
+            "desc": "Choose OURS version",
+            "context": "merge"
+          },
+          {
+            "key": "<leader>ct",
+            "mode": "n",
+            "action": "conflict_choose_theirs",
+            "desc": "Choose THEIRS version",
+            "context": "merge"
+          },
+          {
+            "key": "<leader>cb",
+            "mode": "n",
+            "action": "conflict_choose_base",
+            "desc": "Choose BASE version",
+            "context": "merge"
+          },
+          {
+            "key": "]x",
+            "mode": "n",
+            "action": "next_conflict",
+            "desc": "Jump to next conflict",
+            "context": "merge"
+          },
+          {
+            "key": "[x",
+            "mode": "n",
+            "action": "prev_conflict",
+            "desc": "Jump to previous conflict",
+            "context": "merge"
+          }
+        ]
+      }
+    ],
+    "vim_defaults": [
+      {
+        "category": "Movement",
+        "keys": [
+          "h/j/k/l",
+          "w/W/e/E/b/B",
+          "0/^/$",
+          "gg/G",
+          "f/F/t/T",
+          "{/}",
+          "<C-f>/<C-b>/<C-d>/<C-u>",
+          "<C-o>/<C-i>"
+        ]
+      },
+      {
+        "category": "Operators",
+        "keys": [
+          "d",
+          "c",
+          "y",
+          ">/<",
+          "=",
+          "gq",
+          "gu/gU/g~"
+        ]
+      },
+      {
+        "category": "Text Objects",
+        "keys": [
+          "iw/aw",
+          "is/as",
+          "ip/ap",
+          "i(/a(",
+          "i[/a[",
+          "i{/a{",
+          "i\"/a\"",
+          "i'/a'",
+          "it/at"
+        ]
+      },
+      {
+        "category": "Search",
+        "keys": [
+          "/",
+          "?",
+          "n/N",
+          "*/#",
+          "gd/gD"
+        ]
+      },
+      {
+        "category": "Marks",
+        "keys": [
+          "m{a-z}",
+          "`{mark}",
+          "'{mark}",
+          "``",
+          "`."
+        ]
+      },
+      {
+        "category": "Folds",
+        "keys": [
+          "zo/zO",
+          "zc/zC",
+          "za/zA",
+          "zR/zM",
+          "zr/zm",
+          "zj/zk"
+        ]
+      },
+      {
+        "category": "Windows",
+        "keys": [
+          "<C-w>s",
+          "<C-w>v",
+          "<C-w>c",
+          "<C-w>o",
+          "<C-w>hjkl",
+          "<C-w>=",
+          "<C-w>_",
+          "<C-w>|"
+        ]
+      },
+      {
+        "category": "Tabs",
+        "keys": [
+          "gt/gT",
+          ":tabnew",
+          ":tabc"
+        ]
+      },
+      {
+        "category": "Insert Mode",
+        "keys": [
+          "i/I",
+          "a/A",
+          "o/O",
+          "s/S",
+          "R",
+          "r"
+        ]
+      },
+      {
+        "category": "Visual Mode",
+        "keys": [
+          "v/V/<C-v>",
+          "gv",
+          "o/O",
+          "u/U/~"
+        ]
+      },
+      {
+        "category": "Macros",
+        "keys": [
+          "q{reg}",
+          "@{reg}",
+          "@@"
+        ]
+      },
+      {
+        "category": "Misc",
+        "keys": [
+          "u/<C-r>",
+          ".",
+          "J",
+          "K",
+          "<C-a>/<C-x>",
+          "ga",
+          "gf/gF"
+        ]
+      }
+    ],
+    "conflicts": [
+      {
+        "key": "h",
+        "mode": "n",
+        "type": "conflict",
+        "sources": [
+          "keymappings.lua",
+          "bufferline.lua"
+        ]
+      },
+      {
+        "key": "<leader>cr",
+        "mode": "n",
+        "type": "conflict",
+        "sources": [
+          "keymappings.lua",
+          "which-key/setup.lua (typescript)"
+        ]
+      },
+      {
+        "key": "<leader>cf",
+        "mode": "n",
+        "type": "conflict",
+        "sources": [
+          "keymappings.lua",
+          "which-key/setup.lua (typescript)"
+        ]
+      },
+      {
+        "key": "<leader>d",
+        "mode": "n",
+        "type": "conflict",
+        "sources": [
+          "neogen.lua",
+          "vim-doge.lua"
+        ]
+      },
+      {
+        "key": "gp",
+        "mode": "n",
+        "type": "conflict",
+        "sources": [
+          "printer.lua",
+          "yanky.lua",
+          "yanky.lua"
+        ]
+      },
+      {
+        "key": "<leader>gs",
+        "mode": "n",
+        "type": "conflict",
+        "sources": [
+          "git.lua",
+          "which-key/setup.lua"
+        ]
+      },
+      {
+        "key": "<leader>cs",
+        "mode": "n",
+        "type": "conflict",
+        "sources": [
+          "typescript.lua",
+          "which-key/setup.lua (typescript)"
+        ]
+      },
+      {
+        "key": "<leader>nd",
+        "mode": "n",
+        "type": "conflict",
+        "sources": [
+          "notify.lua",
+          "which-key/setup.lua (npm)"
+        ]
+      },
+      {
+        "key": "<leader>ns",
+        "mode": "n",
+        "type": "conflict",
+        "sources": [
+          "telescope/keymaps/misc.lua",
+          "which-key/setup.lua (npm)"
+        ]
+      },
+      {
+        "key": "<leader>=",
+        "mode": "n",
+        "type": "conflict",
+        "sources": [
+          "which-key/setup.lua",
+          "which-key/setup.lua (nvim-tree)"
+        ]
+      },
+      {
+        "key": "<leader>-",
+        "mode": "n",
+        "type": "conflict",
+        "sources": [
+          "which-key/setup.lua",
+          "which-key/setup.lua (nvim-tree)"
+        ]
+      },
+      {
+        "key": "q",
+        "mode": "n",
+        "type": "conflict",
+        "sources": [
+          "CopilotChat.nvim",
+          "alpha-nvim",
+          "codecompanion.nvim (chat buffer)"
+        ]
+      },
+      {
+        "key": "<leader>cc",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "keymappings.lua",
+          "keymappings.lua",
+          "claude-code.nvim"
+        ]
+      },
+      {
+        "key": "<cr>",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "keymappings.lua",
+          "CopilotChat.nvim",
+          "alpha-nvim",
+          "codecompanion.nvim (chat buffer)"
+        ]
+      },
+      {
+        "key": "gx",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "keymappings.lua",
+          "codecompanion.nvim (chat buffer)"
+        ]
+      },
+      {
+        "key": "gr",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "keymappings.lua",
+          "codecompanion.nvim (chat buffer)",
+          "codecompanion.nvim (chat buffer)"
+        ]
+      },
+      {
+        "key": "gy",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "keymappings.lua",
+          "CopilotChat.nvim",
+          "codecompanion.nvim (chat buffer)"
+        ]
+      },
+      {
+        "key": "<c-space>",
+        "mode": "i",
+        "type": "shadow",
+        "sources": [
+          "keymappings.lua",
+          "blink.lua",
+          "custom_config"
+        ]
+      },
+      {
+        "key": "<c-s>",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "keymappings.lua",
+          "codecompanion.nvim (chat buffer)"
+        ]
+      },
+      {
+        "key": "<s-k>",
+        "mode": "i",
+        "type": "shadow",
+        "sources": [
+          "blink.lua",
+          "custom_config"
+        ]
+      },
+      {
+        "key": "<s-j>",
+        "mode": "i",
+        "type": "shadow",
+        "sources": [
+          "blink.lua",
+          "custom_config"
+        ]
+      },
+      {
+        "key": "<pageup>",
+        "mode": "i",
+        "type": "shadow",
+        "sources": [
+          "blink.lua",
+          "custom_config"
+        ]
+      },
+      {
+        "key": "<pagedown>",
+        "mode": "i",
+        "type": "shadow",
+        "sources": [
+          "blink.lua",
+          "custom_config"
+        ]
+      },
+      {
+        "key": "<a-cr>",
+        "mode": "i",
+        "type": "shadow",
+        "sources": [
+          "blink.lua",
+          "custom_config"
+        ]
+      },
+      {
+        "key": "<tab>",
+        "mode": "i",
+        "type": "shadow",
+        "sources": [
+          "blink.lua",
+          "tabout.lua",
+          "plugin_default"
+        ]
+      },
+      {
+        "key": "<s-tab>",
+        "mode": "i",
+        "type": "shadow",
+        "sources": [
+          "blink.lua",
+          "tabout.lua",
+          "plugin_default"
+        ]
+      },
+      {
+        "key": "<c-e>",
+        "mode": "i",
+        "type": "shadow",
+        "sources": [
+          "blink.lua",
+          "plugin_default"
+        ]
+      },
+      {
+        "key": "gcc",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "comment.lua",
+          "Comment.nvim"
+        ]
+      },
+      {
+        "key": "gbc",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "comment.lua",
+          "Comment.nvim"
+        ]
+      },
+      {
+        "key": "gco",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "comment.lua",
+          "comment.lua",
+          "Comment.nvim",
+          "Comment.nvim"
+        ]
+      },
+      {
+        "key": "gca",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "comment.lua",
+          "Comment.nvim"
+        ]
+      },
+      {
+        "key": "<leader>cv",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "typescript.lua",
+          "claude-code.nvim"
+        ]
+      },
+      {
+        "key": "gs",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "mini.lua",
+          "CopilotChat.nvim",
+          "codecompanion.nvim (chat buffer)",
+          "codecompanion.nvim (chat buffer)"
+        ]
+      },
+      {
+        "key": "<c-d>",
+        "mode": "i",
+        "type": "shadow",
+        "sources": [
+          "tabout.lua",
+          "plugins/util/auto-session.lua",
+          "plugin_default"
+        ]
+      },
+      {
+        "key": "gd",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "telescope/keymaps/misc.lua",
+          "CopilotChat.nvim",
+          "codecompanion.nvim (chat buffer)",
+          "codecompanion.nvim (chat buffer)"
+        ]
+      },
+      {
+        "key": "gu",
+        "mode": "n",
+        "type": "shadow",
+        "sources": [
+          "text-case.lua",
+          "CopilotChat.nvim"
+        ]
+      },
+      {
+        "key": "<c-h>",
+        "mode": "t",
+        "type": "shadow",
+        "sources": [
+          "toggleterm.lua",
+          "claude-code.nvim"
+        ]
+      },
+      {
+        "key": "<c-j>",
+        "mode": "t",
+        "type": "shadow",
+        "sources": [
+          "toggleterm.lua",
+          "claude-code.nvim"
+        ]
+      },
+      {
+        "key": "<c-k>",
+        "mode": "t",
+        "type": "shadow",
+        "sources": [
+          "toggleterm.lua",
+          "claude-code.nvim"
+        ]
+      },
+      {
+        "key": "<c-l>",
+        "mode": "t",
+        "type": "shadow",
+        "sources": [
+          "toggleterm.lua",
+          "claude-code.nvim"
+        ]
+      },
+      {
+        "key": "<c-s>",
+        "mode": "i",
+        "type": "shadow",
+        "sources": [
+          "plugins/util/auto-session.lua",
+          "plugin_default"
+        ]
+      },
+      {
+        "key": "<c-y>",
+        "mode": "i",
+        "type": "shadow",
+        "sources": [
+          "plugins/util/auto-session.lua",
+          "plugin_default"
+        ]
+      }
+    ],
+    "suggestions": {
+      "available_f_keys": [
+        "<F1>",
+        "<S-F1>",
+        "<C-F1>",
+        "<F2>",
+        "<S-F2>",
+        "<C-F2>",
+        "<F3>",
+        "<S-F3>",
+        "<C-F3>",
+        "<F4>",
+        "<S-F4>",
+        "<C-F4>",
+        "<F5>",
+        "<S-F5>",
+        "<C-F5>",
+        "<F6>",
+        "<S-F6>",
+        "<C-F6>",
+        "<F7>",
+        "<S-F7>",
+        "<C-F7>",
+        "<F8>",
+        "<S-F8>",
+        "<C-F8>",
+        "<F9>",
+        "<S-F9>",
+        "<C-F9>",
+        "<F10>",
+        "<S-F10>",
+        "<C-F10>",
+        "<F11>",
+        "<S-F11>",
+        "<C-F11>",
+        "<S-F12>",
+        "<C-F12>"
+      ],
+      "available_alt_keys": [
+        "<A-a>",
+        "<A-d>",
+        "<A-f>",
+        "<A-g>",
+        "<A-i>",
+        "<A-j>",
+        "<A-k>",
+        "<A-l>",
+        "<A-n>",
+        "<A-q>",
+        "<A-r>",
+        "<A-s>",
+        "<A-t>",
+        "<A-u>",
+        "<A-v>",
+        "<A-x>",
+        "<A-y>",
+        "<A-z>",
+        "<A-0>",
+        "<A-1>",
+        "<A-2>",
+        "<A-3>",
+        "<A-4>",
+        "<A-5>",
+        "<A-6>",
+        "<A-7>",
+        "<A-8>",
+        "<A-9>"
+      ],
+      "available_leader_single": [
+        "<leader>a",
+        "<leader>b",
+        "<leader>c",
+        "<leader>d",
+        "<leader>g",
+        "<leader>h",
+        "<leader>i",
+        "<leader>j",
+        "<leader>k",
+        "<leader>l",
+        "<leader>m",
+        "<leader>n",
+        "<leader>o",
+        "<leader>p",
+        "<leader>r",
+        "<leader>t",
+        "<leader>u",
+        "<leader>w",
+        "<leader>x",
+        "<leader>y"
+      ],
+      "available_g_prefix": [
+        "gg",
+        "gh",
+        "gi",
+        "gj",
+        "gk",
+        "gm",
+        "gn",
+        "go",
+        "gq",
+        "gt",
+        "gv",
+        "gw",
+        "gz"
+      ],
+      "available_z_prefix": [
+        "za",
+        "zb",
+        "zc",
+        "zd",
+        "ze",
+        "zf",
+        "zg",
+        "zh",
+        "zi",
+        "zj",
+        "zk",
+        "zl",
+        "zm",
+        "zn",
+        "zo",
+        "zp",
+        "zq",
+        "zs",
+        "zt",
+        "zu",
+        "zv",
+        "zw",
+        "zx",
+        "zy",
+        "zz"
+      ],
+      "available_bracket_keys": [
+        "[a",
+        "]a",
+        "[d",
+        "]d",
+        "[e",
+        "]e",
+        "[j",
+        "]j",
+        "[k",
+        "]k",
+        "[l",
+        "]l",
+        "[m",
+        "]m",
+        "[n",
+        "]n",
+        "[o",
+        "]o",
+        "[q",
+        "]q",
+        "[r",
+        "]r",
+        "[s",
+        "]s",
+        "[u",
+        "]u",
+        "[v",
+        "]v",
+        "[w",
+        "]w",
+        "[x",
+        "]x",
+        "[y",
+        "]y",
+        "[z",
+        "]z"
+      ],
+      "frontend_suggestions": [
+        {
+          "key": "<A-j>",
+          "action": "Move line down"
+        },
+        {
+          "key": "<A-k>",
+          "action": "Move line up"
+        },
+        {
+          "key": "<A-d>",
+          "action": "Duplicate line"
+        },
+        {
+          "key": "<F5>",
+          "action": "Start debugger"
+        },
+        {
+          "key": "<F6>",
+          "action": "Toggle terminal"
+        },
+        {
+          "key": "<F7>",
+          "action": "Run tests"
+        },
+        {
+          "key": "<leader>tt",
+          "action": "Run test under cursor"
+        },
+        {
+          "key": "<leader>tf",
+          "action": "Run tests for current file"
+        },
+        {
+          "key": "<leader>ia",
+          "action": "Auto-import"
+        },
+        {
+          "key": "<leader>io",
+          "action": "Organize imports"
+        }
+      ]
+    }
+  }
+}

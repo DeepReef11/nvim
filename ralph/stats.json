@@ -1,0 +1,23 @@
+{
+  "timing": {
+    "start_time": "2026-01-15 19:50:46",
+    "end_time": "2026-01-15 20:00:15",
+    "total_seconds": 569,
+    "total_formatted": "9m 29s",
+    "iterations": 1,
+    "avg_seconds_per_iteration": 569
+  },
+  "usage": {
+    "total_input_tokens": 0,
+    "total_output_tokens": 0,
+    "total_tokens": 0,
+    "avg_input_tokens_per_iteration": 0,
+    "avg_output_tokens_per_iteration": 0
+  },
+  "cost": {
+    "input_cost_per_million": 3.00,
+    "output_cost_per_million": 15.00,
+    "total_cost_usd": ,
+    "note": "Orchestrator only. Sub-agent costs are additional."
+  }
+}
