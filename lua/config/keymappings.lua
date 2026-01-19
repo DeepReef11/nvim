@@ -144,8 +144,6 @@ vim.keymap.set('n', 'gV', 'v`]o`[', { desc = "Select last pasted (Visual mode)" 
 -- Fix moving forward in jumplist via <C-i>
 keymap("n", "<C-I>", "<C-I>", silent)
 
--- H to move to the first non-blank character of the line
-keymap("n", "H", "^", silent)
 -- Visual mode keybinding
 vim.keymap.set('v', '<S-Up>', '<Up>', { desc = 'Visual mode prevent page up' })
 vim.keymap.set('v', '<S-Down>', '<Down>', { desc = 'Visual mode prevent page down' })

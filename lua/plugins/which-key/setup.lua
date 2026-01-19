@@ -255,11 +255,11 @@ local function attach_npm(bufnr)
 		{ buffer = bufnr },
 		{ "<leader>n", group = "NPM" },
 		{ "<leader>nc", '<cmd>lua require("package-info").change_version()<CR>', desc = "change version" },
-		{ "<leader>nd", '<cmd>lua require("package-info").delete()<CR>', desc = "delete package" },
+		{ "<leader>nD", '<cmd>lua require("package-info").delete()<CR>', desc = "delete package" },
 		{ "<leader>nh", "<cmd>lua require('package-info').hide()<CR>", desc = "hide" },
 		{ "<leader>ni", '<cmd>lua require("package-info").install()<CR>', desc = "install new package" },
 		{ "<leader>nr", '<cmd>lua require("package-info").reinstall()<CR>', desc = "reinstall dependencies" },
-		{ "<leader>ns", '<cmd>lua require("package-info").show()<CR>', desc = "show" },
+		{ "<leader>nS", '<cmd>lua require("package-info").show()<CR>', desc = "show" },
 		{ "<leader>nu", '<cmd>lua require("package-info").update()<CR>', desc = "update package" },
 	})
 end

@@ -107,8 +107,6 @@ Available `<A-key>` / `<M-key>` combinations:
 
 | Key | Suggested Action | Rationale |
 |-----|------------------|-----------|
-| `<A-j>` | Move line down | Quick line reordering |
-| `<A-k>` | Move line up | Quick line reordering |
 | `<A-d>` | Duplicate line | Common editing action |
 | `<A-/>` | Toggle comment | Quick commenting |
 | `<A-f>` | Format document | Auto-format |
@@ -167,16 +165,14 @@ Single-character leader keys available: 20
 
 The `g` prefix is traditionally used for "go to" and extended motions.
 
-Available: `gg`, `gh`, `gi`, `gj`, `gk`, `gm`, `gn`, `go`, `gq`, `gt`, `gv`, `gw`, `gz`
+Available: `gg`, `gh`, `gi`, `gm`, `gn`, `go`, `gq`, `gt`, `gv`, `gw`, `gz`
 
 ### Suggested g-Prefix Mappings
 
 | Key | Suggested Action | Rationale |
 |-----|------------------|-----------|
-| `gh` | Show hover info | "Go hover" |
 | `gi` | Go to implementation | "Go implementation" |
 | `gn` | Go to next diagnostic | Navigation |
-| `gk` | Show signature help | Documentation |
 | `gq` | Format selection | Formatting |
 | `gw` | Swap word/argument | Refactoring |
 
@@ -186,7 +182,7 @@ Available: `gg`, `gh`, `gi`, `gj`, `gk`, `gm`, `gn`, `go`, `gq`, `gt`, `gv`, `gw
 
 The `z` prefix is traditionally used for fold operations and view adjustments.
 
-Available: `za`, `zb`, `zc`, `zd`, `ze`, `zf`, `zg`, `zh`, `zi`, `zj`, `zk`, `zl`, `zm`, `zn`, `zo`...
+Available: `za`, `zb`, `zc`, `zd`, `ze`, `zf`, `zg`, `zi`, `zm`, `zn`, `zo`...
 
 ### Suggested z-Prefix Mappings
 
@@ -206,7 +202,7 @@ Available: `za`, `zb`, `zc`, `zd`, `ze`, `zf`, `zg`, `zh`, `zi`, `zj`, `zk`, `zl
 
 Bracket keys (`[` and `]`) are used for navigation between items.
 
-Available: `[a`, `]a`, `[d`, `]d`, `[e`, `]e`, `[j`, `]j`, `[k`, `]k`, `[l`, `]l`, `[m`, `]m`, `[n`, `]n`, `[o`, `]o`, `[q`, `]q`...
+Available: `[a`, `]a`, `[d`, `]d`, `[e`, `]e`, `[m`, `]m`, `[n`, `]n`, `[o`, `]o`, `[q`, `]q`...
 
 ### Suggested Bracket Mappings
 
@@ -261,15 +257,6 @@ Available: `[a`, `]a`, `[d`, `]d`, `[e`, `]e`, `[j`, `]j`, `[k`, `]k`, `[l`, `]l
 ---
 
 ## Custom Mapping Implementation Examples
-
-### Move Lines with Alt+j/k
-
-```lua
-vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
-vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
-```
 
 ### Quick Save All
 

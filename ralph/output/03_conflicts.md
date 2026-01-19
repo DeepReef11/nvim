@@ -1,106 +1,70 @@
 # Keybinding Conflicts Report
 
-Generated: 2026-01-15 20:15:58
+Generated: 2026-01-15 20:15:58 (Updated: 2026-01-15 - case sensitivity review)
 
 ## Summary
 
 | Type | Count |
 |------|-------|
 | Total unique key+mode combinations | 454 |
-| Direct conflicts (different plugin configs) | 12 |
+| Direct conflicts (different plugin configs) | 6 |
 | Shadows (custom overriding defaults) | 30 |
+| Removed (false positives due to case) | 6 |
 
 ---
+
 
 ## Direct Conflicts
 
 These are keybindings where multiple plugin configurations define the same key in the same mode.
 
-### `<leader>-` (mode: `n`)
 
-| Source | Description |
-|--------|-------------|
-| which-key/setup.lua | resize -5 |
-| which-key/setup.lua (nvim-tree) | resize -5 |
 
-### `<leader>=` (mode: `n`)
+### `<leader>D` (mode: `n`) - Disabled plugin
 
-| Source | Description |
-|--------|-------------|
-| which-key/setup.lua | resize +5 |
-| which-key/setup.lua (nvim-tree) | resize +5 |
+| Source | File | Description |
+|--------|------|-------------|
+| neogen.lua:7 | lua/plugins/code/neogen.lua | Generate documentation annotation (neogen) |
+| vim-doge.lua:6 | lua/plugins/code/vim-doge.lua | Generate documentation (vim-doge - **disabled**) |
 
-### `<leader>cf` (mode: `n`)
+*Note**: vim-doge is disabled (`enabled = false`), so no actual conflict at runtime.
 
-| Source | Description |
-|--------|-------------|
-| keymappings.lua | LSP Format |
-| which-key/setup.lua (typescript) | fix all |
+### `<leader>nd` (mode: `n`) - Buffer-local conflict
+fixed
 
-### `<leader>cr` (mode: `n`)
+| Source | File | Description |
+|--------|------|-------------|
+| notify.lua:12 | lua/plugins/notify.lua | Notify Dismiss (nvim-notify) - global |
+| which-key/setup.lua:258 (package.json buffer) | lua/plugins/which-key/setup.lua | delete package (package-info) - buffer-local |
 
-| Source | Description |
-|--------|-------------|
-| keymappings.lua | LSP Rename |
-| which-key/setup.lua (typescript) | rename file |
+**Note**: Only conflicts in package.json files where npm keymaps are attached.
 
-### `<leader>cs` (mode: `n`)
+### `<leader>ns` (mode: `n`) - Buffer-local conflict
+fixed
+| Source | File | Description |
+|--------|------|-------------|
+| telescope/keymaps/misc.lua:10 | lua/plugins/telescope/keymaps/misc.lua | Search Notify (telescope.nvim) - global |
+| which-key/setup.lua:262 (package.json buffer) | lua/plugins/which-key/setup.lua | show (package-info) - buffer-local |
 
-| Source | Description |
-|--------|-------------|
-| typescript.lua | Toggle Tailwind CSS classes sort on save (tailwind-sorter.nv |
-| which-key/setup.lua (typescript) | sort imports |
+**Note**: Only conflicts in package.json files where npm keymaps are attached.
 
-### `<leader>d` (mode: `n`)
+### `H` (mode: `n`) - Real conflict
+fixed
+| Source | File | Description |
+|--------|------|-------------|
+| keymappings.lua:148 | lua/config/keymappings.lua | Move to first non-blank character (`^`) |
+| bufferline.lua:61 | lua/plugins/ui/bufferline.lua | Bufferline cycle prev buffer |
 
-| Source | Description |
-|--------|-------------|
-| neogen.lua | Generate documentation annotation (neogen) |
-| vim-doge.lua | Generate documentation (vim-doge - disabled plugin) |
+**Note**: Both define `H` (uppercase). This is a real conflict requiring resolution.
 
-### `<leader>gs` (mode: `n`)
+### `gP` (mode: `n`) - Real conflict
+fixed
+| Source | File | Description |
+|--------|------|-------------|
+| printer.lua:45 | lua/plugins/code/printer.lua | Print inner word under cursor (printer.nvim) |
+| yanky.lua:27 | lua/plugins/yanky.lua | Put yanked text before selection (yanky.nvim) |
 
-| Source | Description |
-|--------|-------------|
-| git.lua | Toggle git status (diffview.nvim) |
-| which-key/setup.lua | telescope status |
-
-### `<leader>nd` (mode: `n`)
-
-| Source | Description |
-|--------|-------------|
-| notify.lua | Notify Dismiss (nvim-notify) |
-| which-key/setup.lua (npm) | delete package |
-
-### `<leader>ns` (mode: `n`)
-
-| Source | Description |
-|--------|-------------|
-| telescope/keymaps/misc.lua | Search Notify (telescope.nvim) |
-| which-key/setup.lua (npm) | show |
-
-### `gp` (mode: `n`)
-
-| Source | Description |
-|--------|-------------|
-| printer.lua | Print inner word under cursor (printer.nvim) |
-| yanky.lua | Put yanked text after selection |
-| yanky.lua | Put yanked text before selection |
-
-### `h` (mode: `n`)
-
-| Source | Description |
-|--------|-------------|
-| keymappings.lua | Move to first non-blank character |
-| bufferline.lua | Bufferline cycle prev buffer |
-
-### `q` (mode: `n`)
-
-| Source | Description |
-|--------|-------------|
-| CopilotChat.nvim | N/A |
-| alpha-nvim | N/A |
-| codecompanion.nvim (chat buffer) | Stop current request |
+**Note**: Both define `gP` (uppercase P). `gp` (lowercase) is only defined in yanky.lua:26 - no conflict there.
 
 ---
 
@@ -338,24 +302,36 @@ This is usually intentional, but worth reviewing.
 
 ## Recommended Actions
 
-### High Priority Conflicts
+### High Priority Conflicts (Requires Resolution)
 
-1. **`h` in normal mode**: Both `keymappings.lua` (move to first non-blank) and `bufferline.lua` (cycle prev buffer) use `H`. Check if the lowercase `h` conflict is intentional.
+1. **`H` in normal mode**: Both `keymappings.lua:148` (move to first non-blank) and `bufferline.lua:61` (cycle prev buffer) define `H`. One needs to be remapped.
 
-2. **`<leader>cr` in normal mode**: Conflicts between LSP Rename and TypeScript rename file. Consider using different prefixes.
+2. **`gP` in normal mode**: Both `printer.lua:45` (print debug) and `yanky.lua:27` (put before) define `gP`. Consider changing printer.nvim keymap in `lua/plugins/code/printer.lua`.
 
-3. **`<leader>cf` in normal mode**: LSP Format vs TypeScript fix all. Similar prefix issue.
+### Low Priority / Intentional Conflicts
 
-4. **`<leader>gs` in normal mode**: Git status (diffview) vs Telescope status. Consider consolidating git operations.
+3. **`<leader>nd` and `<leader>ns`**: Only conflicts in package.json files. If you rarely edit package.json, this is fine.
 
-5. **`<leader>d` in normal mode**: Neogen vs vim-doge (disabled). Since vim-doge is disabled, this should resolve automatically.
+4. **`<leader>-` and `<leader>=`**: Intentional buffer-local overrides for nvim-tree - no action needed.
 
-6. **`gp` in normal mode**: Printer, yanky put after, and yanky put before all conflict. This needs attention.
+5. **`<leader>D`**: vim-doge is disabled, so no actual conflict.
+
+6. **`q`**: Plugin defaults for specific buffer types - these don't conflict in practice.
 
 ### Shadows to Review
 
-- `<Enter>` in normal mode: Your "remove highlights" may prevent CopilotChat/codecompanion message sending
-- `gx` in normal mode: Your "open links" may conflict with codecompanion's "clear chat"
-- `gr` in normal mode: Your "go to references" may conflict with codecompanion's "regenerate"
+- `<Enter>` in normal mode: Your "remove highlights" may prevent CopilotChat/codecompanion message sending in chat buffers
+- `gx` in normal mode: Your "open links" overrides codecompanion's "clear chat" in chat buffers
+- `gr` in normal mode: Your "go to references" overrides codecompanion's "regenerate" in chat buffers
 - `<C-Space>` in insert mode: Multiple completion triggers - ensure only one is active
+
+### Corrections Applied
+
+The original report incorrectly flagged case-insensitive matches as conflicts:
+- `<leader>cf` vs `<leader>cF` - different keys
+- `<leader>cr` vs `<leader>cR` - different keys
+- `<leader>cs` vs `<leader>cS` - different keys
+- `<leader>gs` vs `<leader>gS` - different keys
+- `gp` vs `gP` - different keys (only `gP` has conflict)
+- `h` was reported but actual conflict is on `H` (uppercase)
 

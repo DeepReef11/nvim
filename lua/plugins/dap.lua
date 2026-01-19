@@ -325,7 +325,14 @@ return {
   "Carcuis/dap-breakpoints.nvim",
   lazy = false,
   dependencies = {
-    "Weissle/persistent-breakpoints.nvim",
+    {
+      "Weissle/persistent-breakpoints.nvim",
+      config = function()
+        require("persistent-breakpoints").setup({
+          load_breakpoints_event = { "BufReadPost" },
+        })
+      end,
+    },
     "mfussenegger/nvim-dap",
   },
   config = function()

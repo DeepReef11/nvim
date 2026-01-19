@@ -239,29 +239,6 @@ return {
   },
 
   {
-    "kdheepak/lazygit.nvim",
-    cmd = {
-      "LazyGit",
-      "LazyGitCurrentFile",
-      "LazyGitFilterCurrentFile",
-      "LazyGitFilter",
-      "LazyGitConfig",
-    },
-    keys = {
-      -- { "<Leader>gg", "<cmd>LazyGit<CR>", desc = "lazygit" },
-    },
-
-    config = function()
-      -- local nvim_appname = vim.api.env.NVIM_APPNAME
-      local nvim_appname = vim.fn.stdpath('config')
-      vim.g.lazygit_floating_window_scaling_factor = 0.95
-      -- vim.g.lazygit_config_file_path = '${NVIM_APPNAME}/lua/plugins/git/lazygit.yml'
-      vim.g.lazygit_use_custom_config_file_path = 1
-      vim.g.lazygit_config_file_path = nvim_appname .. "/lua/plugins/git/lazygit.yml"
-    end,
-  },
-
-  {
     "pwntester/octo.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",

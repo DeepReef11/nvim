@@ -100,6 +100,10 @@ return {
             ["<CR>"] = "textsubjects-smart", -- works in visual mode
           },
         },
+
+        matchup = {
+          enable = true, -- mandatory, false will disable the whole extension
+        },
       })
       local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
