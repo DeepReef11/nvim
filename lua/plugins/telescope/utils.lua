@@ -57,54 +57,61 @@ M.dropdown_theme = require("telescope.themes").get_dropdown({
 -- Handles paths like `docs/explanation/synchronization.md#team-decisions`
 function M.follow_markdown_path()
   local line = vim.api.nvim_get_current_line()
-  local col = vim.api.nvim_win_get_cursor(0)[2]
+  local col = vim.api.nvim_win_get_cursor(0)[2] + 1  -- 1-indexed for string operations
 
-  -- Pattern to match paths in backticks or bare paths ending with common extensions
-  -- Match: `path/to/file.ext` or `path/to/file.ext#anchor`
-  local patterns = {
-    "`([^`]+)`",                                    -- backtick-quoted paths
-    "%(([^%)]+%.[%w]+)%)",                          -- (path.ext) markdown links
-    "([%w_%-./]+%.[%w]+[#%w%-_]*)",                 -- bare paths with extensions
-  }
-
-  for _, pattern in ipairs(patterns) do
-    for match in line:gmatch(pattern) do
-      local start_pos, end_pos = line:find(pattern)
-      while start_pos do
-        if col >= start_pos - 1 and col <= end_pos - 1 then
-          -- Extract path without anchor
-          local path = match:gsub("#.*$", "")
-
-          -- Check if file exists relative to current buffer's directory
-          local buf_dir = vim.fn.expand("%:p:h")
-          local full_path = buf_dir .. "/" .. path
-
-          if vim.fn.filereadable(full_path) == 1 then
-            vim.cmd("edit " .. vim.fn.fnameescape(full_path))
-            return true
-          end
-
-          -- Try relative to cwd
-          if vim.fn.filereadable(path) == 1 then
-            vim.cmd("edit " .. vim.fn.fnameescape(path))
-            return true
-          end
-
-          -- Try with ./ prefix removed
-          local clean_path = path:gsub("^%./", "")
-          if vim.fn.filereadable(clean_path) == 1 then
-            vim.cmd("edit " .. vim.fn.fnameescape(clean_path))
-            return true
-          end
-
-          vim.notify("File not found: " .. path, vim.log.levels.WARN)
-          return false
-        end
-        start_pos, end_pos = line:find(pattern, end_pos + 1)
+  -- Find backtick-quoted content at cursor position
+  local function find_backtick_path()
+    local i = 1
+    while i <= #line do
+      local start_tick = line:find("`", i)
+      if not start_tick then break end
+      local end_tick = line:find("`", start_tick + 1)
+      if not end_tick then break end
+      if col >= start_tick and col <= end_tick then
+        return line:sub(start_tick + 1, end_tick - 1)
       end
+      i = end_tick + 1
+    end
+    return nil
+  end
+
+  -- Try to get path from backticks first
+  local path = find_backtick_path()
+
+  -- If not in backticks, try to get word under cursor that looks like a path
+  if not path then
+    local word = vim.fn.expand("<cfile>")
+    if word and word:match("%.[%w]+") then
+      path = word
     end
   end
 
+  if not path or path == "" then
+    return false
+  end
+
+  -- Remove anchor (e.g., #team-decisions)
+  path = path:gsub("#.*$", "")
+
+  -- Try different path resolutions
+  local cwd = vim.fn.getcwd()
+  local buf_dir = vim.fn.expand("%:p:h")
+
+  local paths_to_try = {
+    path,                           -- as-is (relative to cwd)
+    cwd .. "/" .. path,             -- relative to cwd (absolute)
+    buf_dir .. "/" .. path,         -- relative to current buffer
+    path:gsub("^%./", ""),          -- remove leading ./
+  }
+
+  for _, try_path in ipairs(paths_to_try) do
+    if vim.fn.filereadable(try_path) == 1 then
+      vim.cmd("edit " .. vim.fn.fnameescape(try_path))
+      return true
+    end
+  end
+
+  vim.notify("File not found: " .. path, vim.log.levels.WARN)
   return false
 end
 
@@ -113,8 +120,8 @@ function M.smart_gd()
   local ft = vim.bo.filetype
   if ft == "markdown" then
     if not M.follow_markdown_path() then
-      -- Fallback to LSP if no path found
-      vim.cmd("Telescope lsp_definitions")
+      -- Fallback: no path found, don't call LSP (markdown typically has no LSP definitions)
+      vim.notify("No path found under cursor", vim.log.levels.INFO)
     end
   else
     vim.cmd("Telescope lsp_definitions")
