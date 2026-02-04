@@ -195,6 +195,12 @@ keymap({ 'n' }, '<Del>', '"_x')
 -- Don't yank on visual paste
 keymap("v", "p", '"_dP', silent)
 
+-- Yank path
+keymap("n", "ypp", '<cmd>let @+ = expand("%:p")<CR>', { desc = "Yank absolute path" })
+keymap("n", "ypr", '<cmd>let @+ = expand("%:.")<CR>', { desc = "Yank relative path" })
+keymap("n", "ypf", '<cmd>let @+ = expand("%:t")<CR>', { desc = "Yank filename" })
+keymap("n", "ypb", '<cmd>let @+ = expand("%:t:r")<CR>', { desc = "Yank basename (no ext)" })
+
 -- Avoid issues because of remapping <c-a> and <c-x> below
 vim.cmd([[
   nnoremap <Plug>SpeedDatingFallbackUp <c-a>

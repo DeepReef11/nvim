@@ -89,6 +89,42 @@ return {
           ["gx"] = "actions.open_external",
           ["g."] = "actions.toggle_hidden",
           ["g\\"] = "actions.toggle_trash",
+          ["ypp"] = { "actions.yank_entry", desc = "Yank absolute path" },
+          ["ypr"] = {
+            callback = function()
+              local oil = require("oil")
+              local entry = oil.get_cursor_entry()
+              local dir = oil.get_current_dir()
+              if entry and dir then
+                local full = dir .. entry.name
+                local rel = vim.fn.fnamemodify(full, ":.")
+                vim.fn.setreg("+", rel)
+                vim.notify(rel, vim.log.levels.INFO)
+              end
+            end,
+            desc = "Yank relative path",
+          },
+          ["ypf"] = {
+            callback = function()
+              local entry = require("oil").get_cursor_entry()
+              if entry then
+                vim.fn.setreg("+", entry.name)
+                vim.notify(entry.name, vim.log.levels.INFO)
+              end
+            end,
+            desc = "Yank filename",
+          },
+          ["ypb"] = {
+            callback = function()
+              local entry = require("oil").get_cursor_entry()
+              if entry then
+                local base = vim.fn.fnamemodify(entry.name, ":r")
+                vim.fn.setreg("+", base)
+                vim.notify(base, vim.log.levels.INFO)
+              end
+            end,
+            desc = "Yank basename (no ext)",
+          },
         },
         -- Set to false to disable all of the above keymaps
         use_default_keymaps = true,

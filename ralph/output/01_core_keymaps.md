@@ -56,6 +56,10 @@ Source: `lua/config/keymappings.lua`
 | `<C-a>` | n | Switch/SpeedDating increment | Manually invoke speeddating/switch |
 | `<C-x>` | n | Switch/SpeedDating decrement | Manually invoke speeddating/switch (reverse) |
 | `gx` | n | Open link in browser | Open links under cursor in browser |
+| `ypp` | n | `let @+ = expand("%:p")` | Yank absolute path |
+| `ypr` | n | `let @+ = expand("%:.")` | Yank relative path |
+| `ypf` | n | `let @+ = expand("%:t")` | Yank filename |
+| `ypb` | n | `let @+ = expand("%:t:r")` | Yank basename (no ext) |
 
 ## Visual Mode Bindings
 

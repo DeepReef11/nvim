@@ -48,6 +48,15 @@ Oil.nvim is a file explorer that lets you edit your filesystem like a normal Neo
 |-----|--------|------|-------------|
 | `g?` | `actions.show_help` | n | Show default keymaps |
 
+## Yank Path
+
+| Key | Action | Mode | Description |
+|-----|--------|------|-------------|
+| `ypp` | `actions.yank_entry` | n | Yank absolute path to system clipboard |
+| `ypr` | callback | n | Yank relative path (relative to cwd) to system clipboard |
+| `ypf` | callback | n | Yank filename to system clipboard |
+| `ypb` | callback | n | Yank basename without extension to system clipboard |
+
 ## Additional Available Actions (Not Bound by Default)
 
 These actions are available but not bound to any key by default. You can add them to your configuration:
