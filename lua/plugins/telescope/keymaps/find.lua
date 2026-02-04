@@ -140,7 +140,7 @@ function M.get_keymaps()
           additional_args = utils.grep_exclusions_hidden
         })
       end,
-      desc = "Find by grep in open files"
+      desc = "Find by grep (including hidden)"
     },
     {
       "<leader>fo",
@@ -255,7 +255,7 @@ function M.get_keymaps()
           additional_args = utils.grep_exclusions_hidden
         }))
       end,
-      desc = "Find by grep in open files (fast, no preview)"
+      desc = "Find by grep (including hidden)"
     },
 
     -- Fast recent files (no preview)
