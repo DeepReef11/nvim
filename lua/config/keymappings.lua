@@ -195,11 +195,22 @@ keymap({ 'n' }, '<Del>', '"_x')
 -- Don't yank on visual paste
 keymap("v", "p", '"_dP', silent)
 
--- Yank path
-keymap("n", "ypp", '<cmd>let @+ = expand("%:p")<CR>', { desc = "Yank absolute path" })
-keymap("n", "ypr", '<cmd>let @+ = expand("%:.")<CR>', { desc = "Yank relative path" })
-keymap("n", "ypf", '<cmd>let @+ = expand("%:t")<CR>', { desc = "Yank filename" })
-keymap("n", "ypb", '<cmd>let @+ = expand("%:t:r")<CR>', { desc = "Yank basename (no ext)" })
+-- Yank path (mapped as "yp" + next char to bypass yanky's y-operator)
+keymap("n", "yp", function()
+  local c = vim.fn.getcharstr()
+  local actions = {
+    p = "%:p",   -- absolute path
+    r = "%:.",   -- relative path
+    f = "%:t",   -- filename
+    b = "%:t:r", -- basename (no ext)
+  }
+  local mod = actions[c]
+  if mod then
+    local path = vim.fn.expand(mod)
+    vim.fn.setreg("+", path)
+    vim.notify(path, vim.log.levels.INFO)
+  end
+end, { desc = "Yank path: p=abs r=rel f=file b=base" })
 
 -- Avoid issues because of remapping <c-a> and <c-x> below
 vim.cmd([[
