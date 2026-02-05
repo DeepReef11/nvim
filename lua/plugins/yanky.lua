@@ -16,11 +16,32 @@ return {
         end,
         desc = 'Open Yank History',
       },
-      { 'y',     '<Plug>(YankyYank)',                      mode = { 'n', 'x' },                                desc = 'Yank text' },
-      { 'ypp', function() local p = vim.fn.expand("%:p");   vim.fn.setreg("+", p); vim.notify(p) end, desc = 'Yank absolute path' },
-      { 'ypr', function() local p = vim.fn.expand("%:.");   vim.fn.setreg("+", p); vim.notify(p) end, desc = 'Yank relative path' },
-      { 'ypf', function() local p = vim.fn.expand("%:t");   vim.fn.setreg("+", p); vim.notify(p) end, desc = 'Yank filename' },
-      { 'ypb', function() local p = vim.fn.expand("%:t:r"); vim.fn.setreg("+", p); vim.notify(p) end, desc = 'Yank basename (no ext)' },
+      {
+        'y',
+        function()
+          local c = vim.fn.getcharstr()
+          if c == "p" then
+            -- Yank path sub-dispatch
+            local c2 = vim.fn.getcharstr()
+            local mods = { p = "%:p", r = "%:.", f = "%:t", b = "%:t:r" }
+            local mod = mods[c2]
+            if mod then
+              local path = vim.fn.expand(mod)
+              vim.fn.setreg("+", path)
+              vim.notify(path)
+            else
+              -- Not a yank-path combo, feed back: y + p + c2 to yanky
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Plug>(YankyYank)p" .. c2, true, true, true), "m", false)
+            end
+          else
+            -- Normal yank: feed y operator + the motion char back
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Plug>(YankyYank)" .. c, true, true, true), "m", false)
+          end
+        end,
+        mode = { 'n' },
+        desc = 'Yank text / Yank path (ypp/ypr/ypf/ypb)',
+      },
+      { 'y',     '<Plug>(YankyYank)',                      mode = { 'x' },                                      desc = 'Yank text' },
       { 'p',     '<Plug>(YankyPutAfter)',                  mode = { 'n', 'x' },                                desc = 'Put yanked text after cursor' },
       { 'P',     '<Plug>(YankyPutBefore)',                 mode = { 'n', 'x' },                                desc = 'Put yanked text before cursor' },
       { '<M-p>', '<Plug>(YankyPutAfterCharwise)',          mode = { 'n', 'x' },                                desc = 'Put yanked text right after cursor charwise' },
