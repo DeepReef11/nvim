@@ -70,6 +70,14 @@ wk.add({
 wk.add({
 	{ "gs", group = "Surround", mode = { "n", "v" } },
 })
+-- Yank path
+wk.add({
+	{ "yp", group = "Yank path" },
+	{ "ypp", function() local p = vim.fn.expand("%:p");   vim.fn.setreg("+", p); vim.notify(p) end, desc = "Yank absolute path" },
+	{ "ypr", function() local p = vim.fn.expand("%:.");   vim.fn.setreg("+", p); vim.notify(p) end, desc = "Yank relative path" },
+	{ "ypf", function() local p = vim.fn.expand("%:t");   vim.fn.setreg("+", p); vim.notify(p) end, desc = "Yank filename" },
+	{ "ypb", function() local p = vim.fn.expand("%:t:r"); vim.fn.setreg("+", p); vim.notify(p) end, desc = "Yank basename (no ext)" },
+})
 -- single
 wk.add({
 	{ "<leader>=", "<cmd>vertical resize +5<CR>", desc = "resize +5" },
