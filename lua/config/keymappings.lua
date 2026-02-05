@@ -195,23 +195,6 @@ keymap({ 'n' }, '<Del>', '"_x')
 -- Don't yank on visual paste
 keymap("v", "p", '"_dP', silent)
 
--- Yank path (mapped as "yp" + next char to bypass yanky's y-operator)
-keymap("n", "yp", function()
-  local c = vim.fn.getcharstr()
-  local actions = {
-    p = "%:p",   -- absolute path
-    r = "%:.",   -- relative path
-    f = "%:t",   -- filename
-    b = "%:t:r", -- basename (no ext)
-  }
-  local mod = actions[c]
-  if mod then
-    local path = vim.fn.expand(mod)
-    vim.fn.setreg("+", path)
-    vim.notify(path, vim.log.levels.INFO)
-  end
-end, { desc = "Yank path: p=abs r=rel f=file b=base" })
-
 -- Avoid issues because of remapping <c-a> and <c-x> below
 vim.cmd([[
   nnoremap <Plug>SpeedDatingFallbackUp <c-a>
