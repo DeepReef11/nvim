@@ -195,27 +195,6 @@ keymap({ 'n' }, '<Del>', '"_x')
 -- Don't yank on visual paste
 keymap("v", "p", '"_dP', silent)
 
--- Yank path: uses operator-pending mode so it works after yanky's y operator
--- When you press y (yanky enters op-pending mode), then p triggers this,
--- reads one more char and cancels the operator via <C-c>
-keymap("o", "p", function()
-  local c = vim.fn.getcharstr()
-  local mods = { p = "%:p", r = "%:.", f = "%:t", b = "%:t:r" }
-  local mod = mods[c]
-  if mod then
-    -- Cancel the pending operator
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-c>", true, true, true), "n", false)
-    vim.schedule(function()
-      local path = vim.fn.expand(mod)
-      vim.fn.setreg("+", path)
-      vim.notify(path)
-    end)
-  else
-    -- Not a yank-path key, feed p + c back as normal motion
-    vim.api.nvim_feedkeys("p" .. c, "n", false)
-  end
-end, { desc = "Yank path (pp/pr/pf/pb) or normal motion" })
-
 -- Avoid issues because of remapping <c-a> and <c-x> below
 vim.cmd([[
   nnoremap <Plug>SpeedDatingFallbackUp <c-a>
