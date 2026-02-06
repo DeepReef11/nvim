@@ -16,32 +16,6 @@ return {
         end,
         desc = 'Open Yank History',
       },
-      { 'y', '<Plug>(YankyYank)', mode = { 'x' }, desc = 'Yank text' },
-      {
-        'y',
-        function()
-          local c = vim.fn.getcharstr()
-          if c == 'p' then
-            local c2 = vim.fn.getcharstr()
-            local mods = { p = '%:p', r = '%:.', f = '%:t', b = '%:t:r' }
-            if mods[c2] then
-              local path = vim.fn.expand(mods[c2])
-              vim.fn.setreg('+', path)
-              vim.notify(path)
-              return
-            end
-            -- Not a path command, feed to yanky with p + c2 as motion
-            local keys = vim.api.nvim_replace_termcodes('<Plug>(YankyYank)p' .. c2, true, true, true)
-            vim.api.nvim_feedkeys(keys, 'm', false)
-          else
-            -- Normal yank motion - feed to yanky
-            local keys = vim.api.nvim_replace_termcodes('<Plug>(YankyYank)' .. c, true, true, true)
-            vim.api.nvim_feedkeys(keys, 'm', false)
-          end
-        end,
-        mode = { 'n' },
-        desc = 'Yank text / path (ypp/ypr/ypf/ypb)',
-      },
       { 'p',     '<Plug>(YankyPutAfter)',                  mode = { 'n', 'x' },                                desc = 'Put yanked text after cursor' },
       { 'P',     '<Plug>(YankyPutBefore)',                 mode = { 'n', 'x' },                                desc = 'Put yanked text before cursor' },
       { '<M-p>', '<Plug>(YankyPutAfterCharwise)',          mode = { 'n', 'x' },                                desc = 'Put yanked text right after cursor charwise' },
@@ -69,18 +43,42 @@ return {
       timer = 1500,
     },
     config = function()
-      require("yanky").setup(
-        {
-          ring = {
-            history_length = 100,
-            storage = "shada",
-            storage_path = vim.fn.stdpath("data") .. "/databases/yanky.db", -- Only for sqlite storage
-            sync_with_numbered_registers = true,
-            cancel_event = "update",
-            ignore_registers = { "_" },
-            update_register_on_cycle = true,
-          }
-        })
+      require("yanky").setup({
+        ring = {
+          history_length = 100,
+          storage = "shada",
+          storage_path = vim.fn.stdpath("data") .. "/databases/yanky.db",
+          sync_with_numbered_registers = true,
+          cancel_event = "update",
+          ignore_registers = { "_" },
+          update_register_on_cycle = true,
+        }
+      })
+
+      -- Override y in normal mode to support ypp/ypr/ypf/ypb without timeout issues
+      vim.keymap.set('n', 'y', function()
+        local c = vim.fn.getcharstr()
+        if c == 'p' then
+          local c2 = vim.fn.getcharstr()
+          local mods = { p = '%:p', r = '%:.', f = '%:t', b = '%:t:r' }
+          if mods[c2] then
+            local path = vim.fn.expand(mods[c2])
+            vim.fn.setreg('+', path)
+            vim.notify(path)
+            return
+          end
+          -- Not a path command, feed to yanky
+          local keys = vim.api.nvim_replace_termcodes('<Plug>(YankyYank)p' .. c2, true, true, true)
+          vim.api.nvim_feedkeys(keys, 'm', false)
+        else
+          -- Normal yank
+          local keys = vim.api.nvim_replace_termcodes('<Plug>(YankyYank)' .. c, true, true, true)
+          vim.api.nvim_feedkeys(keys, 'm', false)
+        end
+      end, { desc = 'Yank text / path (ypp/ypr/ypf/ypb)' })
+
+      -- Visual mode uses yanky directly
+      vim.keymap.set('x', 'y', '<Plug>(YankyYank)', { desc = 'Yank text' })
     end
   },
 }
