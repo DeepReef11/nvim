@@ -70,9 +70,13 @@ wk.add({
 wk.add({
 	{ "gs", group = "Surround", mode = { "n", "v" } },
 })
--- Yank path (registered for which-key display only, actual mappings in keymappings.lua)
+-- Yank path
 wk.add({
 	{ "yp", group = "Yank path" },
+	{ "ypp", function() local p = vim.fn.expand("%:p");   vim.fn.setreg("+", p); vim.notify(p) end, desc = "Absolute path" },
+	{ "ypr", function() local p = vim.fn.expand("%:.");   vim.fn.setreg("+", p); vim.notify(p) end, desc = "Relative path" },
+	{ "ypf", function() local p = vim.fn.expand("%:t");   vim.fn.setreg("+", p); vim.notify(p) end, desc = "Filename" },
+	{ "ypb", function() local p = vim.fn.expand("%:t:r"); vim.fn.setreg("+", p); vim.notify(p) end, desc = "Basename (no ext)" },
 })
 -- single
 wk.add({

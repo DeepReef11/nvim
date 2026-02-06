@@ -23,17 +23,8 @@ return {
           require('yanky')
           local c = vim.fn.getcharstr()
           if c == 'p' then
-            local c2 = vim.fn.getcharstr()
-            local mods = { p = '%:p', r = '%:.', f = '%:t', b = '%:t:r' }
-            if mods[c2] then
-              local path = vim.fn.expand(mods[c2])
-              vim.fn.setreg('+', path)
-              vim.notify(path)
-              return
-            end
-            -- Not a path command, feed to yanky
-            local keys = vim.api.nvim_replace_termcodes('<Plug>(YankyYank)p' .. c2, true, true, true)
-            vim.api.nvim_feedkeys(keys, 'm', false)
+            -- Show which-key popup for yank path options
+            require('which-key').show({ keys = 'yp', loop = false })
           else
             -- Normal yank
             local keys = vim.api.nvim_replace_termcodes('<Plug>(YankyYank)' .. c, true, true, true)
