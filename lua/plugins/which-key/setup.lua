@@ -74,7 +74,9 @@ wk.add({
 wk.add({
 	{ "yp", group = "Yank path" },
 	{ "ypp", function() local p = vim.fn.expand("%:p");   vim.fn.setreg("+", p); vim.notify(p) end, desc = "Absolute path" },
+	{ "ypP", function() local p = vim.fn.expand("%:p:h"); vim.fn.setreg("+", p); vim.notify(p) end, desc = "Absolute dir" },
 	{ "ypr", function() local p = vim.fn.expand("%:.");   vim.fn.setreg("+", p); vim.notify(p) end, desc = "Relative path" },
+	{ "ypR", function() local p = vim.fn.expand("%:.:h"); vim.fn.setreg("+", p); vim.notify(p) end, desc = "Relative dir" },
 	{ "ypf", function() local p = vim.fn.expand("%:t");   vim.fn.setreg("+", p); vim.notify(p) end, desc = "Filename" },
 	{ "ypb", function() local p = vim.fn.expand("%:t:r"); vim.fn.setreg("+", p); vim.notify(p) end, desc = "Basename (no ext)" },
 })
