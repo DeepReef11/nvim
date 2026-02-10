@@ -45,6 +45,47 @@ M.grep_exclusions_hidden = function()
   }
 end
 
+-- Exclusions for "all files" mode (no_ignore=true, but skip junk)
+M.grep_exclusions_all = function()
+  return {
+    "--hidden",
+    "--glob=!.git/*",
+    "--glob=!node_modules/*",
+    "--glob=!.next/*",
+    "--glob=!__pycache__/*",
+    "--glob=!*.pyc",
+    "--glob=!.cache/*",
+    "--glob=!dist/*",
+    "--glob=!build/*",
+    "--glob=!.DS_Store",
+    "--glob=!*.min.js",
+    "--glob=!*.lock",
+    "--glob=!package-lock.json",
+    "--glob=!pnpm-lock.yaml",
+  }
+end
+
+-- find_files exclusions for "all files" mode
+M.find_exclusions_all = {
+  ".git/.*",
+  "node_modules/.*",
+  ".next/.*",
+  "__pycache__/.*",
+  "%.pyc$",
+  ".cache/.*",
+  ".DS_Store",
+}
+
+-- Get current buffer's directory (oil-aware)
+function M.get_buffer_dir()
+  local ok, oil = pcall(require, "oil")
+  if ok then
+    local dir = oil.get_current_dir()
+    if dir then return dir end
+  end
+  return vim.fn.expand("%:p:h")
+end
+
 -- No preview theme for faster searches
 M.dropdown_theme = require("telescope.themes").get_dropdown({
   winblend = 10,
@@ -52,6 +93,33 @@ M.dropdown_theme = require("telescope.themes").get_dropdown({
   results_height = 25,
   width = 0.8,
 })
+
+-- Find the parent project root (git repo above the current project root).
+-- e.g. if cwd is /workspace/3d-model/build123d-misc (a sub-repo),
+-- this returns /workspace/3d-model (the parent repo).
+-- Returns nil if no parent git root exists.
+function M.get_parent_project_root()
+  local cwd = vim.fn.getcwd()
+  -- Walk up from cwd's parent looking for .git
+  local parent = vim.fn.fnamemodify(cwd, ":h")
+  while parent and parent ~= "/" and parent ~= "" do
+    if vim.fn.isdirectory(parent .. "/.git") == 1 or vim.fn.filereadable(parent .. "/.git") == 1 then
+      return parent
+    end
+    parent = vim.fn.fnamemodify(parent, ":h")
+  end
+  return nil
+end
+
+-- Get parent root or fallback to cwd with a notification
+function M.get_parent_root_or_cwd()
+  local root = M.get_parent_project_root()
+  if root then
+    return root
+  end
+  vim.notify("No parent project root found, using cwd", vim.log.levels.INFO)
+  return vim.fn.getcwd()
+end
 
 -- Follow path under cursor in markdown files
 -- Handles paths like `docs/explanation/synchronization.md#team-decisions`

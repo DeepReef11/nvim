@@ -218,6 +218,8 @@ wk.add({
 	-- { "<leader>sc", "<cmd>Telescope colorscheme<CR>", desc = "color schemes" },
   -- { "<leader>sq", "<cmd>Telescope quickfix<CR>", desc = "Quickfix List" },
   { "<leader>f", group = "Find" },
+  { "<leader>f.", group = "Buffer dir" },
+  { "<leader>fp", group = "Parent root" },
   { "<leader>F", group = "Find from outside project" },
 	-- { "<leader>sd", "<cmd>lua require('plugins.telescope.pickers').edit_neovim()<CR>", desc = "dotfiles" },
 	-- { "<leader>sh", "<cmd>Telescope oldfiles hidden=true<CR>", desc = "file history" },

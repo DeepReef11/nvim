@@ -2,281 +2,236 @@ local utils = require("plugins.telescope.utils")
 local M = {}
 -- Find is for files
 function M.get_keymaps()
-  local builtin = require("telescope.builtin")
+	local builtin = require("telescope.builtin")
 
-  return {
+	return {
 
-    -- Buffer management
-    {
-      "<leader><leader>",
-      function()
-        builtin.buffers({ sort_lastused = true, sort_mru = true })
-      end,
-      desc = "  Find existing buffers"
-    },
+		-- Buffer management
+		{
+			"<leader><leader>",
+			function()
+				builtin.buffers({ sort_lastused = true, sort_mru = true })
+			end,
+			desc = "  Find existing buffers",
+		},
 
-    -- Current buffer search
-    {
-      "<leader>/",
-      function()
-        builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-          winblend = 10,
-          previewer = false,
-        }))
-      end,
-      desc = "Fuzzily search in current buffer"
-    },
+		-- Current buffer search
+		{
+			"<leader>/",
+			function()
+				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+					winblend = 10,
+					previewer = false,
+				}))
+			end,
+			desc = "Fuzzily search in current buffer",
+		},
 
-    -- File search
-    {
-      "<leader>ff",
-      function()
-        builtin.find_files({ no_ignore = false
+		-- File search
+		{
+			"<leader>ff",
+			function()
+				builtin.find_files({ no_ignore = false
+ })
+			end,
+			desc = "Search Files",
+		},
+		{
+			"<leader>Ff",
+			function()
+				builtin.find_files({ cwd = "~" })
+			end,
+			desc = "Search Files in Home",
+		},
+		{
+			"<leader>fF",
+			function()
+				builtin.find_files({
+					hidden = true,
+					no_ignore = true,
+					additional_args = utils.grep_exclusions_all,
+				})
+			end,
+			desc = "Find . files (including hidden)",
+		},
+		{
+			"<leader>f+",
+			function()
+				builtin.find_files({ hidden = true, no_ignore = true })
+			end,
+			desc = "Find . files (including hidden and git ignore)",
+		},
+		{
+			"<leader>FF",
+			function()
+				builtin.find_files({ cwd = "~", hidden = true })
+			end,
+			desc = "Find . files in Home (including hidden)",
+		},
+		{
+			"<leader>fg",
+			function()
+				builtin.live_grep({
+					additional_args = utils.grep_exclusions_normal,
+				})
+			end,
+			desc = "Find by Grep in project files",
+		},
+		---------------------------------------------------------------------------
+		-- BUFFER DIR scope (<leader>f.)
+		---------------------------------------------------------------------------
+		{
+			"<leader>f.f",
+			function()
+				builtin.find_files({ cwd = utils.get_buffer_dir() })
+			end,
+			desc = "Find files in buffer dir",
+		},
+		{
+			"<leader>f.g",
+			function()
+				builtin.live_grep({
+					cwd = utils.get_buffer_dir(),
+					prompt_title = "Grep in Buffer Dir",
+					additional_args = utils.grep_exclusions_normal,
+				})
+			end,
+			desc = "Grep in buffer dir",
+		},
+		{
+			"<leader>f.F",
+			function()
+				builtin.find_files({
+					cwd = utils.get_buffer_dir(),
+					hidden = true,
+					no_ignore = true,
+					file_ignore_patterns = utils.find_exclusions_all,
+					prompt_title = "Find ALL in Buffer Dir",
+				})
+			end,
+			desc = "Find ALL files in buffer dir (hidden+ignored)",
+		},
+		{
+			"<leader>f.G",
+			function()
+				builtin.live_grep({
+					cwd = utils.get_buffer_dir(),
+					prompt_title = "Grep ALL in Buffer Dir",
+					no_ignore = true,
+					additional_args = utils.grep_exclusions_all,
+				})
+			end,
+			desc = "Grep ALL in buffer dir (hidden+ignored)",
+		},
+		{
+			"<leader>Fg",
+			function()
+				builtin.live_grep({
+					cwd = "~",
+					additional_args = utils.grep_exclusions_normal,
+				})
+			end,
+			desc = "Find by Grep in Home",
+		},
+		{
+			"<leader>FG",
+			function()
+				builtin.live_grep({
+					cwd = "~",
+					additional_args = utils.grep_exclusions_hidden,
+				})
+			end,
+			desc = "Find by Grep in Home including hidden files",
+		},
+		{
+			"<leader>fG",
+			function()
+				builtin.live_grep({
+					-- grep_open_files = true,
+					prompt_title = "Live Grep in project Files including hidden files",
+					hidden = true,
+					additional_args = utils.grep_exclusions_hidden,
+				})
+			end,
+			desc = "Find by grep (including hidden)",
+		},
+		{
+			"<leader>fo",
+			function()
+				builtin.live_grep({
+					grep_open_files = true,
+					prompt_title = "Live Grep in Open Files including hidden files",
+					hidden = true,
+					additional_args = utils.grep_exclusions_hidden,
+				})
+			end,
+			desc = "Find by grep in open files",
+		},
+		-- Recent files
+		{
+			"<leader>Fr",
+			function()
+				builtin.oldfiles()
+			end,
+			desc = 'Find Recent Files ("." for repeat)',
+		},
 
-        })
-      end,
-      desc = "Search Files"
-    },
-    {
-      "<leader>Ff",
-      function()
-        builtin.find_files({ cwd = "~" })
-      end,
-      desc = "Search Files in Home"
-    },
-    {
-      "<leader>fF",
-      function()
-        builtin.find_files({ hidden = true })
-      end,
-      desc = "Find . files (including hidden)"
-    },
-    {
-      "<leader>f+",
-      function()
-        builtin.find_files({ hidden = true, no_ignore = true })
-      end,
-      desc = "Find . files (including hidden and git ignore)"
-    },
-    {
-      "<leader>FF",
-      function()
-        builtin.find_files({ cwd = "~", hidden = true })
-      end,
-      desc = "Find . files in Home (including hidden)"
-    },
-    {
-      "<leader>fg",
-      function()
-        builtin.live_grep({
-          additional_args = utils.grep_exclusions_normal
-        })
-      end,
-      desc = "Find by Grep in project files"
-    },
-    {
-      "<leader>f.g",
-      function()
-        local oil = require('oil')
-        local dir = oil.get_current_dir()
+		-- Neovim config files
+		{
+			"<leader>FN",
+			function()
+				builtin.find_files({ cwd = vim.fn.stdpath("config") })
+			end,
+			desc = "Find Neovim files",
+		},
 
-        if dir then
-          builtin.live_grep({ no_ignore = false, cwd = dir })
-        else
-          local current_buffer_path = vim.fn.expand("%:p:h")
-          builtin.live_grep({
-            no_ignore = false,
-            cwd = current_buffer_path,
-            prompt_title = "Grep in Current Buffer's Directory",
-          })
-        end
-      end,
-      desc = "Find by Grep in current buffer's directory"
-    },
-
-    {
-      "<leader>f.f",
-      function()
-        local oil = require('oil')
-        local dir = oil.get_current_dir()
-
-        if dir then
-          builtin.find_files({ no_ignore = false, cwd = dir })
-        else
-          local current_buffer_path = vim.fn.expand("%:p:h")
-          builtin.find_files({ no_ignore = false, cwd = current_buffer_path,
-          })
-        end
-      end,
-      desc = "Find file in current buffer's directory"
-    },
-    {
-      "<leader>Fg",
-      function()
-        builtin.live_grep({
-          cwd = "~",
-          additional_args = utils.grep_exclusions_normal
-        })
-      end,
-      desc = "Find by Grep in Home"
-    },
-    {
-      "<leader>FG",
-      function()
-        builtin.live_grep({
-          cwd = "~",
-          additional_args = utils.grep_exclusions_hidden
-        })
-      end,
-      desc = "Find by Grep in Home including hidden files"
-    },
-    {
-      "<leader>fG",
-      function()
-        builtin.live_grep({
-          -- grep_open_files = true,
-          prompt_title = "Live Grep in project Files including hidden files",
-          hidden = true,
-          additional_args = utils.grep_exclusions_hidden
-        })
-      end,
-      desc = "Find by grep (including hidden)"
-    },
-    {
-      "<leader>fo",
-      function()
-        builtin.live_grep({
-          grep_open_files = true,
-          prompt_title = "Live Grep in Open Files including hidden files",
-          hidden = true,
-          additional_args = utils.grep_exclusions_hidden
-        })
-      end,
-      desc = "Find by grep in open files"
-    },
-    -- Recent files
-    { "<leader>Fr", function() builtin.oldfiles() end, desc = 'Find Recent Files ("." for repeat)' },
-
-    -- Neovim config files
-    {
-      "<leader>FN",
-      function()
-        builtin.find_files({ cwd = vim.fn.stdpath("config") })
-      end,
-      desc = "Find Neovim files"
-    },
-
-
-    -- Fast file search variants (no preview)
-    {
-      "<leader>fnf",
-      function()
-        builtin.find_files(vim.tbl_extend("force", utils.dropdown_theme, { no_ignore = false }))
-      end,
-      desc = "Search Files (fast, no preview)"
-    },
-    {
-      "<leader>Fnf",
-      function()
-        builtin.find_files(vim.tbl_extend("force", utils.dropdown_theme, { cwd = "~" }))
-      end,
-      desc = "Search Files in Home (fast, no preview)"
-    },
-    {
-      "<leader>fnF",
-      function()
-        builtin.find_files(vim.tbl_extend("force", utils.dropdown_theme, { hidden = true }))
-      end,
-      desc = "Find . files including hidden (fast, no preview)"
-    },
-    {
-      "<leader>fn+",
-      function()
-        builtin.find_files(vim.tbl_extend("force", utils.dropdown_theme, { hidden = true, no_ignore = true }))
-      end,
-      desc = "Find . files including hidden and git ignore (fast, no preview)"
-    },
-    {
-      "<leader>FnF",
-      function()
-        builtin.find_files(vim.tbl_extend("force", utils.dropdown_theme, { cwd = "~", hidden = true }))
-      end,
-      desc = "Find . files in Home including hidden (fast, no preview)"
-    },
-
-    -- Fast grep search variants (no preview)
-    {
-      "<leader>fng",
-      function()
-        builtin.live_grep(vim.tbl_extend("force", utils.dropdown_theme, {
-          additional_args = utils.grep_exclusions_normal
-        }))
-      end,
-      desc = "Find by Grep in project files (fast, no preview)"
-    },
-    {
-      "<leader>fn.",
-      function()
-        local current_buffer_path = vim.fn.expand("%:p:h")
-        builtin.live_grep(vim.tbl_extend("force", utils.dropdown_theme, {
-          cwd = current_buffer_path,
-          prompt_title = "Grep in Current Buffer's Directory",
-          additional_args = utils.grep_exclusions_normal
-        }))
-      end,
-      desc = "Find by Grep in current buffer's directory (fast, no preview)"
-    },
-    {
-      "<leader>Fng",
-      function()
-        builtin.live_grep(vim.tbl_extend("force", utils.dropdown_theme, {
-          cwd = "~",
-          additional_args = utils.grep_exclusions_normal
-        }))
-      end,
-      desc = "Find by Grep in Home (fast, no preview)"
-    },
-    {
-      "<leader>FnG",
-      function()
-        builtin.live_grep(vim.tbl_extend("force", utils.dropdown_theme, {
-          cwd = "~",
-          additional_args = utils.grep_exclusions_hidden
-        }))
-      end,
-      desc = "Find by Grep in Home including hidden files (fast, no preview)"
-    },
-    {
-      "<leader>fnG",
-      function()
-        builtin.live_grep(vim.tbl_extend("force", utils.dropdown_theme, {
-          grep_open_files = true,
-          prompt_title = "Live Grep in Open Files including hidden files",
-          additional_args = utils.grep_exclusions_hidden
-        }))
-      end,
-      desc = "Find by grep (including hidden)"
-    },
-
-    -- Fast recent files (no preview)
-    {
-      "<leader>Fnr",
-      function()
-        builtin.oldfiles(utils.dropdown_theme)
-      end,
-      desc = 'Find Recent Files (fast, no preview)'
-    },
-    -- Fast Neovim config files (no preview)
-    {
-      "<leader>Fnn",
-      function()
-        builtin.find_files(vim.tbl_extend("force", utils.dropdown_theme, {
-          cwd = vim.fn.stdpath("config")
-        }))
-      end,
-      desc = "Find Neovim files (fast, no preview)"
-    },
-  }
+		---------------------------------------------------------------------------
+		-- PARENT PROJECT ROOT scope (<leader>fp) — search in parent git repo
+		---------------------------------------------------------------------------
+		{
+			"<leader>fpf",
+			function()
+				builtin.find_files({ cwd = utils.get_parent_root_or_cwd() })
+			end,
+			desc = "Find files in parent root",
+		},
+		{
+			"<leader>fpg",
+			function()
+				builtin.live_grep({
+					cwd = utils.get_parent_root_or_cwd(),
+					prompt_title = "Grep in Parent Root",
+					additional_args = utils.grep_exclusions_normal,
+				})
+			end,
+			desc = "Grep in parent root",
+		},
+		{
+			"<leader>fpF",
+			function()
+				builtin.find_files({
+					cwd = utils.get_parent_root_or_cwd(),
+					hidden = true,
+					no_ignore = true,
+					file_ignore_patterns = utils.find_exclusions_all,
+					prompt_title = "Find ALL in Parent Root",
+				})
+			end,
+			desc = "Find ALL files in parent root (hidden+ignored)",
+		},
+		{
+			"<leader>fpG",
+			function()
+				builtin.live_grep({
+					cwd = utils.get_parent_root_or_cwd(),
+					prompt_title = "Grep ALL in Parent Root",
+					no_ignore = true,
+					additional_args = utils.grep_exclusions_all,
+				})
+			end,
+			desc = "Grep ALL in parent root (hidden+ignored)",
+		},
+	}
 end
 
 return M
