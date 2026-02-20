@@ -231,6 +231,22 @@ function M.get_keymaps()
 			end,
 			desc = "Grep ALL in parent root (hidden+ignored)",
 		},
+
+		---------------------------------------------------------------------------
+		-- 3D MODEL (g3d) — find files in ~/workspace/3d-model
+		---------------------------------------------------------------------------
+		{
+			"g3d",
+			function()
+				builtin.find_files({
+					cwd = "~/workspace/3d-model",
+					no_ignore = true,
+					find_command = { "fd", "--type", "f", "--no-ignore", "-e", "py", "-e", "stl", "-e", "step", "-e", "3mf" },
+					prompt_title = "Find 3D Model Files",
+				})
+			end,
+			desc = "Find files in 3d-model (.py/.stl/.step/.3mf)",
+		},
 	}
 end
 
