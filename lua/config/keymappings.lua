@@ -216,18 +216,13 @@ keymap(
   ":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>",
   silent
 )
--- Open links under cursor in browser with gx
+-- Open URL under cursor: copy to clipboard via OSC 52 (works in Docker/SSH)
 keymap("n", "gx", function()
   local url = vim.fn.expand("<cWORD>")
   -- Strip surrounding punctuation (parentheses, brackets, quotes, commas)
   url = url:match("[%w].*[%w/]") or url
-  local cmd
-  if vim.fn.has("macunix") == 1 then
-    cmd = { "open", url }
-  else
-    cmd = { "xdg-open", url }
-  end
-  vim.fn.jobstart(cmd, { detach = true })
+  vim.fn.setreg("+", url)
+  vim.notify("Copied: " .. url, vim.log.levels.INFO)
 end, silent)
 
 -- LSP
