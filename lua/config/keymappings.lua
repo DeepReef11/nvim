@@ -217,11 +217,18 @@ keymap(
   silent
 )
 -- Open links under cursor in browser with gx
-if vim.fn.has("macunix") == 1 then
-  keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<CR>", silent)
-else
-  keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", silent)
-end
+keymap("n", "gx", function()
+  local url = vim.fn.expand("<cWORD>")
+  -- Strip surrounding punctuation (parentheses, brackets, quotes, commas)
+  url = url:match("[%w].*[%w/]") or url
+  local cmd
+  if vim.fn.has("macunix") == 1 then
+    cmd = { "open", url }
+  else
+    cmd = { "xdg-open", url }
+  end
+  vim.fn.jobstart(cmd, { detach = true })
+end, silent)
 
 -- LSP
 -- keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", silent)
