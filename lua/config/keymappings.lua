@@ -141,8 +141,6 @@ vim.keymap.set('n', '<leader>cy', 'ggVG<Esc><cmd>CodeSnapText<CR><C-o>', { desc 
 
 vim.keymap.set('n', 'gV', 'v`]o`[', { desc = "Select last pasted (Visual mode)" })
 -- vim.keymap.set('n', '<Leader>gv', 'v`]o`[')
--- Fix moving forward in jumplist via <C-i>
-keymap("n", "<C-I>", "<C-I>", silent)
 
 -- Visual mode keybinding
 vim.keymap.set('v', '<S-Up>', '<Up>', { desc = 'Visual mode prevent page up' })
