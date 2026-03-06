@@ -6,6 +6,11 @@ return {
     { '<leader>wl', '<cmd>AutoSession search<CR>', desc = '[S]ession lens' },
     { '<leader>ws', '<cmd>AutoSession save<CR>', desc = 'Save session' },
     { '<leader>wa', '<cmd>SessionToggleAutoSave<CR>', desc = 'Toggle autosave' },
+    { '<leader>w3', function()
+      require("auto-session.session-lens").search_session({
+        default_text = "workspace/3d-model",
+      })
+    end, desc = '3D model sessions' },
   },
 	---enables autocomplete for opts
 	---@module "auto-session"
