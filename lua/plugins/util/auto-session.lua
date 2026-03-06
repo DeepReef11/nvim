@@ -7,9 +7,28 @@ return {
     { '<leader>ws', '<cmd>AutoSession save<CR>', desc = 'Save session' },
     { '<leader>wa', '<cmd>SessionToggleAutoSave<CR>', desc = 'Toggle autosave' },
     { '<leader>w3', function()
-      require("telescope").extensions["session-lens"].search_session({
-        default_text = "3d-model",
-      })
+      local sessions_dir = vim.fn.stdpath("data") .. "/sessions/"
+      local files = vim.fn.glob(sessions_dir .. "*", true, true)
+      local filtered = {}
+      for _, f in ipairs(files) do
+        local name = vim.fn.fnamemodify(f, ":t")
+        local decoded = name:gsub("%%(%x%x)", function(h) return string.char(tonumber(h, 16)) end)
+        if decoded:find("workspace/3d%-model") then
+          table.insert(filtered, { path = f, display = decoded:gsub("%.vim$", "") })
+        end
+      end
+      if #filtered == 0 then
+        vim.notify("No 3d-model sessions found", vim.log.levels.WARN)
+        return
+      end
+      vim.ui.select(filtered, {
+        prompt = "3D Model Sessions",
+        format_item = function(item) return item.display end,
+      }, function(choice)
+        if choice then
+          require("auto-session").RestoreSession(choice.path)
+        end
+      end)
     end, desc = '3D model sessions' },
   },
 	---enables autocomplete for opts
