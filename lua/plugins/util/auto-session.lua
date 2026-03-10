@@ -14,7 +14,8 @@ return {
         local name = vim.fn.fnamemodify(f, ":t")
         local decoded = name:gsub("%%(%x%x)", function(h) return string.char(tonumber(h, 16)) end)
         if decoded:find("workspace/3d%-model") then
-          table.insert(filtered, { path = f, display = decoded:gsub("%.vim$", "") })
+          local session_name = decoded:gsub("%.vim$", "")
+          table.insert(filtered, { name = session_name, display = session_name })
         end
       end
       if #filtered == 0 then
@@ -26,7 +27,7 @@ return {
         format_item = function(item) return item.display end,
       }, function(choice)
         if choice then
-          require("auto-session").RestoreSession(choice.path)
+          require("auto-session").restore_session(choice.name)
         end
       end)
     end, desc = '3D model sessions' },
