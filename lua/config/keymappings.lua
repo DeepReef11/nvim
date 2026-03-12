@@ -217,8 +217,8 @@ keymap(
 -- Open URL under cursor: copy to clipboard via OSC 52 (works in Docker/SSH)
 keymap("n", "gx", function()
   local url = vim.fn.expand("<cWORD>")
-  -- Strip surrounding punctuation (parentheses, brackets, quotes, commas)
-  url = url:match("[%w].*[%w/]") or url
+  -- Extract URL from markdown links or strip surrounding punctuation
+  url = url:match("https?://[%w_.~!*'();:@&=+$,/?#%%[%]%-]+") or url:match("[%w].*[%w/]") or url
   vim.fn.setreg("+", url)
   vim.notify("Copied: " .. url, vim.log.levels.INFO)
 end, silent)
