@@ -216,11 +216,34 @@ keymap(
 )
 -- Open URL under cursor: copy to clipboard via OSC 52 (works in Docker/SSH)
 keymap("n", "gx", function()
-  local url = vim.fn.expand("<cWORD>")
-  -- Extract URL from markdown links or strip surrounding punctuation
-  url = url:match("https?://[%w_.~!*'();:@&=+$,/?#%%[%]%-]+") or url:match("[%w].*[%w/]") or url
-  vim.fn.setreg("+", url)
-  vim.notify("Copied: " .. url, vim.log.levels.INFO)
+  local line = vim.api.nvim_get_current_line()
+  local col = vim.api.nvim_win_get_cursor(0)[2] + 1 -- 1-indexed
+  -- Search the line for URLs; pick the one under the cursor or nearest after
+  local url_pattern = "https?://[%w_.~!*'();:@&=+$,/?#%%[%]%-]+"
+  local best, pos = nil, 1
+  while pos <= #line do
+    local s, e = line:find(url_pattern, pos)
+    if not s then break end
+    local match = line:sub(s, e):gsub("[)>,.;:!?]+$", "")
+    if col >= s and col <= e then
+      best = match
+      break
+    elseif not best and s >= col then
+      best = match
+      break
+    end
+    best = match
+    pos = e + 1
+  end
+  if best then
+    vim.fn.setreg("+", best)
+    vim.notify("Copied: " .. best, vim.log.levels.INFO)
+  else
+    local word = vim.fn.expand("<cWORD>")
+    word = word:match("[%w].*[%w/]") or word
+    vim.fn.setreg("+", word)
+    vim.notify("Copied: " .. word, vim.log.levels.INFO)
+  end
 end, silent)
 
 -- LSP
