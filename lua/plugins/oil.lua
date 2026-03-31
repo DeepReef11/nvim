@@ -125,6 +125,28 @@ return {
             end,
             desc = "Yank basename (no ext)",
           },
+          ["ypP"] = {
+            callback = function()
+              local dir = require("oil").get_current_dir()
+              if dir then
+                dir = dir:gsub("/$", "")
+                vim.fn.setreg("+", dir)
+                vim.notify(dir, vim.log.levels.INFO)
+              end
+            end,
+            desc = "Yank absolute dir",
+          },
+          ["ypR"] = {
+            callback = function()
+              local dir = require("oil").get_current_dir()
+              if dir then
+                local rel = vim.fn.fnamemodify(dir:gsub("/$", ""), ":.")
+                vim.fn.setreg("+", rel)
+                vim.notify(rel, vim.log.levels.INFO)
+              end
+            end,
+            desc = "Yank relative dir",
+          },
         },
         -- Set to false to disable all of the above keymaps
         use_default_keymaps = true,

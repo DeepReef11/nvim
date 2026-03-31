@@ -111,6 +111,28 @@ return {
         -- cmdline = {},
 
         providers = {
+          path = {
+            opts = {
+              -- Treat `/path` as relative to project root (or public/) instead of filesystem root.
+              ignore_root_slash = true,
+              get_cwd = function(context)
+                local buf_dir = vim.fn.expand(('#%d:p:h'):format(context.bufnr))
+                local col = context.bounds.start_col - (context.bounds.length == 0 and 1 or 0)
+                local line = context.line:sub(1, col)
+                -- For `./` relative paths, use the buffer's directory
+                if line:match('%./[^/]*$') or line:match('%.%./[^/]*$') then
+                  return buf_dir
+                end
+                -- For `/` absolute paths, resolve to public/ in web projects
+                local root = vim.fs.root(buf_dir, { 'package.json', '.git' }) or vim.fn.getcwd()
+                local public = root .. '/public'
+                if vim.fn.isdirectory(public) == 1 then
+                  return public
+                end
+                return root
+              end,
+            },
+          },
           codecompanion = {
             name = "CodeCompanion",
             module = "codecompanion.providers.completion.blink",
