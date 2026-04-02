@@ -136,6 +136,40 @@ vim.keymap.set('n', '<leader>T', launch_terminal, {
   desc = "Execute terminal program in background",
   silent = true
 })
+
+local function launch_terminal_buffer_dir()
+  local term_program = vim.env.TERM_PROGRAM
+  if not term_program then
+    vim.notify('TERM_PROGRAM environment variable not set', vim.log.levels.ERROR)
+    return
+  end
+
+  -- Get buffer directory (oil-aware)
+  local dir
+  local ok, oil = pcall(require, "oil")
+  if ok then dir = oil.get_current_dir() end
+  dir = dir or vim.fn.expand("%:p:h")
+
+  local wm = vim.fn.system("echo $XDG_CURRENT_DESKTOP"):gsub("%s+", "")
+
+  if wm == "niri" then
+    vim.system({
+      term_program,
+      "-e", "sh", "-c",
+      string.format("cd %s && sleep 0.1 && niri msg action consume-or-expel-window-left && exec $SHELL --login", vim.fn.shellescape(dir))
+    }, {
+      detach = true,
+      clear_env = false,
+    })
+  else
+    vim.fn.system(string.format("cd %s && %s &", vim.fn.shellescape(dir), term_program))
+  end
+end
+
+vim.keymap.set('n', '<leader>sb', launch_terminal_buffer_dir, {
+  desc = "Terminal in buffer directory",
+  silent = true
+})
 vim.keymap.set('x', '<leader>cy', '<Esc><cmd>CodeSnapText<CR>', { desc = 'Yank and format text for sharing' })
 vim.keymap.set('n', '<leader>cy', 'ggVG<Esc><cmd>CodeSnapText<CR><C-o>', { desc = 'Yank and format text for sharing' })
 
