@@ -166,7 +166,7 @@ local function launch_terminal_buffer_dir()
   end
 end
 
-vim.keymap.set('n', '<leader>sb', launch_terminal_buffer_dir, {
+vim.keymap.set('n', '<leader>B', launch_terminal_buffer_dir, {
   desc = "Terminal in buffer directory",
   silent = true
 })
