@@ -3,8 +3,7 @@ return {
   config = function()
     require('neogen').setup {}
 
-    local opts = { noremap = true, silent = true }
-    vim.api.nvim_set_keymap("n", "<Leader>D", ":lua require('neogen').generate()<CR>", opts)
+    vim.keymap.set("n", "<Leader>D", function() require('neogen').generate() end, { desc = "Generate annotation" })
 
   end,
   -- Uncomment next line if you want to follow only stable versions
