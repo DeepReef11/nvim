@@ -45,14 +45,6 @@ mason_lsp.setup({
 })
 
 
-local handlers = {
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    silent = true,
-    border = EcoVim.ui.float.border,
-  }),
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = EcoVim.ui.float.border }),
-}
-
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 local function on_attach(client, bufnr)
@@ -77,7 +69,6 @@ end
 
 vim.lsp.config("tailwindcss", {
   capabilities = capabilities,
-  handlers = handlers,
   on_attach = require("config.lsp.servers.tailwindcss").on_attach,
   filetypes = require("config.lsp.servers.tailwindcss").filetypes,
   init_options = require("config.lsp.servers.tailwindcss").init_options,
@@ -86,14 +77,12 @@ vim.lsp.config("tailwindcss", {
 
 vim.lsp.config("cssls", {
   capabilities = capabilities,
-  handlers = handlers,
   on_attach = require("config.lsp.servers.cssls").on_attach,
   settings = require("config.lsp.servers.cssls").settings,
 })
 
 vim.lsp.config("eslint", {
   capabilities = capabilities,
-  handlers = handlers,
   on_attach = require("config.lsp.servers.eslint").on_attach,
   settings = require("config.lsp.servers.eslint").settings,
   flags = {
@@ -104,21 +93,18 @@ vim.lsp.config("eslint", {
 
 vim.lsp.config("jsonls", {
   capabilities = capabilities,
-  handlers = handlers,
   on_attach = on_attach,
   settings = require("config.lsp.servers.jsonls").settings,
 })
 
 vim.lsp.config("lua_ls", {
   capabilities = capabilities,
-  handlers = handlers,
   on_attach = on_attach,
   settings = require("config.lsp.servers.lua_ls").settings,
 })
 
 vim.lsp.config("vuels", {
   capabilities = capabilities,
-  handlers = handlers,
   on_attach = require("config.lsp.servers.vuels").on_attach,
   filetypes = require("config.lsp.servers.vuels").filetypes,
   init_options = require("config.lsp.servers.vuels").init_options,
@@ -127,7 +113,6 @@ vim.lsp.config("vuels", {
 
 vim.lsp.config("pyright", {
   capabilities = capabilities,
-  handlers = handlers,
   on_attach = on_attach,
   -- settings = {require("config.lsp.servers.pyright").settings,
   settings = {
