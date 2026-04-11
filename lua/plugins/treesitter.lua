@@ -1,8 +1,21 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "main",
+    branch = "master",
     event = "BufReadPre",
+    init = function()
+      -- Neovim 0.11 changed match[id] to return a node list instead of a single node.
+      -- The archived master branch doesn't handle this, causing :range() crashes.
+      -- Patch get_node_text to unwrap single-element tables before they hit :range().
+      local orig = vim.treesitter.get_node_text
+      vim.treesitter.get_node_text = function(node, source, opts)
+        if type(node) == "table" and not node.range then
+          node = node[1]
+          if not node then return "" end
+        end
+        return orig(node, source, opts)
+      end
+    end,
     config = function()
       require("nvim-treesitter.configs").setup({
         ensure_installed = {
