@@ -1,6 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     event = "BufReadPre",
     config = function()
       require("nvim-treesitter.configs").setup({
