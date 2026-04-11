@@ -117,7 +117,22 @@ return {
       vim.treesitter.language.register('html', 'webc')
     end,
     dependencies = {
-      "hiphish/rainbow-delimiters.nvim",
+      {
+        "hiphish/rainbow-delimiters.nvim",
+        config = function()
+          vim.g.rainbow_delimiters = {
+            strategy = {
+              [''] = function(bufnr)
+                local ok, parser = pcall(vim.treesitter.get_parser, bufnr)
+                if not ok or not parser then
+                  return nil
+                end
+                return require('rainbow-delimiters').strategy.global
+              end,
+            },
+          }
+        end,
+      },
       "JoosepAlviste/nvim-ts-context-commentstring",
       "nvim-treesitter/nvim-treesitter-textobjects",
       "RRethy/nvim-treesitter-textsubjects",
