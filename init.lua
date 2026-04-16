@@ -13,3 +13,4 @@ require('config.lsp.functions')
 
 require('internal.cursorword')
 require('user.create-page')
+require('user.password')
