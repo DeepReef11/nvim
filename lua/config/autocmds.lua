@@ -90,8 +90,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
 
 -- Configuration: Set your specific virtual environment path here
-local specific_venv_path = "/home/jo/venvs/ocp-vscode"
-local b3d_sock = "/tmp/b3d-runner.sock"
+local specific_venv_path = "/home/jo/workspace/python/b123d-bridge/.venv"
+local b123d_sock = "/tmp/b123d-runner.sock"
 
 -- Global state for Python execution
 _G.python_runner = {
@@ -114,18 +114,18 @@ local function get_output_path()
 end
 
 -- Send a command to the persistent runner via Unix socket
-local function b3d_send(command)
+local function b123d_send(command)
   local cmd = string.format(
     "echo %s | socat - UNIX-CONNECT:%s 2>/dev/null",
-    vim.fn.shellescape(command), b3d_sock
+    vim.fn.shellescape(command), b123d_sock
   )
   local result = vim.fn.system(cmd)
   return vim.v.shell_error == 0, vim.fn.trim(result)
 end
 
 -- Check if persistent runner is active
-local function b3d_is_running()
-  local ok, resp = b3d_send("ping")
+local function b123d_is_running()
+  local ok, resp = b123d_send("ping")
   return ok and resp == "pong"
 end
 
@@ -138,7 +138,7 @@ local function run_current_script()
   end
 
   -- Try persistent runner first
-  if b3d_is_running() then
+  if b123d_is_running() then
     -- Kill previous job if using subprocess mode
     if _G.python_runner.current_job_id then
       vim.fn.jobstop(_G.python_runner.current_job_id)
@@ -146,13 +146,13 @@ local function run_current_script()
       _G.python_runner.current_job_channel = nil
     end
 
-    local ok, resp = b3d_send("run:" .. buf_path)
+    local ok, resp = b123d_send("run:" .. buf_path)
     if ok and resp == "ok" then
       _G.python_runner.using_persistent = true
-      vim.notify("b3d-runner: executing", vim.log.levels.INFO)
+      vim.notify("b123d-runner: executing", vim.log.levels.INFO)
       return
     elseif resp == "busy" then
-      vim.notify("b3d-runner: previous script still running", vim.log.levels.WARN)
+      vim.notify("b123d-runner: previous script still running", vim.log.levels.WARN)
       return
     end
     -- Fall through to subprocess mode if runner send failed
@@ -225,11 +225,11 @@ end
 vim.api.nvim_create_user_command('PyExport', function()
   -- Persistent runner mode: send via socket
   if _G.python_runner.using_persistent then
-    local ok, _ = b3d_send("stdin:y")
+    local ok, _ = b123d_send("stdin:y")
     if ok then
       vim.notify("Continuing export...", vim.log.levels.INFO)
     else
-      vim.notify("b3d-runner not responding", vim.log.levels.WARN)
+      vim.notify("b123d-runner not responding", vim.log.levels.WARN)
     end
     return
   end
