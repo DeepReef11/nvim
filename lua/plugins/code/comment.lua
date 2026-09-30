@@ -51,7 +51,17 @@ return {
           block = 'gb',
         },
 
-        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+        ---nvim 0.12 get_parser returns nil (no error) when there is no parser, which
+        ---crashes Comment.nvim's ft.calculate; fall back to 'commentstring' (e.g. .env → #)
+        pre_hook = (function()
+          local ts_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
+          return function(ctx)
+            if not vim.treesitter.get_parser(0, nil, { error = false }) then
+              return vim.bo.commentstring
+            end
+            return ts_hook(ctx)
+          end
+        end)(),
 
         ---Post-hook, called after commenting is done
         ---@type function|nil
