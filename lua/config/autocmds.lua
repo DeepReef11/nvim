@@ -89,8 +89,13 @@ vim.api.nvim_create_autocmd("VimEnter", {
   })
 
 
--- Configuration: Set your specific virtual environment path here
-local specific_venv_path = "/home/jo/workspace/python/b123d-bridge/.venv"
+-- Configuration: Set your specific virtual environment path here.
+-- Use the /workspace-rooted path, not /home/jo/...: this venv is shared between
+-- the host (which has /workspace -> ~/workspace) and the Claude container (native
+-- /workspace), and the venv's activate script exports VIRTUAL_ENV as the
+-- /workspace path. Comparing against /home/jo/... silently disabled save-runs and
+-- <leader>bo whenever the venv was last (re)synced from the container.
+local specific_venv_path = "/workspace/python/b123d-bridge/.venv"
 local b123d_sock = "/tmp/b123d-runner.sock"
 
 -- Global state for Python execution
